@@ -48,6 +48,13 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 8.0.31\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -73,8 +80,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EmployeesController.vb" />
+    <Compile Include="Controllers\InsitutesController.vb" />
+    <Compile Include="Controllers\UsersController.vb" />
+    <Compile Include="Models\EntitiesManagers\InstitutesManager.vb" />
+    <Compile Include="Models\EntitiesManagers\EmployeesManager.vb" />
+    <Compile Include="Models\EntitiesManagers\Manager.vb" />
+    <Compile Include="Models\EntitiesManagers\UsersManager.vb" />
+    <Compile Include="Models\Entities\Employee.vb" />
     <Compile Include="Models\Entities\Institute.vb" />
     <Compile Include="Models\Entities\Student.vb" />
+    <Compile Include="Models\Entities\User.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -91,10 +107,46 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Views\Students.Designer.vb">
-      <DependentUpon>Students.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\AdminView.Designer.vb">
+      <DependentUpon>AdminView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\Students.vb">
+    <Compile Include="Views\SuperUser\AdminView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\ECUEsControl.Designer.vb">
+      <DependentUpon>ECUEsControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\ECUEsControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\EmployeesControl.Designer.vb">
+      <DependentUpon>EmployeesControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\EmployeesControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\InstitutesControl.Designer.vb">
+      <DependentUpon>InstitutesControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\InstitutesControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\UEsControl.Designer.vb">
+      <DependentUpon>UEsControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\UEsControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\UsersControl.Designer.vb">
+      <DependentUpon>UsersControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\UsersControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TuititionService\TuititionServiceView.Designer.vb">
+      <DependentUpon>TuititionServiceView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TuititionService\TuititionServiceView.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -105,8 +157,26 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Students.resx">
-      <DependentUpon>Students.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\AdminView.resx">
+      <DependentUpon>AdminView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuperUser\Controls\ECUEsControl.resx">
+      <DependentUpon>ECUEsControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuperUser\Controls\EmployeesControl.resx">
+      <DependentUpon>EmployeesControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuperUser\Controls\InstitutesControl.resx">
+      <DependentUpon>InstitutesControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuperUser\Controls\UEsControl.resx">
+      <DependentUpon>UEsControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuperUser\Controls\UsersControl.resx">
+      <DependentUpon>UsersControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TuititionService\TuititionServiceView.resx">
+      <DependentUpon>TuititionServiceView.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +190,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Views\Teacher\Controls\" />
+    <Folder Include="Views\TuititionService\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

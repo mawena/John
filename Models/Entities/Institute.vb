@@ -9,6 +9,11 @@
         Me.Sigle = sigle
     End Sub
 
+    Public Sub New(libelle As String, sigle As String)
+        Me.Libelle = libelle
+        Me.Sigle = sigle
+    End Sub
+
     Public Property Id As Integer
         Get
             Return _id

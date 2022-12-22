@@ -1,3 +1,5 @@
+-- Active: 1672136555693@@127.0.0.1@3306@john
+
 DROP DATABASE IF EXISTS John;
 
 CREATE DATABASE John;
@@ -11,11 +13,11 @@ CREATE TABLE
         id int PRIMARY KEY AUTO_INCREMENT,
         last_name VARCHAR(30) NOT NULL,
         first_name VARCHAR(150) NOT NULL,
-        phone_number VARCHAR(30) NOT NULL,
-        email VARCHAR(200) NOT NULL,
-        graduation VARCHAR(100) NOT NULL,
-        gender ENUM('F', 'M'),
-        function_field ENUM('TuititionService', 'Teacher')
+        phone_number VARCHAR(30) NOT NULL UNIQUE,
+        email VARCHAR(200) NOT NULL UNIQUE,
+        gender ENUM('Female', 'Male') DEFAULT 'Female' NOT NULL,
+        function_field ENUM('TuititionService', 'Teacher') DEFAULT 'Teacher' NOT NULL,
+        UNIQUE(last_name, first_name)
     );
 
 DROP TABLE IF EXISTS Users;
@@ -28,8 +30,10 @@ CREATE TABLE
             'TuititionService',
             'Teacher',
             'SuperUser'
-        ),
-        password_field VARCHAR(150) NOT NULL
+        ) NOT NULL,
+        password_field VARCHAR(150) NOT NULL,
+        employee_id int NULL,
+        FOREIGN KEY(employee_id) REFERENCES Employees(id)
     );
 
 DROP TABLE IF EXISTS Institutes;
@@ -41,7 +45,7 @@ CREATE TABLE
         sigle VARCHAR(40) NOT NULL
     );
 
-DROP TABLE IF EXISTS Facultites;
+DROP TABLE IF EXISTS Faculties;
 
 CREATE TABLE
     Faculties(
@@ -126,14 +130,95 @@ CREATE TABLE
         FOREIGN KEY(student_id) REFERENCES Students(id)
     );
 
+INSERT INTO Institutes
+VALUES (
+        1,
+        "Institut Supérieur de Technologie Informatique et Numérique",
+        "ISTIN"
+    );
+
+INSERT INTO Faculties
+VALUES (
+        1,
+        "Dévéloppement d'Application",
+        "DA",
+        1
+    );
+
 INSERT INTO Students
-VALUES
-(
+VALUES (
         1,
         "GAMLIGO",
-        "Charles",
-        "03-03-2000",
+        "Charles Dieu-Donné",
+        "03/03/2000",
         "M",
         "gamligocharles@gmail.com",
-        ""
+        "+228 98676615",
+        "/home/mawena/dums.jpg",
+        1
+    );
+
+INSERT INTO Employees
+VALUES (
+        1,
+        "GAMLIGO",
+        "Charles Dieu-Donné",
+        "+228 91611135",
+        "gamligocharles@gmail.com",
+        "Male",
+        "Teacher"
+    ), (
+        2,
+        "AOUKOU",
+        "Pierrette",
+        "+228 98676615",
+        "pierretteaoukou@gmail.com",
+        "Female",
+        "Teacher"
+    ), (
+        3,
+        "BOUILI",
+        "Espoir",
+        "+228 91919191",
+        "espoir@gmail.com",
+        "Male",
+        "TuititionService"
+    );
+
+INSERT INTO
+    Users(
+        id,
+        username,
+        function_field,
+        password_field
     )
+VALUES (
+        1,
+        "mawena",
+        "SuperUser",
+        "licdovic"
+    ), (
+        2,
+        "Pierrette",
+        "SuperUser",
+        "licdovic"
+    ), (
+        3,
+        "Espoir",
+        "Teacher",
+        "licdovic"
+    ), (
+        4,
+        "Jeff",
+        "TuititionService",
+        "licdovic"
+    ), (
+        5,
+        "Rhamone",
+        "Teacher",
+        "licdovic"
+    );
+
+SELECT * FROM Users;
+
+SELECT * FROM Employees;
