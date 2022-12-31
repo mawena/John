@@ -555,6 +555,7 @@ Partial Class TuititionServiceView
         '
         'Guna2Elipse1
         '
+        Me.Guna2Elipse1.BorderRadius = 0
         Me.Guna2Elipse1.TargetControl = Me
         '
         'Guna2AnimateWindow1

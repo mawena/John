@@ -320,6 +320,7 @@ Partial Class AdminView
         '
         'Guna2Elipse1
         '
+        Me.Guna2Elipse1.BorderRadius = 0
         Me.Guna2Elipse1.TargetControl = Me
         '
         'Guna2DragControl1
@@ -345,6 +346,8 @@ Partial Class AdminView
         Me.Controls.Add(Me.BT_EMPLOYEES_MENU)
         Me.Controls.Add(Me.P_MAIN)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "AdminView"
         Me.ShowIcon = False
         Me.Text = "  "
