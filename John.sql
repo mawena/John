@@ -26,14 +26,9 @@ CREATE TABLE
     Users(
         id int PRIMARY KEY AUTO_INCREMENT,
         username VARCHAR(80) UNIQUE NOT NULL,
-        function_field ENUM(
-            'TuititionService',
-            'Teacher',
-            'SuperUser'
-        ) NOT NULL,
         password_field VARCHAR(150) NOT NULL,
         employee_id int NULL,
-        FOREIGN KEY(employee_id) REFERENCES Employees(id)
+        FOREIGN KEY(employee_id) REFERENCES Employees(id) ON DELETE CASCADE
     );
 
 DROP TABLE IF EXISTS Institutes;
@@ -158,67 +153,55 @@ VALUES (
         1
     );
 
-INSERT INTO Employees
+INSERT INTO
+    Employees (
+        last_name,
+        first_name,
+        phone_number,
+        email,
+        gender,
+        function_field
+    )
 VALUES (
-        1,
-        "GAMLIGO",
-        "Charles Dieu-Donné",
-        "+228 91611135",
-        "gamligocharles@gmail.com",
-        "Male",
-        "Teacher"
-    ), (
-        2,
         "AOUKOU",
         "Pierrette",
         "+228 98676615",
         "pierretteaoukou@gmail.com",
         "Female",
-        "Teacher"
+        "TuititionService"
     ), (
-        3,
         "BOUILI",
         "Espoir",
         "+228 91919191",
         "espoir@gmail.com",
         "Male",
+        "Teacher"
+    ), (
+        "BILAZA",
+        "Jeff",
+        "+228 91919192",
+        "jeff@gmail.com",
+        "Male",
         "TuititionService"
+    ), (
+        "NYAVEDJI",
+        "Rhamone",
+        "+228 91909090",
+        "rhamone@gmail.com",
+        "Male",
+        "Teacher"
     );
 
 INSERT INTO
     Users(
-        id,
         username,
-        function_field,
-        password_field
+        password_field,
+        employee_id
     )
-VALUES (
-        1,
-        "mawena",
-        "SuperUser",
-        "licdovic"
-    ), (
-        2,
-        "Pierrette",
-        "SuperUser",
-        "licdovic"
-    ), (
-        3,
-        "Espoir",
-        "Teacher",
-        "licdovic"
-    ), (
-        4,
-        "Jeff",
-        "TuititionService",
-        "licdovic"
-    ), (
-        5,
-        "Rhamone",
-        "Teacher",
-        "licdovic"
-    );
+VALUES ("Mawena", "licdovic", NULL), ("Pierrette", "licdovic", 1), ("Espoir", "licdovic", 2), ("Jeff", "licdovic", 3), ("Rhamone", "licdovic", 4);
 
 SELECT * FROM Users;
 
 SELECT * FROM Employees;
+
+SELECT * FROM Users, Employees WHERE Users.employee_id = NULL;

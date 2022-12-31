@@ -32,7 +32,7 @@
         P_MAIN.Controls.Add(ecuesControl)
         P_MAIN.Controls.Add(usersControl)
 
-        BT_EMPLOYEES_MENU_Click(Nothing, Nothing)
+        BT_USERS_MENU_Click(Nothing, Nothing)
     End Sub
     Private Sub HideControls()
         employeesControl.Hide()
@@ -42,8 +42,18 @@
         usersControl.Hide()
     End Sub
 
+    Private Sub DefaultBTColors()
+        BT_EMPLOYEES_MENU.FillColor = Color.DimGray
+        BT_INSTITUTES_MENU.FillColor = Color.DimGray
+        BT_UES_MENU.FillColor = Color.DimGray
+        BT_ECUES_MENU.FillColor = Color.DimGray
+        BT_USERS_MENU.FillColor = Color.DimGray
+    End Sub
+
     Private Sub BT_EMPLOYEES_MENU_Click(sender As Object, e As EventArgs) Handles BT_EMPLOYEES_MENU.Click
         HideControls()
+        DefaultBTColors()
+        BT_EMPLOYEES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "EMPLOYEES"
         PB_GESTION_ILLUSTRATION.ImageLocation = employeesIllustrationPath
         employeesControl.Show()
@@ -51,6 +61,8 @@
 
     Private Sub BT_INSTITUTES_MENU_Click(sender As Object, e As EventArgs) Handles BT_INSTITUTES_MENU.Click
         HideControls()
+        DefaultBTColors()
+        BT_INSTITUTES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "INSITUTS"
         PB_GESTION_ILLUSTRATION.ImageLocation = institutesIllustrationPath
         institutesControl.Show()
@@ -58,6 +70,8 @@
 
     Private Sub BT_UES_MENU_Click(sender As Object, e As EventArgs) Handles BT_UES_MENU.Click
         HideControls()
+        DefaultBTColors()
+        BT_UES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "UES"
         PB_GESTION_ILLUSTRATION.ImageLocation = uesIllustrationPath
         uesControl.Show()
@@ -65,6 +79,8 @@
 
     Private Sub BT_ECUES_MENU_Click(sender As Object, e As EventArgs) Handles BT_ECUES_MENU.Click
         HideControls()
+        DefaultBTColors()
+        BT_ECUES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "ECUES"
         PB_GESTION_ILLUSTRATION.ImageLocation = ecuesIllustrationPath
         ecuesControl.Show()
@@ -72,9 +88,12 @@
 
     Private Sub BT_USERS_MENU_Click(sender As Object, e As EventArgs) Handles BT_USERS_MENU.Click
         HideControls()
+        DefaultBTColors()
+        BT_USERS_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "UTILISATEURS"
         PB_GESTION_ILLUSTRATION.ImageLocation = usersIllustrationPath
         usersControl.refreshCB_EMPLOYEE()
+        usersControl.BT_REFRESH_Click(Nothing, Nothing)
         usersControl.Show()
     End Sub
 

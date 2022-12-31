@@ -51,6 +51,7 @@ Partial Class EmployeesControl
         'CB_FUNCTION
         '
         Me.CB_FUNCTION.BackColor = System.Drawing.Color.Transparent
+        Me.CB_FUNCTION.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CB_FUNCTION.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.CB_FUNCTION.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_FUNCTION.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -112,6 +113,7 @@ Partial Class EmployeesControl
         'CB_GENDER
         '
         Me.CB_GENDER.BackColor = System.Drawing.Color.Transparent
+        Me.CB_GENDER.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CB_GENDER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.CB_GENDER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_GENDER.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -159,6 +161,7 @@ Partial Class EmployeesControl
         'BT_REFRESH
         '
         Me.BT_REFRESH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_REFRESH.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_REFRESH.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -196,6 +199,7 @@ Partial Class EmployeesControl
         'BT_ADD
         '
         Me.BT_ADD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_ADD.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_ADD.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -225,6 +229,7 @@ Partial Class EmployeesControl
         'BT_DELETE
         '
         Me.BT_DELETE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_DELETE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_DELETE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -275,6 +280,7 @@ Partial Class EmployeesControl
         'BT_UPDATE
         '
         Me.BT_UPDATE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_UPDATE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_UPDATE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))

@@ -23,9 +23,9 @@ Partial Class TuititionServiceView
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TuititionServiceView))
         Me.DGV_Students = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.LBL_PHONE_NUMBER = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -59,10 +59,10 @@ Partial Class TuititionServiceView
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.P_TOP = New Guna.UI2.WinForms.Guna2Panel()
-        Me.COB_CLOSE = New Guna.UI2.WinForms.Guna2ControlBox()
-        Me.COB_MINIMIZE = New Guna.UI2.WinForms.Guna2ControlBox()
-        Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
         Me.COB_MAXIMAZE = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.COB_MINIMIZE = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.COB_CLOSE = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
         CType(Me.DGV_Students, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_TOP.SuspendLayout()
@@ -72,30 +72,30 @@ Partial Class TuititionServiceView
         '
         Me.DGV_Students.AllowUserToAddRows = False
         Me.DGV_Students.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.DGV_Students.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.DGV_Students.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DGV_Students.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV_Students.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_Students.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_Students.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGV_Students.ColumnHeadersHeight = 30
         Me.DGV_Students.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGV_Students.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGV_Students.DefaultCellStyle = DataGridViewCellStyle3
         Me.DGV_Students.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.DGV_Students.Location = New System.Drawing.Point(12, 342)
         Me.DGV_Students.Name = "DGV_Students"
@@ -151,6 +151,7 @@ Partial Class TuititionServiceView
         'CB_GENDER
         '
         Me.CB_GENDER.BackColor = System.Drawing.Color.Transparent
+        Me.CB_GENDER.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CB_GENDER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.CB_GENDER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_GENDER.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -271,6 +272,7 @@ Partial Class TuititionServiceView
         'BT_REFRESH
         '
         Me.BT_REFRESH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_REFRESH.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_REFRESH.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -289,6 +291,7 @@ Partial Class TuititionServiceView
         'BT_ADD
         '
         Me.BT_ADD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_ADD.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_ADD.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -307,6 +310,7 @@ Partial Class TuititionServiceView
         'BT_DELETE
         '
         Me.BT_DELETE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_DELETE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_DELETE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -325,6 +329,7 @@ Partial Class TuititionServiceView
         'BT_UPDATE
         '
         Me.BT_UPDATE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_UPDATE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_UPDATE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -365,6 +370,7 @@ Partial Class TuititionServiceView
         'Guna2ComboBox1
         '
         Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ComboBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.Guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -393,6 +399,7 @@ Partial Class TuititionServiceView
         'Guna2ComboBox2
         '
         Me.Guna2ComboBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ComboBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.Guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -429,6 +436,7 @@ Partial Class TuititionServiceView
         'Guna2ComboBox3
         '
         Me.Guna2ComboBox3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ComboBox3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Guna2ComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.Guna2ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Guna2ComboBox3.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -481,6 +489,7 @@ Partial Class TuititionServiceView
         'Guna2ComboBox4
         '
         Me.Guna2ComboBox4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ComboBox4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Guna2ComboBox4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.Guna2ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Guna2ComboBox4.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -520,6 +529,7 @@ Partial Class TuititionServiceView
         'Guna2ComboBox5
         '
         Me.Guna2ComboBox5.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ComboBox5.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Guna2ComboBox5.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.Guna2ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Guna2ComboBox5.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -562,15 +572,16 @@ Partial Class TuititionServiceView
         Me.P_TOP.Size = New System.Drawing.Size(1084, 31)
         Me.P_TOP.TabIndex = 104
         '
-        'COB_CLOSE
+        'COB_MAXIMAZE
         '
-        Me.COB_CLOSE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.COB_CLOSE.FillColor = System.Drawing.Color.Red
-        Me.COB_CLOSE.IconColor = System.Drawing.Color.White
-        Me.COB_CLOSE.Location = New System.Drawing.Point(1060, 0)
-        Me.COB_CLOSE.Name = "COB_CLOSE"
-        Me.COB_CLOSE.Size = New System.Drawing.Size(24, 24)
-        Me.COB_CLOSE.TabIndex = 0
+        Me.COB_MAXIMAZE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.COB_MAXIMAZE.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox
+        Me.COB_MAXIMAZE.FillColor = System.Drawing.Color.DimGray
+        Me.COB_MAXIMAZE.IconColor = System.Drawing.Color.White
+        Me.COB_MAXIMAZE.Location = New System.Drawing.Point(1030, 0)
+        Me.COB_MAXIMAZE.Name = "COB_MAXIMAZE"
+        Me.COB_MAXIMAZE.Size = New System.Drawing.Size(24, 24)
+        Me.COB_MAXIMAZE.TabIndex = 2
         '
         'COB_MINIMIZE
         '
@@ -583,23 +594,22 @@ Partial Class TuititionServiceView
         Me.COB_MINIMIZE.Size = New System.Drawing.Size(24, 24)
         Me.COB_MINIMIZE.TabIndex = 1
         '
+        'COB_CLOSE
+        '
+        Me.COB_CLOSE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.COB_CLOSE.FillColor = System.Drawing.Color.Red
+        Me.COB_CLOSE.IconColor = System.Drawing.Color.White
+        Me.COB_CLOSE.Location = New System.Drawing.Point(1060, 0)
+        Me.COB_CLOSE.Name = "COB_CLOSE"
+        Me.COB_CLOSE.Size = New System.Drawing.Size(24, 24)
+        Me.COB_CLOSE.TabIndex = 0
+        '
         'Guna2DragControl1
         '
         Me.Guna2DragControl1.DockIndicatorColor = System.Drawing.Color.Black
         Me.Guna2DragControl1.DockIndicatorTransparencyValue = 0.6R
         Me.Guna2DragControl1.TargetControl = Me.P_TOP
         Me.Guna2DragControl1.UseTransparentDrag = True
-        '
-        'COB_MAXIMAZE
-        '
-        Me.COB_MAXIMAZE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.COB_MAXIMAZE.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox
-        Me.COB_MAXIMAZE.FillColor = System.Drawing.Color.DimGray
-        Me.COB_MAXIMAZE.IconColor = System.Drawing.Color.White
-        Me.COB_MAXIMAZE.Location = New System.Drawing.Point(1030, 0)
-        Me.COB_MAXIMAZE.Name = "COB_MAXIMAZE"
-        Me.COB_MAXIMAZE.Size = New System.Drawing.Size(24, 24)
-        Me.COB_MAXIMAZE.TabIndex = 2
         '
         'TuititionServiceView
         '

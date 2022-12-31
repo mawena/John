@@ -61,7 +61,7 @@ Public Class EmployeesController
         gender = Employee.Gender_view_to_gender(gender)
         functionField = Employee.Function_view_field_to_function_field(functionField)
         If (verifyEmployee(lastName, firstName, phoneNumber, email, gender, functionField)) Then
-            Dim employeeDB As Employee = EmployeesManager.getByName(lastName, firstName)
+            Dim employeeDB As Employee = EmployeesManager.getByLastNameAndFirtName(lastName, firstName)
             If (employeeDB.LastName = Nothing) Then
                 employeeDB = EmployeesManager.getByPhoneNumber(phoneNumber)
                 If employeeDB.LastName = Nothing Then

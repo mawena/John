@@ -1,22 +1,22 @@
 ﻿Public Class User
     Private _id As Integer
     Private _username As String
-    Private _function_field As String
-    Private _password_field As String
+    Private _passwordField As String
+    Private _employeeId As Integer
+    Private _employee As Employee
 
-    Public Sub New(id As Integer, username As String, function_field As String, password_field As String)
+    Public Sub New(id As Integer, username As String, passwordField As String, employeeId As Integer)
         Me.Id = id
         Me.Username = username
-        Me.Function_field = function_field
-        Me.Password_field = password_field
+        Me.PasswordField = passwordField
+        Me.EmployeeId = employeeId
     End Sub
 
-    Public Sub New(username As String, function_field As String, password_field As String)
+    Public Sub New(username As String, passwordField As String, employeeId As Integer)
         Me.Username = username
-        Me.Function_field = function_field
-        Me.Password_field = password_field
+        Me.PasswordField = passwordField
+        Me.EmployeeId = employeeId
     End Sub
-
     Public Property Id As Integer
         Get
             Return _id
@@ -35,54 +35,63 @@
         End Set
     End Property
 
-    Public Property Function_field As String
+    Public Property PasswordField As String
         Get
-            Return _function_field
+            Return _passwordField
         End Get
         Set(value As String)
-            _function_field = value
+            _passwordField = value
         End Set
     End Property
 
-    Public Property Password_field As String
+    Public Property EmployeeId As Integer
         Get
-            Return _password_field
+            Return _employeeId
         End Get
-        Set(value As String)
-            _password_field = value
+        Set(value As Integer)
+            If value = Nothing Then
+                _employeeId = Nothing
+                _employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Else
+                _employeeId = value
+                _employee = EmployeesManager.getById(value)
+            End If
         End Set
     End Property
 
-    Public Function Function_view_field() As String
-        Return Function_field_to_function_view_field(_function_field)
+    Public ReadOnly Property Employee As Employee
+        Get
+            Return _employee
+        End Get
+    End Property
+
+    Public Function FunctionViewField() As String
+        If (_employeeId = Nothing) Then
+            Return "Administrateur"
+        End If
+        Return FunctionFieldToFunctionViewField(_employee.FunctionField)
     End Function
 
-    Public Overrides Function Equals(obj As Object) As Boolean
-        Dim user = TryCast(obj, User)
-        Return user IsNot Nothing AndAlso
-               _id = user._id AndAlso
-               _username = user._username AndAlso
-               _function_field = user._function_field AndAlso
-               _password_field = user._password_field
+    Public Function EmployeeName() As String
+        If _employee.LastName = Nothing Then
+            Return "Non employé"
+        End If
+        Return _employee.FirstName & " - " & _employee.LastName
     End Function
 
-    Public Shared Function Function_field_to_function_view_field(function_field As String) As String
+    Public Shared Function FunctionFieldToFunctionViewField(function_field As String) As String
         If function_field = "TuititionService" Then
             Return "Service Scolarité"
-        ElseIf function_field = "Teacher" Then
-            Return "Enseignant"
         Else
-            Return "Administrateur"
+            Return "Enseignant"
         End If
     End Function
 
-    Public Shared Function Function_view_field_to_function_field(function_view_field As String) As String
+    Public Shared Function FunctionViewFieldToFunctionField(function_view_field As String) As String
         If function_view_field = "Service Scolarité" Then
             Return "TuititionService"
-        ElseIf function_view_field = "Enseignant" Then
-            Return "Teacher"
         Else
-            Return "Administrateur"
+            Return "Teacher"
         End If
     End Function
 End Class

@@ -23,9 +23,9 @@ Partial Class UsersControl
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UsersControl))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.LBL_SEARCH = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_PASSWORD_FIELD = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_USERNAME = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -37,12 +37,12 @@ Partial Class UsersControl
         Me.TB_SEARCH = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BT_UPDATE = New Guna.UI2.WinForms.Guna2Button()
         Me.DGV_USERS = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.LBL_FUNCTION_FIELD = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.CB_FUNCTION_FIELD = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.CHB_UPDATE_PASSWORD = New Guna.UI2.WinForms.Guna2ToggleSwitch()
-        Me.LBL_MODIFY = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.CTS_UPDATE_PASSWORD = New Guna.UI2.WinForms.Guna2ToggleSwitch()
+        Me.LBL_UPDATE_PASSWORD = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.CB_EMPLOYEE = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.LBL_EMPLOYEE = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.LBL_DISPLAY_PASSWORD = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.CTS_DISPLAY_PASSWORD = New Guna.UI2.WinForms.Guna2ToggleSwitch()
         CType(Me.DGV_USERS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -51,7 +51,7 @@ Partial Class UsersControl
         Me.LBL_SEARCH.BackColor = System.Drawing.Color.Transparent
         Me.LBL_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_SEARCH.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_SEARCH.Location = New System.Drawing.Point(24, 129)
+        Me.LBL_SEARCH.Location = New System.Drawing.Point(24, 149)
         Me.LBL_SEARCH.Name = "LBL_SEARCH"
         Me.LBL_SEARCH.Size = New System.Drawing.Size(124, 27)
         Me.LBL_SEARCH.TabIndex = 78
@@ -59,11 +59,10 @@ Partial Class UsersControl
         '
         'LBL_PASSWORD_FIELD
         '
-        Me.LBL_PASSWORD_FIELD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LBL_PASSWORD_FIELD.BackColor = System.Drawing.Color.Transparent
         Me.LBL_PASSWORD_FIELD.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_PASSWORD_FIELD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_PASSWORD_FIELD.Location = New System.Drawing.Point(540, 87)
+        Me.LBL_PASSWORD_FIELD.Location = New System.Drawing.Point(3, 87)
         Me.LBL_PASSWORD_FIELD.Name = "LBL_PASSWORD_FIELD"
         Me.LBL_PASSWORD_FIELD.Size = New System.Drawing.Size(145, 27)
         Me.LBL_PASSWORD_FIELD.TabIndex = 77
@@ -82,7 +81,8 @@ Partial Class UsersControl
         '
         'TB_PASSWORD_FIELD
         '
-        Me.TB_PASSWORD_FIELD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TB_PASSWORD_FIELD.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TB_PASSWORD_FIELD.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TB_PASSWORD_FIELD.DefaultText = ""
         Me.TB_PASSWORD_FIELD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -92,17 +92,18 @@ Partial Class UsersControl
         Me.TB_PASSWORD_FIELD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_PASSWORD_FIELD.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TB_PASSWORD_FIELD.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_PASSWORD_FIELD.Location = New System.Drawing.Point(691, 87)
+        Me.TB_PASSWORD_FIELD.Location = New System.Drawing.Point(154, 87)
         Me.TB_PASSWORD_FIELD.Name = "TB_PASSWORD_FIELD"
-        Me.TB_PASSWORD_FIELD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_PASSWORD_FIELD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TB_PASSWORD_FIELD.PlaceholderText = "Ex: MLQKSD#mq?"
         Me.TB_PASSWORD_FIELD.SelectedText = ""
-        Me.TB_PASSWORD_FIELD.Size = New System.Drawing.Size(250, 36)
+        Me.TB_PASSWORD_FIELD.Size = New System.Drawing.Size(787, 36)
         Me.TB_PASSWORD_FIELD.TabIndex = 69
         '
         'BT_REFRESH
         '
         Me.BT_REFRESH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_REFRESH.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_REFRESH.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -112,7 +113,7 @@ Partial Class UsersControl
         Me.BT_REFRESH.ForeColor = System.Drawing.Color.White
         Me.BT_REFRESH.Image = CType(resources.GetObject("BT_REFRESH.Image"), System.Drawing.Image)
         Me.BT_REFRESH.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_REFRESH.Location = New System.Drawing.Point(947, 129)
+        Me.BT_REFRESH.Location = New System.Drawing.Point(947, 149)
         Me.BT_REFRESH.Name = "BT_REFRESH"
         Me.BT_REFRESH.Size = New System.Drawing.Size(150, 36)
         Me.BT_REFRESH.TabIndex = 74
@@ -142,6 +143,7 @@ Partial Class UsersControl
         'BT_ADD
         '
         Me.BT_ADD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_ADD.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_ADD.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -160,6 +162,7 @@ Partial Class UsersControl
         'BT_DELETE
         '
         Me.BT_DELETE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_DELETE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_DELETE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -188,7 +191,7 @@ Partial Class UsersControl
         Me.TB_SEARCH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_SEARCH.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TB_SEARCH.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SEARCH.Location = New System.Drawing.Point(154, 129)
+        Me.TB_SEARCH.Location = New System.Drawing.Point(154, 149)
         Me.TB_SEARCH.Name = "TB_SEARCH"
         Me.TB_SEARCH.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TB_SEARCH.PlaceholderText = ""
@@ -199,6 +202,7 @@ Partial Class UsersControl
         'BT_UPDATE
         '
         Me.BT_UPDATE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_UPDATE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_UPDATE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -218,36 +222,36 @@ Partial Class UsersControl
         '
         Me.DGV_USERS.AllowUserToAddRows = False
         Me.DGV_USERS.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.DGV_USERS.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.DGV_USERS.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
         Me.DGV_USERS.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV_USERS.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_USERS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_USERS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.DGV_USERS.ColumnHeadersHeight = 30
         Me.DGV_USERS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGV_USERS.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGV_USERS.DefaultCellStyle = DataGridViewCellStyle15
         Me.DGV_USERS.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.DGV_USERS.Location = New System.Drawing.Point(0, 171)
+        Me.DGV_USERS.Location = New System.Drawing.Point(0, 191)
         Me.DGV_USERS.Name = "DGV_USERS"
         Me.DGV_USERS.ReadOnly = True
         Me.DGV_USERS.RowHeadersVisible = False
-        Me.DGV_USERS.Size = New System.Drawing.Size(1100, 326)
+        Me.DGV_USERS.Size = New System.Drawing.Size(1100, 306)
         Me.DGV_USERS.TabIndex = 72
         Me.DGV_USERS.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.DGV_USERS.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -272,70 +276,42 @@ Partial Class UsersControl
         Me.DGV_USERS.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.DGV_USERS.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'LBL_FUNCTION_FIELD
+        'CTS_UPDATE_PASSWORD
         '
-        Me.LBL_FUNCTION_FIELD.BackColor = System.Drawing.Color.Transparent
-        Me.LBL_FUNCTION_FIELD.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_FUNCTION_FIELD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_FUNCTION_FIELD.Location = New System.Drawing.Point(54, 45)
-        Me.LBL_FUNCTION_FIELD.Name = "LBL_FUNCTION_FIELD"
-        Me.LBL_FUNCTION_FIELD.Size = New System.Drawing.Size(94, 27)
-        Me.LBL_FUNCTION_FIELD.TabIndex = 79
-        Me.LBL_FUNCTION_FIELD.Text = "Fonction"
+        Me.CTS_UPDATE_PASSWORD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CTS_UPDATE_PASSWORD.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CTS_UPDATE_PASSWORD.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CTS_UPDATE_PASSWORD.CheckedState.InnerBorderColor = System.Drawing.Color.White
+        Me.CTS_UPDATE_PASSWORD.CheckedState.InnerColor = System.Drawing.Color.White
+        Me.CTS_UPDATE_PASSWORD.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CTS_UPDATE_PASSWORD.Location = New System.Drawing.Point(685, 125)
+        Me.CTS_UPDATE_PASSWORD.Name = "CTS_UPDATE_PASSWORD"
+        Me.CTS_UPDATE_PASSWORD.Size = New System.Drawing.Size(35, 20)
+        Me.CTS_UPDATE_PASSWORD.TabIndex = 82
+        Me.CTS_UPDATE_PASSWORD.Tag = "Modifier"
+        Me.CTS_UPDATE_PASSWORD.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.CTS_UPDATE_PASSWORD.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.CTS_UPDATE_PASSWORD.UncheckedState.InnerBorderColor = System.Drawing.Color.White
+        Me.CTS_UPDATE_PASSWORD.UncheckedState.InnerColor = System.Drawing.Color.White
         '
-        'CB_FUNCTION_FIELD
+        'LBL_UPDATE_PASSWORD
         '
-        Me.CB_FUNCTION_FIELD.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CB_FUNCTION_FIELD.BackColor = System.Drawing.Color.Transparent
-        Me.CB_FUNCTION_FIELD.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.CB_FUNCTION_FIELD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_FUNCTION_FIELD.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_FUNCTION_FIELD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_FUNCTION_FIELD.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CB_FUNCTION_FIELD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.CB_FUNCTION_FIELD.ItemHeight = 30
-        Me.CB_FUNCTION_FIELD.Items.AddRange(New Object() {"Service Scolarité", "Enseignant", "Administrateur"})
-        Me.CB_FUNCTION_FIELD.Location = New System.Drawing.Point(154, 46)
-        Me.CB_FUNCTION_FIELD.Name = "CB_FUNCTION_FIELD"
-        Me.CB_FUNCTION_FIELD.Size = New System.Drawing.Size(787, 36)
-        Me.CB_FUNCTION_FIELD.StartIndex = 0
-        Me.CB_FUNCTION_FIELD.TabIndex = 80
-        '
-        'CHB_UPDATE_PASSWORD
-        '
-        Me.CHB_UPDATE_PASSWORD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CHB_UPDATE_PASSWORD.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CHB_UPDATE_PASSWORD.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CHB_UPDATE_PASSWORD.CheckedState.InnerBorderColor = System.Drawing.Color.White
-        Me.CHB_UPDATE_PASSWORD.CheckedState.InnerColor = System.Drawing.Color.White
-        Me.CHB_UPDATE_PASSWORD.Location = New System.Drawing.Point(828, 94)
-        Me.CHB_UPDATE_PASSWORD.Name = "CHB_UPDATE_PASSWORD"
-        Me.CHB_UPDATE_PASSWORD.Size = New System.Drawing.Size(35, 20)
-        Me.CHB_UPDATE_PASSWORD.TabIndex = 82
-        Me.CHB_UPDATE_PASSWORD.Tag = "Modifier"
-        Me.CHB_UPDATE_PASSWORD.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.CHB_UPDATE_PASSWORD.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.CHB_UPDATE_PASSWORD.UncheckedState.InnerBorderColor = System.Drawing.Color.White
-        Me.CHB_UPDATE_PASSWORD.UncheckedState.InnerColor = System.Drawing.Color.White
-        '
-        'LBL_MODIFY
-        '
-        Me.LBL_MODIFY.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LBL_MODIFY.BackColor = System.Drawing.Color.Transparent
-        Me.LBL_MODIFY.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_MODIFY.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_MODIFY.Location = New System.Drawing.Point(869, 96)
-        Me.LBL_MODIFY.Name = "LBL_MODIFY"
-        Me.LBL_MODIFY.Size = New System.Drawing.Size(59, 18)
-        Me.LBL_MODIFY.TabIndex = 83
-        Me.LBL_MODIFY.Text = "Modifier"
+        Me.LBL_UPDATE_PASSWORD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LBL_UPDATE_PASSWORD.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_UPDATE_PASSWORD.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_UPDATE_PASSWORD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_UPDATE_PASSWORD.Location = New System.Drawing.Point(726, 125)
+        Me.LBL_UPDATE_PASSWORD.Name = "LBL_UPDATE_PASSWORD"
+        Me.LBL_UPDATE_PASSWORD.Size = New System.Drawing.Size(215, 18)
+        Me.LBL_UPDATE_PASSWORD.TabIndex = 83
+        Me.LBL_UPDATE_PASSWORD.Text = "Modifier aussi le mot de passe"
         '
         'CB_EMPLOYEE
         '
         Me.CB_EMPLOYEE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CB_EMPLOYEE.BackColor = System.Drawing.Color.Transparent
+        Me.CB_EMPLOYEE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CB_EMPLOYEE.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.CB_EMPLOYEE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_EMPLOYEE.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -343,10 +319,9 @@ Partial Class UsersControl
         Me.CB_EMPLOYEE.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.CB_EMPLOYEE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CB_EMPLOYEE.ItemHeight = 30
-        Me.CB_EMPLOYEE.Location = New System.Drawing.Point(154, 87)
+        Me.CB_EMPLOYEE.Location = New System.Drawing.Point(154, 45)
         Me.CB_EMPLOYEE.Name = "CB_EMPLOYEE"
-        Me.CB_EMPLOYEE.Size = New System.Drawing.Size(380, 36)
-        Me.CB_EMPLOYEE.StartIndex = 0
+        Me.CB_EMPLOYEE.Size = New System.Drawing.Size(787, 36)
         Me.CB_EMPLOYEE.TabIndex = 85
         '
         'LBL_EMPLOYEE
@@ -354,22 +329,50 @@ Partial Class UsersControl
         Me.LBL_EMPLOYEE.BackColor = System.Drawing.Color.Transparent
         Me.LBL_EMPLOYEE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_EMPLOYEE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_EMPLOYEE.Location = New System.Drawing.Point(55, 87)
+        Me.LBL_EMPLOYEE.Location = New System.Drawing.Point(55, 45)
         Me.LBL_EMPLOYEE.Name = "LBL_EMPLOYEE"
         Me.LBL_EMPLOYEE.Size = New System.Drawing.Size(93, 27)
         Me.LBL_EMPLOYEE.TabIndex = 84
         Me.LBL_EMPLOYEE.Text = "Employé"
         '
+        'LBL_DISPLAY_PASSWORD
+        '
+        Me.LBL_DISPLAY_PASSWORD.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_DISPLAY_PASSWORD.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_DISPLAY_PASSWORD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_DISPLAY_PASSWORD.Location = New System.Drawing.Point(195, 125)
+        Me.LBL_DISPLAY_PASSWORD.Name = "LBL_DISPLAY_PASSWORD"
+        Me.LBL_DISPLAY_PASSWORD.Size = New System.Drawing.Size(170, 18)
+        Me.LBL_DISPLAY_PASSWORD.TabIndex = 87
+        Me.LBL_DISPLAY_PASSWORD.Text = "Afficher le mot de passe"
+        '
+        'CTS_DISPLAY_PASSWORD
+        '
+        Me.CTS_DISPLAY_PASSWORD.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CTS_DISPLAY_PASSWORD.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CTS_DISPLAY_PASSWORD.CheckedState.InnerBorderColor = System.Drawing.Color.White
+        Me.CTS_DISPLAY_PASSWORD.CheckedState.InnerColor = System.Drawing.Color.White
+        Me.CTS_DISPLAY_PASSWORD.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CTS_DISPLAY_PASSWORD.Location = New System.Drawing.Point(154, 125)
+        Me.CTS_DISPLAY_PASSWORD.Name = "CTS_DISPLAY_PASSWORD"
+        Me.CTS_DISPLAY_PASSWORD.Size = New System.Drawing.Size(35, 20)
+        Me.CTS_DISPLAY_PASSWORD.TabIndex = 86
+        Me.CTS_DISPLAY_PASSWORD.Tag = "Modifier"
+        Me.CTS_DISPLAY_PASSWORD.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.CTS_DISPLAY_PASSWORD.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.CTS_DISPLAY_PASSWORD.UncheckedState.InnerBorderColor = System.Drawing.Color.White
+        Me.CTS_DISPLAY_PASSWORD.UncheckedState.InnerColor = System.Drawing.Color.White
+        '
         'UsersControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.LBL_DISPLAY_PASSWORD)
+        Me.Controls.Add(Me.CTS_DISPLAY_PASSWORD)
         Me.Controls.Add(Me.CB_EMPLOYEE)
         Me.Controls.Add(Me.LBL_EMPLOYEE)
-        Me.Controls.Add(Me.LBL_MODIFY)
-        Me.Controls.Add(Me.CHB_UPDATE_PASSWORD)
-        Me.Controls.Add(Me.CB_FUNCTION_FIELD)
-        Me.Controls.Add(Me.LBL_FUNCTION_FIELD)
+        Me.Controls.Add(Me.LBL_UPDATE_PASSWORD)
+        Me.Controls.Add(Me.CTS_UPDATE_PASSWORD)
         Me.Controls.Add(Me.LBL_SEARCH)
         Me.Controls.Add(Me.LBL_PASSWORD_FIELD)
         Me.Controls.Add(Me.LBL_USERNAME)
@@ -399,11 +402,11 @@ Partial Class UsersControl
     Friend WithEvents BT_DELETE As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TB_SEARCH As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BT_UPDATE As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents LBL_FUNCTION_FIELD As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents CB_FUNCTION_FIELD As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents DGV_USERS As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents CHB_UPDATE_PASSWORD As Guna.UI2.WinForms.Guna2ToggleSwitch
-    Friend WithEvents LBL_MODIFY As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents CTS_UPDATE_PASSWORD As Guna.UI2.WinForms.Guna2ToggleSwitch
+    Friend WithEvents LBL_UPDATE_PASSWORD As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents CB_EMPLOYEE As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents LBL_EMPLOYEE As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents LBL_DISPLAY_PASSWORD As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents CTS_DISPLAY_PASSWORD As Guna.UI2.WinForms.Guna2ToggleSwitch
 End Class

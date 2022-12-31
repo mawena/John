@@ -4,9 +4,10 @@
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Utilisateur", GetType(String))
         table.Columns.Add("Fonction", GetType(String))
+        table.Columns.Add("Employé", GetType(String))
 
         For Each user As User In UsersManager.getAll()
-            table.LoadDataRow(New Object() {user.Id, user.Username, user.Function_view_field()}, True)
+            table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField(), user.EmployeeName()}, True)
         Next
         Return table
     End Function
@@ -16,9 +17,10 @@
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Utilisateur", GetType(String))
         table.Columns.Add("Fonction", GetType(String))
+        table.Columns.Add("Employé", GetType(String))
         If word <> Nothing Then
             For Each user As User In UsersManager.searchUsers(word)
-                table.LoadDataRow(New Object() {user.Id, user.Username, user.Function_view_field()}, True)
+                table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField(), user.EmployeeName()}, True)
             Next
         Else
             Return getAll()
@@ -35,11 +37,20 @@
         End If
         Return False
     End Function
-    Public Shared Function store(username As String, function_field As String, password_field As String) As Boolean
+
+    Public Shared Function getEmployeeIdByName(name As String) As Integer
+        If (name = "Administrateur") Then
+            Return -1
+        Else
+            Return EmployeesManager.getByName(name).Id
+        End If
+    End Function
+    Public Shared Function store(username As String, password_field As String, employeeName As String) As Boolean
         If (verifyUser(username, password_field, True)) Then
             Dim userDB As User = UsersManager.getByUsername(username)
             If (userDB.Username = Nothing) Then
-                Return UsersManager.store(New User(username, User.Function_view_field_to_function_field(function_field), password_field))
+                Dim userToSave As User = New User(username, password_field, getEmployeeIdByName(employeeName))
+                Return UsersManager.store(userToSave)
             Else
                 MessageBox.Show("L'utilisateur " & username & " existe déjà", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -47,13 +58,13 @@
         Return False
     End Function
 
-    Public Shared Function update(username As String, function_field As String, password_field As String, userId As Integer, update_password_field As Boolean) As Boolean
+    Public Shared Function update(username As String, password_field As String, employeeName As String, userId As Integer, update_password_field As Boolean) As Boolean
         If (verifyUser(username, password_field, update_password_field)) Then
             Dim userDB As User = UsersManager.getById(userId)
             If (userDB.Username = Nothing) Then
                 MessageBox.Show("L'utilisateur " & username & " n'existe pas", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                Return UsersManager.update(New User(username, User.Function_view_field_to_function_field(function_field), password_field), userId, update_password_field)
+                Return UsersManager.update(New User(username, password_field, getEmployeeIdByName(employeeName)), userId, update_password_field)
             End If
         End If
         Return False

@@ -47,6 +47,7 @@ Partial Class ECUEsControl
         Me.CB_UE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CB_UE.BackColor = System.Drawing.Color.Transparent
+        Me.CB_UE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CB_UE.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.CB_UE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_UE.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -108,6 +109,7 @@ Partial Class ECUEsControl
         'BT_REFRESH
         '
         Me.BT_REFRESH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_REFRESH.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_REFRESH.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_REFRESH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -147,6 +149,7 @@ Partial Class ECUEsControl
         'BT_ADD
         '
         Me.BT_ADD.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_ADD.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_ADD.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_ADD.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -165,6 +168,7 @@ Partial Class ECUEsControl
         'BT_DELETE
         '
         Me.BT_DELETE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_DELETE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_DELETE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_DELETE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -204,6 +208,7 @@ Partial Class ECUEsControl
         'BT_UPDATE
         '
         Me.BT_UPDATE.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_UPDATE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_UPDATE.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_UPDATE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -282,6 +287,7 @@ Partial Class ECUEsControl
         Me.CB_INSITUTE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CB_INSITUTE.BackColor = System.Drawing.Color.Transparent
+        Me.CB_INSITUTE.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CB_INSITUTE.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.CB_INSITUTE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_INSITUTE.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))

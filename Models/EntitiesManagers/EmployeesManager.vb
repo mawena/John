@@ -37,10 +37,16 @@
         Return getEmployeeGenerique()
     End Function
 
-    Public Shared Function getByName(lastName As String, firstName As String)
+    Public Shared Function getByLastNameAndFirtName(lastName As String, firstName As String) As Employee
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE last_name = @last_name AND first_name = @first_name;", Manager.connection)
         command.Parameters.AddWithValue("@last_name", lastName)
         command.Parameters.AddWithValue("@first_name", firstName)
+        Return getEmployeeGenerique()
+    End Function
+
+    Public Shared Function getByName(name As String) As Employee
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE CONCAT(first_name, ' - ', last_name) = @name;", Manager.connection)
+        command.Parameters.AddWithValue("@name", name)
         Return getEmployeeGenerique()
     End Function
 

@@ -73,7 +73,7 @@ Partial Class AdminView
         Me.P_MAIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.P_MAIN.Location = New System.Drawing.Point(192, 30)
         Me.P_MAIN.Name = "P_MAIN"
-        Me.P_MAIN.Size = New System.Drawing.Size(1051, 632)
+        Me.P_MAIN.Size = New System.Drawing.Size(1039, 619)
         Me.P_MAIN.TabIndex = 20
         '
         'LBL_EMAIL
@@ -149,6 +149,7 @@ Partial Class AdminView
         'BT_EMPLOYEES_MENU
         '
         Me.BT_EMPLOYEES_MENU.BackColor = System.Drawing.Color.DimGray
+        Me.BT_EMPLOYEES_MENU.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_EMPLOYEES_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_EMPLOYEES_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_EMPLOYEES_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -166,6 +167,7 @@ Partial Class AdminView
         '
         'BT_UES_MENU
         '
+        Me.BT_UES_MENU.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_UES_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_UES_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_UES_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -183,6 +185,7 @@ Partial Class AdminView
         '
         'BT_ECUES_MENU
         '
+        Me.BT_ECUES_MENU.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_ECUES_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_ECUES_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_ECUES_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -200,6 +203,7 @@ Partial Class AdminView
         '
         'BT_USERS_MENU
         '
+        Me.BT_USERS_MENU.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_USERS_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_USERS_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_USERS_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -242,6 +246,7 @@ Partial Class AdminView
         'BT_INSTITUTES_MENU
         '
         Me.BT_INSTITUTES_MENU.BackColor = System.Drawing.Color.DimGray
+        Me.BT_INSTITUTES_MENU.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BT_INSTITUTES_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.BT_INSTITUTES_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.BT_INSTITUTES_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -343,6 +348,7 @@ Partial Class AdminView
         Me.Name = "AdminView"
         Me.ShowIcon = False
         Me.Text = "  "
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PB_GESTION_ILLUSTRATION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PB_ADMIN_ILLUSTRATION, System.ComponentModel.ISupportInitialize).EndInit()
         Me.P_TOP.ResumeLayout(False)
