@@ -72,9 +72,9 @@
         Return getEmployeesGenerique()
     End Function
 
-    Public Shared Function searchEmployees(word As String)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE last_name LIKE @word OR first_name LIKE @word OR email LIKE @word;", Manager.connection)
-        command.Parameters.AddWithValue("@word", "%" & word & "%")
+    Public Shared Function searchEmployees(world As String)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE last_name LIKE @world OR first_name LIKE @world OR email LIKE @world;", Manager.connection)
+        command.Parameters.AddWithValue("@world", "%" & world & "%")
         Return getEmployeesGenerique()
     End Function
 

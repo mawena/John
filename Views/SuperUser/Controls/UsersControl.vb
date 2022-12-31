@@ -73,6 +73,11 @@
 
     Private Sub DGV_USERS_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_USERS.CellClick
         TB_USERNAME.Text = DGV_USERS.SelectedRows(0).Cells(1).Value
+        refreshCB_EMPLOYEE()
+        If DGV_USERS.SelectedRows(0).Cells(3).Value <> "Non employé" Then
+            CB_EMPLOYEE.Items.Add(DGV_USERS.SelectedRows(0).Cells(3).Value)
+            CB_EMPLOYEE.SelectedItem = DGV_USERS.SelectedRows(0).Cells(3).Value
+        End If
     End Sub
 
     Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged

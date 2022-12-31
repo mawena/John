@@ -60,27 +60,25 @@
 
     Public Shared Function update(username As String, password_field As String, employeeName As String, userId As Integer, update_password_field As Boolean) As Boolean
         If (verifyUser(username, password_field, update_password_field)) Then
-            Dim userDB As User = UsersManager.getById(userId)
-            If (userDB.Username = Nothing) Then
-                MessageBox.Show("L'utilisateur " & username & " n'existe pas", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                Return UsersManager.update(New User(username, password_field, getEmployeeIdByName(employeeName)), userId, update_password_field)
+            Dim userDB As User = UsersManager.getByUsername(username)
+            If userDB.Username <> Nothing Then
+                If userDB.Id <> userId Then
+                    MessageBox.Show("L'utilisateur " & username & " est déjà utilisé", "Utilisateur déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return False
+                End If
             End If
+        Else
+            Return False
         End If
-        Return False
+        Return UsersManager.update(New User(username, password_field, getEmployeeIdByName(employeeName)), userId, update_password_field)
     End Function
 
     Public Shared Function delete(idList As List(Of Integer)) As Boolean
         Dim response As Boolean = False
         If (MessageBox.Show("Etes vous sûr de vouloir supprimer cet(s) utilisateur(s)?", "Confirmation de supression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes) Then
             For Each id As Integer In idList
-                If UsersManager.getById(id).Username = Nothing Then
-                    MessageBox.Show("L'utilisateur " & id & " n'existe pas.", "Utilisateur inexistant", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit For
-                Else
-                    If UsersManager.delete(id) Then
-                        response = True
-                    End If
+                If UsersManager.delete(id) Then
+                    response = True
                 End If
             Next
         Else

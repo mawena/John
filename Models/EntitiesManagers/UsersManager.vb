@@ -66,9 +66,9 @@
         Return getUsersGenerique()
     End Function
 
-    Public Shared Function searchUsers(word As String)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users WHERE username LIKE @word ;", Manager.connection)
-        command.Parameters.AddWithValue("@word", "%" & word & "%")
+    Public Shared Function searchUsers(world As String)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users WHERE username LIKE @world ;", Manager.connection)
+        command.Parameters.AddWithValue("@world", "%" & world & "%")
         Return getUsersGenerique()
     End Function
 

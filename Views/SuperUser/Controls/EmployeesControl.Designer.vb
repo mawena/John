@@ -325,7 +325,7 @@ Partial Class EmployeesControl
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DGV_EMPLOYEES.DefaultCellStyle = DataGridViewCellStyle3
         Me.DGV_EMPLOYEES.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.DGV_EMPLOYEES.Location = New System.Drawing.Point(0, 171)
+        Me.DGV_EMPLOYEES.Location = New System.Drawing.Point(0, 174)
         Me.DGV_EMPLOYEES.Name = "DGV_EMPLOYEES"
         Me.DGV_EMPLOYEES.ReadOnly = True
         Me.DGV_EMPLOYEES.RowHeadersVisible = False

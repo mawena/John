@@ -56,6 +56,7 @@
         BT_EMPLOYEES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "EMPLOYEES"
         PB_GESTION_ILLUSTRATION.ImageLocation = employeesIllustrationPath
+        employeesControl.BT_REFRESH_Click(Nothing, Nothing)
         employeesControl.Show()
     End Sub
 
@@ -65,6 +66,7 @@
         BT_INSTITUTES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "INSITUTS"
         PB_GESTION_ILLUSTRATION.ImageLocation = institutesIllustrationPath
+        institutesControl.BT_REFRESH_Click(Nothing, Nothing)
         institutesControl.Show()
     End Sub
 

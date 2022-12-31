@@ -18,7 +18,7 @@ Public Class EmployeesController
         Return table
     End Function
 
-    Public Shared Function searchEmployees(word As String) As DataTable
+    Public Shared Function searchEmployees(world As String) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Nom", GetType(String))
@@ -28,8 +28,8 @@ Public Class EmployeesController
         table.Columns.Add("Genre", GetType(String))
         table.Columns.Add("Fonction", GetType(String))
 
-        If word <> Nothing Then
-            For Each employee As Employee In EmployeesManager.searchEmployees(word)
+        If world <> Nothing Then
+            For Each employee As Employee In EmployeesManager.searchEmployees(world)
                 table.LoadDataRow(New Object() {employee.Id, employee.LastName, employee.FirstName, employee.PhoneNumber, employee.Email, employee.Gender, employee.FunctionField}, True)
             Next
         Else
@@ -85,27 +85,39 @@ Public Class EmployeesController
         gender = Employee.Gender_view_to_gender(gender)
         functionField = Employee.Function_view_field_to_function_field(functionField)
         If (verifyEmployee(lastName, firstName, phoneNumber, email, gender, functionField)) Then
-            Dim employeeDB As Employee = EmployeesManager.getById(employeeId)
-            If (employeeDB.LastName = Nothing) Then
-                MessageBox.Show("L'employé " & employeeId & " n'existe pas", "Employé inexistant", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                Return EmployeesManager.update(New Employee(lastName, firstName, phoneNumber, email, gender, functionField), employeeId)
+            Dim employeeDB As Employee = EmployeesManager.getByLastNameAndFirtName(lastName, firstName)
+            If employeeDB.LastName <> Nothing Then
+                If employeeDB.Id = employeeId Then
+                    employeeDB = EmployeesManager.getByPhoneNumber(phoneNumber)
+                    If employeeDB.LastName <> Nothing Then
+                        If employeeDB.Id = employeeId Then
+                            employeeDB = EmployeesManager.getByEmail(email)
+                            If employeeDB.LastName <> Nothing Then
+                                If employeeDB.Id <> employeeId Then
+                                    MessageBox.Show("L'email " & email & " est déjà utilisé pas", "Email déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Return False
+                                End If
+                            End If
+                        Else
+                            MessageBox.Show("Le numéro de téléphone " & phoneNumber & " est déjà utilisé", "Numéro de téléphone déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Return False
+                        End If
+                    End If
+                Else
+                    MessageBox.Show("Le nom " & lastName & " - " & firstName & " est déjà utilisé", "Nom déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return False
+                End If
             End If
         End If
-        Return False
+        Return EmployeesManager.update(New Employee(lastName, firstName, phoneNumber, email, gender, functionField), employeeId)
     End Function
 
     Public Shared Function delete(idList As List(Of Integer)) As Boolean
         Dim response As Boolean = False
         If (MessageBox.Show("Etes vous sûr de vouloir supprimer cet(s) employé(s)?", "Confirmation de supression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes) Then
             For Each id As Integer In idList
-                If EmployeesManager.getById(id).LastName = Nothing Then
-                    MessageBox.Show("L'employé " & id & " n'existe pas.", "Employé inexistant", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit For
-                Else
-                    If EmployeesManager.delete(id) Then
-                        response = True
-                    End If
+                If EmployeesManager.delete(id) Then
+                    response = True
                 End If
             Next
         Else

@@ -1,6 +1,6 @@
 ﻿Public Class InstitutesManager
     Inherits Manager
-    Private Shared Function getinstituteGenerique() As Institute
+    Private Shared Function getInstituteGenerique() As Institute
         Dim insitute As Institute = New Institute(Nothing, Nothing, Nothing)
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -22,16 +22,16 @@
     Public Shared Function getById(id As Integer) As Institute
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE id = @id;", Manager.connection)
         command.Parameters.AddWithValue("@id", id)
-        Return getinstituteGenerique()
+        Return getInstituteGenerique()
     End Function
 
     Public Shared Function getByLibelle(libelle As String) As Institute
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle = @libelle;", Manager.connection)
         command.Parameters.AddWithValue("@libelle", libelle)
-        Return getinstituteGenerique()
+        Return getInstituteGenerique()
     End Function
 
-    Public Shared Function getinstitutesGenerique() As List(Of Institute)
+    Public Shared Function getInstitutesGenerique() As List(Of Institute)
         Dim insituteList As New List(Of Institute)()
         Try
 
@@ -50,18 +50,18 @@
 
     Public Shared Function getAll() As List(Of Institute)
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes;", Manager.connection)
-        Return getinstitutesGenerique()
+        Return getInstitutesGenerique()
     End Function
 
-    Public Shared Function searchinstitutes(word As String)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @word ;", Manager.connection)
-        command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getinstitutesGenerique()
+    Public Shared Function searchInstitutes(world As String)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @world OR sigle LIKE @world;", Manager.connection)
+        command.Parameters.AddWithValue("@world", "%" & world & "%")
+        Return getInstitutesGenerique()
     End Function
 
     Public Shared Function store(institute As Institute) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO Institutes VALUES(@libelle, @sigle);", Manager.connection)
+            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO Institutes(libelle, sigle) VALUES(@libelle, @sigle);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", institute.Libelle)
             command.Parameters.AddWithValue("@sigle", institute.Sigle)
             command.ExecuteNonQuery()

@@ -12,7 +12,7 @@
         DGV_EMPLOYEES.DataSource = EmployeesController.getAll()
     End Sub
 
-    Private Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
+    Public Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
         DGV_EMPLOYEES.DataSource = EmployeesController.getAll()
     End Sub
 
