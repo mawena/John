@@ -48,7 +48,7 @@ CREATE TABLE
         libelle VARCHAR(150) NOT NULL UNIQUE,
         sigle VARCHAR(40) NOT NULL,
         institute_id int NOT NULL,
-        FOREIGN KEY(institute_id) REFERENCES Institutes(id)
+        FOREIGN KEY(institute_id) REFERENCES Institutes(id) ON DELETE CASCADE
     );
 
 DROP TABLE IF EXISTS UEs;
@@ -59,7 +59,7 @@ CREATE TABLE
         libelle VARCHAR(150) NOT NULL,
         semester int NOT NULL,
         faculty_id int NOT NULL,
-        FOREIGN KEY(faculty_id) REFERENCES Faculties(id)
+        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE
     );
 
 DROP TABLE IF EXISTS ECUEs;
@@ -70,7 +70,7 @@ CREATE TABLE
         libelle VARCHAR(150) NOT NULL UNIQUE,
         credit int,
         employee_id int NOT NULL,
-        FOREIGN KEY(employee_id) REFERENCES Employees(id)
+        FOREIGN KEY(employee_id) REFERENCES Employees(id) ON DELETE CASCADE
     );
 
 DROP TABLE IF EXISTS ECUEsUEs;
@@ -80,7 +80,7 @@ CREATE TABLE
         ECUE_id int NOT NULL,
         UE_id int NOT NULL,
         FOREIGN KEY(ECUE_id) REFERENCES ECUEs(id),
-        FOREIGN KEY(UE_id) REFERENCES UEs(id),
+        FOREIGN KEY(UE_id) REFERENCES UEs(id)
         PRIMARY KEY(ECUE_id, UE_id)
     );
 
@@ -97,7 +97,7 @@ CREATE TABLE
         phone_number VARCHAR(30) NOT NULL,
         picture_path VARCHAR(300) NOT NULL,
         faculty_id int NOT NULL,
-        FOREIGN KEY(faculty_id) REFERENCES Faculties(id),
+        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE,
         UNIQUE(last_name, first_name, email)
     );
 
@@ -105,8 +105,8 @@ CREATE TABLE
     ECUEsStudents(
         ECUE_id int NOT NULL,
         student_id int NOT NULL,
-        FOREIGN KEY(ECUE_id) REFERENCES ECUEs(id),
-        FOREIGN KEY(student_id) REFERENCES Students(id),
+        FOREIGN KEY(ECUE_id) REFERENCES ECUEs(id) ON DELETE CASCADE,
+        FOREIGN KEY(student_id) REFERENCES Students(id) ON DELETE CASCADE,
         PRIMARY KEY(ECUE_id, student_id)
     );
 
@@ -121,24 +121,37 @@ CREATE TABLE
         date_field DATETIME,
         weight_field DOUBLE,
         type_field ENUM('D', 'E', 'R'),
-        FOREIGN KEY(ECUE_id) REFERENCES ECUEs(id),
-        FOREIGN KEY(student_id) REFERENCES Students(id)
+        FOREIGN KEY(ECUE_id) REFERENCES ECUEs(id) ON DELETE CASCADE,
+        FOREIGN KEY(student_id) REFERENCES Students(id) ON DELETE CASCADE
     );
 
-INSERT INTO Institutes
+INSERT INTO Institutes(libelle, sigles)
 VALUES (
-        1,
         "Institut Supérieur de Technologie Informatique et Numérique",
         "ISTIN"
+    ),
+    (
+        "Faculté Des Sciences",
+        "FDS"
     );
 
-INSERT INTO Faculties
+INSERT INTO Faculties(libelle, sigle, institute_id)
 VALUES (
-        1,
         "Dévéloppement d'Application",
         "DA",
         1
-    );
+    ),
+    (
+        "Maths-Informatique",
+        "MI",
+        1
+    ),
+    (
+        "Mathématiques",
+        "Maths",
+        2
+    )
+    ;
 
 INSERT INTO Students
 VALUES (

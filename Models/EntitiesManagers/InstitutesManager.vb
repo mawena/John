@@ -31,6 +31,12 @@
         Return getInstituteGenerique()
     End Function
 
+    Public Shared Function getByName(name As String) As Institute
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE CONCAT(sigle, ' - ', libelle) = @name;", Manager.connection)
+        command.Parameters.AddWithValue("@name", name)
+        Return getInstituteGenerique()
+    End Function
+
     Public Shared Function getInstitutesGenerique() As List(Of Institute)
         Dim insituteList As New List(Of Institute)()
         Try
