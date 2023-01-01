@@ -126,6 +126,12 @@
     <Compile Include="Views\SuperUser\Controls\EmployeesControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\SuperUser\Controls\FacultiesControl.Designer.vb">
+      <DependentUpon>FacultiesControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuperUser\Controls\FacultiesControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Views\SuperUser\Controls\InstitutesControl.Designer.vb">
       <DependentUpon>InstitutesControl.vb</DependentUpon>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SuperUser\Controls\EmployeesControl.resx">
       <DependentUpon>EmployeesControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuperUser\Controls\FacultiesControl.resx">
+      <DependentUpon>FacultiesControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SuperUser\Controls\InstitutesControl.resx">
       <DependentUpon>InstitutesControl.vb</DependentUpon>

@@ -46,6 +46,7 @@ Partial Class AdminView
         Me.COB_CLOSE = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
+        Me.BT_FACULTIES_MENU = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.PB_GESTION_ILLUSTRATION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PB_ADMIN_ILLUSTRATION, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_TOP.SuspendLayout()
@@ -159,7 +160,7 @@ Partial Class AdminView
         Me.BT_EMPLOYEES_MENU.ForeColor = System.Drawing.Color.White
         Me.BT_EMPLOYEES_MENU.Image = CType(resources.GetObject("BT_EMPLOYEES_MENU.Image"), System.Drawing.Image)
         Me.BT_EMPLOYEES_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_EMPLOYEES_MENU.Location = New System.Drawing.Point(4, 263)
+        Me.BT_EMPLOYEES_MENU.Location = New System.Drawing.Point(4, 201)
         Me.BT_EMPLOYEES_MENU.Name = "BT_EMPLOYEES_MENU"
         Me.BT_EMPLOYEES_MENU.Size = New System.Drawing.Size(182, 45)
         Me.BT_EMPLOYEES_MENU.TabIndex = 21
@@ -177,7 +178,7 @@ Partial Class AdminView
         Me.BT_UES_MENU.ForeColor = System.Drawing.Color.White
         Me.BT_UES_MENU.Image = CType(resources.GetObject("BT_UES_MENU.Image"), System.Drawing.Image)
         Me.BT_UES_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_UES_MENU.Location = New System.Drawing.Point(4, 365)
+        Me.BT_UES_MENU.Location = New System.Drawing.Point(4, 354)
         Me.BT_UES_MENU.Name = "BT_UES_MENU"
         Me.BT_UES_MENU.Size = New System.Drawing.Size(182, 45)
         Me.BT_UES_MENU.TabIndex = 23
@@ -195,7 +196,7 @@ Partial Class AdminView
         Me.BT_ECUES_MENU.ForeColor = System.Drawing.Color.White
         Me.BT_ECUES_MENU.Image = CType(resources.GetObject("BT_ECUES_MENU.Image"), System.Drawing.Image)
         Me.BT_ECUES_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_ECUES_MENU.Location = New System.Drawing.Point(4, 416)
+        Me.BT_ECUES_MENU.Location = New System.Drawing.Point(4, 405)
         Me.BT_ECUES_MENU.Name = "BT_ECUES_MENU"
         Me.BT_ECUES_MENU.Size = New System.Drawing.Size(182, 45)
         Me.BT_ECUES_MENU.TabIndex = 24
@@ -213,7 +214,7 @@ Partial Class AdminView
         Me.BT_USERS_MENU.ForeColor = System.Drawing.Color.White
         Me.BT_USERS_MENU.Image = CType(resources.GetObject("BT_USERS_MENU.Image"), System.Drawing.Image)
         Me.BT_USERS_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_USERS_MENU.Location = New System.Drawing.Point(4, 467)
+        Me.BT_USERS_MENU.Location = New System.Drawing.Point(4, 456)
         Me.BT_USERS_MENU.Name = "BT_USERS_MENU"
         Me.BT_USERS_MENU.Size = New System.Drawing.Size(182, 45)
         Me.BT_USERS_MENU.TabIndex = 25
@@ -236,7 +237,7 @@ Partial Class AdminView
         Me.PB_ADMIN_ILLUSTRATION.BackColor = System.Drawing.Color.Transparent
         Me.PB_ADMIN_ILLUSTRATION.Image = CType(resources.GetObject("PB_ADMIN_ILLUSTRATION.Image"), System.Drawing.Image)
         Me.PB_ADMIN_ILLUSTRATION.ImageRotate = 0!
-        Me.PB_ADMIN_ILLUSTRATION.Location = New System.Drawing.Point(4, 70)
+        Me.PB_ADMIN_ILLUSTRATION.Location = New System.Drawing.Point(4, 37)
         Me.PB_ADMIN_ILLUSTRATION.Name = "PB_ADMIN_ILLUSTRATION"
         Me.PB_ADMIN_ILLUSTRATION.Size = New System.Drawing.Size(182, 143)
         Me.PB_ADMIN_ILLUSTRATION.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -256,7 +257,7 @@ Partial Class AdminView
         Me.BT_INSTITUTES_MENU.ForeColor = System.Drawing.Color.White
         Me.BT_INSTITUTES_MENU.Image = CType(resources.GetObject("BT_INSTITUTES_MENU.Image"), System.Drawing.Image)
         Me.BT_INSTITUTES_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_INSTITUTES_MENU.Location = New System.Drawing.Point(4, 314)
+        Me.BT_INSTITUTES_MENU.Location = New System.Drawing.Point(4, 252)
         Me.BT_INSTITUTES_MENU.Name = "BT_INSTITUTES_MENU"
         Me.BT_INSTITUTES_MENU.Size = New System.Drawing.Size(182, 45)
         Me.BT_INSTITUTES_MENU.TabIndex = 28
@@ -329,6 +330,24 @@ Partial Class AdminView
         Me.Guna2DragControl1.TargetControl = Me.P_TOP
         Me.Guna2DragControl1.TransparentWhileDrag = False
         '
+        'BT_FACULTIES_MENU
+        '
+        Me.BT_FACULTIES_MENU.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BT_FACULTIES_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BT_FACULTIES_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BT_FACULTIES_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BT_FACULTIES_MENU.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BT_FACULTIES_MENU.FillColor = System.Drawing.Color.DimGray
+        Me.BT_FACULTIES_MENU.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_FACULTIES_MENU.ForeColor = System.Drawing.Color.White
+        Me.BT_FACULTIES_MENU.Image = CType(resources.GetObject("BT_FACULTIES_MENU.Image"), System.Drawing.Image)
+        Me.BT_FACULTIES_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.BT_FACULTIES_MENU.Location = New System.Drawing.Point(4, 303)
+        Me.BT_FACULTIES_MENU.Name = "BT_FACULTIES_MENU"
+        Me.BT_FACULTIES_MENU.Size = New System.Drawing.Size(182, 45)
+        Me.BT_FACULTIES_MENU.TabIndex = 106
+        Me.BT_FACULTIES_MENU.Text = "Facultés"
+        '
         'AdminView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -336,6 +355,7 @@ Partial Class AdminView
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1243, 661)
+        Me.Controls.Add(Me.BT_FACULTIES_MENU)
         Me.Controls.Add(Me.P_TOP)
         Me.Controls.Add(Me.BT_INSTITUTES_MENU)
         Me.Controls.Add(Me.PB_ADMIN_ILLUSTRATION)
@@ -381,4 +401,5 @@ Partial Class AdminView
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2DragControl1 As Guna.UI2.WinForms.Guna2DragControl
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents BT_FACULTIES_MENU As Guna.UI2.WinForms.Guna2Button
 End Class

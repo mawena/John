@@ -13,7 +13,7 @@
             Next
             disposeManager()
         Catch ex As Exception
-            MessageBox.Show("Erreur durant une selection de données : " & ex.Message, "manager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erreur durant une selection de données : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
         Return insitute
@@ -43,7 +43,7 @@
             Next
             disposeManager()
         Catch ex As Exception
-            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "manager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return insituteList
     End Function
@@ -68,7 +68,7 @@
             disposeManager()
             Return True
         Catch ex As Exception
-            MessageBox.Show("Erreur durant l'insertion : " & ex.Message, "manager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erreur durant l'insertion : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return False
     End Function
@@ -83,7 +83,7 @@
             disposeManager()
             Return True
         Catch ex As Exception
-            MessageBox.Show("Erreur durant la mise à jour : " & ex.Message, "manager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erreur durant la mise à jour : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return False
     End Function
@@ -96,7 +96,7 @@
             disposeManager()
             Return True
         Catch ex As Exception
-            MessageBox.Show("Erreur durant la supression : " & ex.Message, "manager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erreur durant la supression : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return False
     End Function

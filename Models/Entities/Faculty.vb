@@ -1,4 +1,4 @@
-﻿Public Class Falcuty
+﻿Public Class Faculty
     Private _id As Integer
     Private _libelle As String
     Private _sigle As String
