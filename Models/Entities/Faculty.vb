@@ -50,8 +50,8 @@
             Return _instituteId
         End Get
         Set(value As Integer)
-            _institute = InstitutesManager.getById(_instituteId)
             _instituteId = value
+            _institute = InstitutesManager.getById(_instituteId)
         End Set
     End Property
 

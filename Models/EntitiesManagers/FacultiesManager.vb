@@ -72,7 +72,7 @@
 
     Public Shared Function store(faculty As Faculty) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO Facuties(libelle, sigle, institute_id) VALUES (@libelle, @sigle, @institute_id);", Manager.connection)
+            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO Faculties(libelle, sigle, institute_id) VALUES (@libelle, @sigle, @institute_id);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", faculty.Libelle)
             command.Parameters.AddWithValue("@sigle", faculty.Sigle)
             command.Parameters.AddWithValue("@institute_id", faculty.InstituteId)

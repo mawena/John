@@ -83,6 +83,8 @@
         BT_FACULTIES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "FACULTES"
         PB_GESTION_ILLUSTRATION.ImageLocation = facultiesIllustrationPath
+        facultiesControl.refreshCB_INSTITUTE()
+        facultiesControl.BT_REFRESH_Click(Nothing, Nothing)
         facultiesControl.Show()
     End Sub
 

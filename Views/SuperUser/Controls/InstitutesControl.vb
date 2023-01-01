@@ -30,10 +30,10 @@
                     BT_REFRESH_Click(Nothing, Nothing)
                 End If
             Else
-                MsgBox("Vous ne pouvez modifier qu'une ligne à la fois")
+                MessageBox.Show("Vous ne pouvez modifier qu'une ligne à la fois", "Modification multiple non permise", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
-            MsgBox("Aucune ligne n'a été sélectionnée.")
+            MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Ligne non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -48,7 +48,7 @@
                 BT_REFRESH_Click(Nothing, Nothing)
             End If
         Else
-            MsgBox("Aucune ligne n'a été sélectionnée.")
+            MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Lignes non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 

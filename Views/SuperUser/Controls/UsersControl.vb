@@ -15,6 +15,11 @@
                 CB_EMPLOYEE.Items.Add(employee.FirstName & " - " & employee.LastName)
             End If
         Next
+        If (CB_EMPLOYEE.Items.Count > 0) Then
+            CB_EMPLOYEE.SelectedIndex = 0
+        Else
+            CB_EMPLOYEE.SelectedIndex = -1
+        End If
         CB_EMPLOYEE.SelectedIndex = 0
     End Sub
 
@@ -47,10 +52,10 @@
                     BT_REFRESH_Click(Nothing, Nothing)
                 End If
             Else
-                MsgBox("Vous ne pouvez modifier qu'une ligne à la fois")
+                MessageBox.Show("Vous ne pouvez modifier qu'une ligne à la fois", "Modification multiple non permise", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
-            MsgBox("Aucune ligne n'a été sélectionnée.")
+            MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Ligne non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -66,10 +71,13 @@
                 BT_REFRESH_Click(Nothing, Nothing)
             End If
         Else
-            MsgBox("Aucune ligne n'a été sélectionnée.")
+            MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Lignes non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
+    Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged
+        DGV_USERS.DataSource = UsersController.searchUsers(TB_SEARCH.Text)
+    End Sub
 
     Private Sub DGV_USERS_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_USERS.CellClick
         TB_USERNAME.Text = DGV_USERS.SelectedRows(0).Cells(1).Value
@@ -80,9 +88,6 @@
         End If
     End Sub
 
-    Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged
-        DGV_USERS.DataSource = UsersController.searchUsers(TB_SEARCH.Text)
-    End Sub
 
     Private Sub CTS_DISPLAY_PASSWORD_CheckedChanged(sender As Object, e As EventArgs) Handles CTS_DISPLAY_PASSWORD.CheckedChanged
         If (CTS_DISPLAY_PASSWORD.Checked) Then

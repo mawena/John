@@ -80,7 +80,7 @@ CREATE TABLE
         ECUE_id int NOT NULL,
         UE_id int NOT NULL,
         FOREIGN KEY(ECUE_id) REFERENCES ECUEs(id),
-        FOREIGN KEY(UE_id) REFERENCES UEs(id)
+        FOREIGN KEY(UE_id) REFERENCES UEs(id),
         PRIMARY KEY(ECUE_id, UE_id)
     );
 
@@ -125,7 +125,13 @@ CREATE TABLE
         FOREIGN KEY(student_id) REFERENCES Students(id) ON DELETE CASCADE
     );
 
-INSERT INTO Institutes(libelle, sigles)
+
+
+
+
+
+
+INSERT INTO Institutes(libelle, sigle)
 VALUES (
         "Institut Supérieur de Technologie Informatique et Numérique",
         "ISTIN"

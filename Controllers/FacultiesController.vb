@@ -13,7 +13,7 @@
         Return table
     End Function
 
-    Public Shared Function searchInstitutes(world As String) As DataTable
+    Public Shared Function searchFaculties(world As String) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Libelle", GetType(String))
