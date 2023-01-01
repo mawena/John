@@ -65,19 +65,23 @@
         End Get
     End Property
 
-    Public Function FunctionViewField() As String
-        If (_employeeId = Nothing) Then
-            Return "Administrateur"
-        End If
-        Return FunctionFieldToFunctionViewField(_employee.FunctionField)
-    End Function
+    Public ReadOnly Property FunctionViewField As String
+        Get
+            If (_employeeId = Nothing) Then
+                Return "Administrateur"
+            End If
+            Return FunctionFieldToFunctionViewField(_employee.FunctionField)
+        End Get
+    End Property
 
-    Public Function EmployeeName() As String
-        If _employee.LastName = Nothing Then
-            Return "Non employé"
-        End If
-        Return _employee.FirstName & " - " & _employee.LastName
-    End Function
+    Public ReadOnly Property EmployeeName() As String
+        Get
+            If _employee.LastName = Nothing Then
+                Return "Non employé"
+            End If
+            Return _employee.FirstName & " - " & _employee.LastName
+        End Get
+    End Property
 
     Public Shared Function FunctionFieldToFunctionViewField(function_field As String) As String
         If function_field = "TuititionService" Then

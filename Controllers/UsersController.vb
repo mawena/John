@@ -7,7 +7,7 @@
         table.Columns.Add("Employé", GetType(String))
 
         For Each user As User In UsersManager.getAll()
-            table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField(), user.EmployeeName()}, True)
+            table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.EmployeeName}, True)
         Next
         Return table
     End Function
@@ -20,7 +20,7 @@
         table.Columns.Add("Employé", GetType(String))
         If word <> Nothing Then
             For Each user As User In UsersManager.searchUsers(word)
-                table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField(), user.EmployeeName()}, True)
+                table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.EmployeeName}, True)
             Next
         Else
             Return getAll()

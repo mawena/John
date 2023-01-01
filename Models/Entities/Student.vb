@@ -113,18 +113,4 @@
             _facultyId = value
         End Set
     End Property
-
-    Public Overrides Function Equals(obj As Object) As Boolean
-        Dim studen = TryCast(obj, Studen)
-        Return studen IsNot Nothing AndAlso
-               _id = studen._id AndAlso
-               _lastName = studen._lastName AndAlso
-               _firstName = studen._firstName AndAlso
-               _birthDate = studen._birthDate AndAlso
-               _gender = studen._gender AndAlso
-               _email = studen._email AndAlso
-               _phoneNumber = studen._phoneNumber AndAlso
-               _picturePath = studen._picturePath AndAlso
-               _facultyId = studen._facultyId
-    End Function
 End Class

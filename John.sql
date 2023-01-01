@@ -59,7 +59,8 @@ CREATE TABLE
         libelle VARCHAR(150) NOT NULL,
         semester int NOT NULL,
         faculty_id int NOT NULL,
-        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE
+        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE,
+        UNIQUE(libelle, semester, faculty_id)
     );
 
 DROP TABLE IF EXISTS ECUEs;
@@ -92,7 +93,7 @@ CREATE TABLE
         last_name VARCHAR(30) NOT NULL,
         first_name VARCHAR(150) NOT NULL,
         birth_date DATE,
-        gender ENUM('F', 'M'),
+        gender ENUM('Female', 'Male'),
         email VARCHAR(200) NOT NULL,
         phone_number VARCHAR(30) NOT NULL,
         picture_path VARCHAR(300) NOT NULL,
@@ -125,52 +126,12 @@ CREATE TABLE
         FOREIGN KEY(student_id) REFERENCES Students(id) ON DELETE CASCADE
     );
 
-
-
-
-
-
-
-INSERT INTO Institutes(libelle, sigle)
+INSERT INTO
+    Institutes(libelle, sigle)
 VALUES (
         "Institut Supérieur de Technologie Informatique et Numérique",
         "ISTIN"
-    ),
-    (
-        "Faculté Des Sciences",
-        "FDS"
-    );
-
-INSERT INTO Faculties(libelle, sigle, institute_id)
-VALUES (
-        "Dévéloppement d'Application",
-        "DA",
-        1
-    ),
-    (
-        "Maths-Informatique",
-        "MI",
-        1
-    ),
-    (
-        "Mathématiques",
-        "Maths",
-        2
-    )
-    ;
-
-INSERT INTO Students
-VALUES (
-        1,
-        "GAMLIGO",
-        "Charles Dieu-Donné",
-        "03/03/2000",
-        "M",
-        "gamligocharles@gmail.com",
-        "+228 98676615",
-        "/home/mawena/dums.jpg",
-        1
-    );
+    ), ("Faculté Des Sciences", "FDS");
 
 INSERT INTO
     Employees (
@@ -209,6 +170,20 @@ VALUES (
         "rhamone@gmail.com",
         "Male",
         "Teacher"
+    ), (
+        "EUSEBIO",
+        "Claude",
+        "+228 91909290",
+        "eusebio@gmail.com",
+        "Male",
+        "Teacher"
+    ), (
+        "DAMALI",
+        "Claude",
+        "+228 91939090",
+        "Damali@gmail.com",
+        "Male",
+        "Teacher"
     );
 
 INSERT INTO
@@ -217,10 +192,37 @@ INSERT INTO
         password_field,
         employee_id
     )
-VALUES ("Mawena", "licdovic", NULL), ("Pierrette", "licdovic", 1), ("Espoir", "licdovic", 2), ("Jeff", "licdovic", 3), ("Rhamone", "licdovic", 4);
+VALUES ("Mawena", "licdovic", NULL), ("Pierrette", "AOUKOU", 1), ("Espoir", "BOUILI", 2), ("Jeff", "jeff", 3), ("Rhamone", "Kota", 4), ("Eusebio", "claude", 5), ("Damli", "Damali", 6);
 
-SELECT * FROM Users;
+INSERT INTO
+    Faculties(libelle, sigle, institute_id)
+VALUES (
+        "Dévéloppement d'Application",
+        "DA",
+        1
+    ), ("Maths-Informatique", "MI", 1), ("Mathématiques", "Maths", 2);
 
-SELECT * FROM Employees;
+INSERT INTO
+    UEs(libelle, semester, faculty_id)
+VALUES ("Programmation de Base", 1, 1), ("Programmation de Base", 1, 2), ("Base de données", 1, 2);
 
-SELECT * FROM Users, Employees WHERE Users.employee_id = NULL;
+INSERT INTO
+    ECUEs(libelle, credit, employee_id)
+VALUES (
+        "Aplication Programmation 1",
+        3,
+        5
+    ), ("Base de données", 3, 6);
+
+INSERT INTO Students
+VALUES (
+        1,
+        "GAMLIGO",
+        "Charles Dieu-Donné",
+        "03/03/2000",
+        "M",
+        "gamligocharles@gmail.com",
+        "+228 98676615",
+        "/home/mawena/dums.jpg",
+        1
+    );

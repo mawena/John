@@ -89,25 +89,17 @@
         End Set
     End Property
 
-    Public Function FunctionFieldView() As String
-        Return Function_field_to_function_view_field(_functionField)
-    End Function
+    Public ReadOnly Property FunctionFieldView As String
+        Get
+            Return Function_field_to_function_view_field(_functionField)
+        End Get
+    End Property
 
-    Public Function GenderView() As String
-        Return Gender_to_gender_view(_gender)
-    End Function
-
-    Public Overrides Function Equals(obj As Object) As Boolean
-        Dim employee = TryCast(obj, Employee)
-        Return employee IsNot Nothing AndAlso
-               _id = employee._id AndAlso
-               _lastName = employee._lastName AndAlso
-               _firstName = employee._firstName AndAlso
-               _phoneNumber = employee._phoneNumber AndAlso
-               _email = employee._email AndAlso
-               _gender = employee._gender AndAlso
-               _functionField = employee._functionField
-    End Function
+    Public ReadOnly Property GenderView As String
+        Get
+            Return Gender_to_gender_view(_gender)
+        End Get
+    End Property
 
     Public Shared Function Function_field_to_function_view_field(function_field As String) As String
         If function_field = "TuititionService" Then
