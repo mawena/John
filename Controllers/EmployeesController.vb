@@ -1,7 +1,7 @@
 ﻿Imports Mysqlx.XDevAPI.Relational
 
 Public Class EmployeesController
-    Public Shared Function getAll() As DataTable
+    Public Shared Function getEmployeesGenerique(employeesList As List(Of Employee)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Nom", GetType(String))
@@ -12,30 +12,22 @@ Public Class EmployeesController
         table.Columns.Add("Fonction", GetType(String))
 
 
-        For Each employee As Employee In EmployeesManager.getAll()
+        For Each employee As Employee In employeesList
             table.LoadDataRow(New Object() {employee.Id, employee.LastName, employee.FirstName, employee.PhoneNumber, employee.Email, employee.GenderView, employee.FunctionFieldView}, True)
         Next
         Return table
     End Function
 
-    Public Shared Function searchEmployees(world As String) As DataTable
-        Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Nom", GetType(String))
-        table.Columns.Add("Prénoms", GetType(String))
-        table.Columns.Add("Téléphone", GetType(String))
-        table.Columns.Add("Email", GetType(String))
-        table.Columns.Add("Genre", GetType(String))
-        table.Columns.Add("Fonction", GetType(String))
+    Public Shared Function getAll() As DataTable
+        Return getEmployeesGenerique(EmployeesManager.getAll())
+    End Function
 
+    Public Shared Function searchEmployees(world As String) As DataTable
         If world <> Nothing Then
-            For Each employee As Employee In EmployeesManager.searchEmployees(world)
-                table.LoadDataRow(New Object() {employee.Id, employee.LastName, employee.FirstName, employee.PhoneNumber, employee.Email, employee.Gender, employee.FunctionField}, True)
-            Next
+            Return getEmployeesGenerique(EmployeesManager.searchEmployees(world))
         Else
             Return getAll()
         End If
-        Return table
     End Function
 
     Public Shared Function verifyEmployee(lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String)

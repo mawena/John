@@ -1,5 +1,5 @@
 ﻿Public Class FacultiesController
-    Public Shared Function getAll() As DataTable
+    Public Shared Function getFacultiesGenerique(facultiesList As List(Of Faculty)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Libelle", GetType(String))
@@ -7,27 +7,22 @@
         table.Columns.Add("Institut", GetType(String))
 
 
-        For Each faculty As Faculty In FacultiesManager.getAll()
+        For Each faculty As Faculty In facultiesList
             table.LoadDataRow(New Object() {faculty.Id, faculty.Libelle, faculty.Sigle, faculty.InstituteName}, True)
         Next
         Return table
     End Function
 
-    Public Shared Function searchFaculties(world As String) As DataTable
-        Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Libelle", GetType(String))
-        table.Columns.Add("Sigle", GetType(String))
-        table.Columns.Add("Institut", GetType(String))
+    Public Shared Function getAll() As DataTable
+        Return getFacultiesGenerique(FacultiesManager.getAll())
+    End Function
 
+    Public Shared Function searchFaculties(world As String) As DataTable
         If world <> Nothing Then
-            For Each faculty As Faculty In FacultiesManager.searchFaculties(world)
-                table.LoadDataRow(New Object() {faculty.Id, faculty.Libelle, faculty.Sigle, faculty.InstituteName}, True)
-            Next
+            Return getFacultiesGenerique(FacultiesManager.searchFaculties(world))
         Else
             Return getAll()
         End If
-        Return table
     End Function
 
     Public Shared Function verifyFaculty(libelle As String, sigle As String) As Boolean

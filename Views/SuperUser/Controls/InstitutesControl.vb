@@ -4,12 +4,25 @@
         TB_SIGLE.Text = ""
     End Sub
 
+    Private Sub CheckButtons()
+        Dim nbRowSelected = DGV_INSTITUTES.SelectedRows.Count
+        If nbRowSelected > 0 Then
+            BT_DELETE.Enabled = True
+            BT_UPDATE.Enabled = True
+        Else
+            BT_DELETE.Enabled = False
+            BT_UPDATE.Enabled = False
+        End If
+    End Sub
+
     Private Sub InstitutesControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DGV_INSTITUTES.DataSource = InstitutesController.getAll()
+        CheckButtons()
     End Sub
 
     Public Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
         DGV_INSTITUTES.DataSource = InstitutesController.getAll()
+        CheckButtons()
     End Sub
 
     Private Sub BT_ADD_Click(sender As Object, e As EventArgs) Handles BT_ADD.Click
@@ -17,6 +30,7 @@
             ClearForm()
             BT_REFRESH_Click(Nothing, Nothing)
         End If
+        CheckButtons()
     End Sub
 
     Private Sub BT_UPDATE_Click(sender As Object, e As EventArgs) Handles BT_UPDATE.Click
@@ -35,6 +49,7 @@
         Else
             MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Ligne non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+        CheckButtons()
     End Sub
 
     Private Sub BT_DELETE_Click(sender As Object, e As EventArgs) Handles BT_DELETE.Click
@@ -50,6 +65,7 @@
         Else
             MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Lignes non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+        CheckButtons()
     End Sub
 
     Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged

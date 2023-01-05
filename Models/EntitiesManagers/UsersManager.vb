@@ -123,7 +123,7 @@
         Try
             command = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM Users WHERE id = @id;", Manager.connection)
             command.Parameters.AddWithValue("@id", id)
-            command.ExecuteNonQuery
+            command.ExecuteNonQuery()
             disposeManager()
             Return True
         Catch ex As Exception

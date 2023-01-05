@@ -65,7 +65,7 @@
     End Function
 
     Public Shared Function searchFaculties(world As String) As List(Of Faculty)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Faculties WHERE username LIKE @world;", Manager.connection)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Faculties WHERE libelle LIKE @world OR sigle LIKE @world;", Manager.connection)
         command.Parameters.AddWithValue("@world", "%" & world & "%")
         Return getFacultiesGenerique()
     End Function

@@ -1,5 +1,5 @@
 ﻿Public Class UsersController
-    Public Shared Function getAll() As DataTable
+    Public Shared Function getUsersGenerique(usersList As List(Of User)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Utilisateur", GetType(String))
@@ -12,21 +12,18 @@
         Return table
     End Function
 
+    Public Shared Function getAll()
+        Return getUsersGenerique(UsersManager.getAll())
+    End Function
+
     Public Shared Function searchUsers(word As String) As DataTable
-        Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Utilisateur", GetType(String))
-        table.Columns.Add("Fonction", GetType(String))
-        table.Columns.Add("Employé", GetType(String))
         If word <> Nothing Then
-            For Each user As User In UsersManager.searchUsers(word)
-                table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.EmployeeName}, True)
-            Next
+            Return getUsersGenerique(UsersManager.searchUsers(word))
         Else
             Return getAll()
         End If
-        Return table
     End Function
+
     Public Shared Function verifyUser(username As String, password_field As String, update_password_field As Boolean)
         If (username = "") Then
             MessageBox.Show("Le nom d'utilisateur ne doit pas être vide", "Utilisateur vide", MessageBoxButtons.OK, MessageBoxIcon.Error)

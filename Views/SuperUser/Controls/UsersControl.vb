@@ -23,13 +23,26 @@
         CB_EMPLOYEE.SelectedIndex = 0
     End Sub
 
+    Public Sub checkButtons()
+        Dim nbRowSelected = DGV_USERS.SelectedRows.Count
+        If nbRowSelected > 0 Then
+            BT_DELETE.Enabled = True
+            BT_UPDATE.Enabled = True
+        Else
+            BT_DELETE.Enabled = False
+            BT_UPDATE.Enabled = False
+        End If
+    End Sub
+
     Private Sub UsersControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         refreshCB_EMPLOYEE()
         DGV_USERS.DataSource = UsersController.getAll()
+        checkButtons()
     End Sub
 
     Public Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
         DGV_USERS.DataSource = UsersController.getAll()
+        checkButtons()
     End Sub
 
     Private Sub BT_ADD_Click(sender As Object, e As EventArgs) Handles BT_ADD.Click
@@ -38,6 +51,7 @@
             refreshCB_EMPLOYEE()
             BT_REFRESH_Click(Nothing, Nothing)
         End If
+        checkButtons()
     End Sub
 
     Private Sub BT_UPDATE_Click(sender As Object, e As EventArgs) Handles BT_UPDATE.Click
@@ -57,6 +71,7 @@
         Else
             MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Ligne non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+        checkButtons()
     End Sub
 
     Private Sub BT_DELETE_Click(sender As Object, e As EventArgs) Handles BT_DELETE.Click
@@ -73,6 +88,7 @@
         Else
             MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Lignes non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+        checkButtons()
     End Sub
 
     Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged
@@ -87,7 +103,6 @@
             CB_EMPLOYEE.SelectedItem = DGV_USERS.SelectedRows(0).Cells(3).Value
         End If
     End Sub
-
 
     Private Sub CTS_DISPLAY_PASSWORD_CheckedChanged(sender As Object, e As EventArgs) Handles CTS_DISPLAY_PASSWORD.CheckedChanged
         If (CTS_DISPLAY_PASSWORD.Checked) Then
