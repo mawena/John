@@ -3,7 +3,6 @@
     Private _libelle As String
     Private _semester As Integer
     Private _facultyId As Integer
-
     Private _faculty As Faculty
 
     Public Sub New(id As Integer, libelle As String, semester As Integer, facultyId As Integer)
