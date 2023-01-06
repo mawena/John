@@ -16,9 +16,9 @@
         Return getGeneriqueList(InstitutesManager.getAll())
     End Function
 
-    Public Shared Function searchInstitutes(word As String) As DataTable
+    Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(InstitutesManager.searchInstitutes(word))
+            Return getGeneriqueList(InstitutesManager.search(word))
         Else
             Return getAll()
         End If

@@ -92,7 +92,7 @@
     End Sub
 
     Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged
-        DGV_USERS.DataSource = UsersController.searchUsers(TB_SEARCH.Text)
+        DGV_USERS.DataSource = UsersController.search(TB_SEARCH.Text)
     End Sub
 
     Private Sub DGV_USERS_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_USERS.CellClick

@@ -91,7 +91,7 @@
         checkButtons()
     End Sub
     Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged
-        DGV_FACULTIES.DataSource = FacultiesController.searchFaculties(TB_SEARCH.Text)
+        DGV_FACULTIES.DataSource = FacultiesController.search(TB_SEARCH.Text)
     End Sub
 
     Private Sub DGV_FACULTIES_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_FACULTIES.CellClick

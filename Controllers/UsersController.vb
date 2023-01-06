@@ -6,7 +6,7 @@
         table.Columns.Add("Fonction", GetType(String))
         table.Columns.Add("Employé", GetType(String))
 
-        For Each user As User In UsersManager.getAll()
+        For Each user As User In usersList
             table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.EmployeeName}, True)
         Next
         Return table
@@ -16,9 +16,9 @@
         Return getGeneriqueList(UsersManager.getAll())
     End Function
 
-    Public Shared Function searchUsers(word As String) As DataTable
+    Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(UsersManager.searchUsers(word))
+            Return getGeneriqueList(UsersManager.search(word))
         Else
             Return getAll()
         End If

@@ -47,7 +47,7 @@
         Return getGeneriqueList()
     End Function
 
-    Public Shared Function searchFaculties(word As String) As List(Of Faculty)
+    Public Shared Function search(word As String) As List(Of Faculty)
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Faculties WHERE libelle LIKE @word OR sigle LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
         Return getGeneriqueList()
@@ -56,6 +56,12 @@
     Public Shared Function getById(id As Integer) As Faculty
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Faculties WHERE id = @id;", Manager.connection)
         command.Parameters.AddWithValue("@id", id)
+        Return getGenerique()
+    End Function
+
+    Public Shared Function getByIdAndName(idAndName As String) As Faculty
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Faculties WHERE CONCACT(id, '-', sigle, ' - ', libelle) = idAndName;", Manager.connection)
+        command.Parameters.AddWithValue("@idAndName", idAndName)
         Return getGenerique()
     End Function
 

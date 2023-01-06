@@ -47,7 +47,7 @@
         Return getGeneriqueList()
     End Function
 
-    Public Shared Function searchInstitutes(word As String)
+    Public Shared Function search(word As String)
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @word OR sigle LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
         Return getGeneriqueList()

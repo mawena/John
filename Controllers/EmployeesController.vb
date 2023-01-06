@@ -22,9 +22,9 @@ Public Class EmployeesController
         Return getGeneriqueList(EmployeesManager.getAll())
     End Function
 
-    Public Shared Function searchEmployees(word As String) As DataTable
+    Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(EmployeesManager.searchEmployees(word))
+            Return getGeneriqueList(EmployeesManager.search(word))
         Else
             Return getAll()
         End If

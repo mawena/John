@@ -63,7 +63,7 @@
 
     Public ReadOnly Property FacultyName
         Get
-            Return _faculty.Sigle & " - " & _faculty.Libelle
+            Return _facultyId & "-" & _faculty.Sigle & " - " & _faculty.Libelle
         End Get
     End Property
 End Class

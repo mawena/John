@@ -72,7 +72,7 @@
         Return getGeneriqueList()
     End Function
 
-    Public Shared Function searchEmployees(word As String)
+    Public Shared Function search(word As String)
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE last_name LIKE @word OR first_name LIKE @word OR email LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
         Return getGeneriqueList()

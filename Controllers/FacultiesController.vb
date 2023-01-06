@@ -17,9 +17,9 @@
         Return getGeneriqueList(FacultiesManager.getAll())
     End Function
 
-    Public Shared Function searchFaculties(word As String) As DataTable
+    Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(FacultiesManager.searchFaculties(word))
+            Return getGeneriqueList(FacultiesManager.search(word))
         Else
             Return getAll()
         End If
