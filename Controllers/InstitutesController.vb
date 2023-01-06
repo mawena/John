@@ -1,5 +1,5 @@
 ﻿Public Class InstitutesController
-    Public Shared Function getInstitutesGenerique(institutesList As List(Of Institute)) As DataTable
+    Public Shared Function getGeneriqueList(institutesList As List(Of Institute)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Libelle", GetType(String))
@@ -13,12 +13,12 @@
     End Function
 
     Public Shared Function getAll() As DataTable
-        Return getInstitutesGenerique(InstitutesManager.getAll())
+        Return getGeneriqueList(InstitutesManager.getAll())
     End Function
 
-    Public Shared Function searchInstitutes(world As String) As DataTable
-        If world <> Nothing Then
-            Return getInstitutesGenerique(InstitutesManager.searchInstitutes(world))
+    Public Shared Function searchInstitutes(word As String) As DataTable
+        If word <> Nothing Then
+            Return getGeneriqueList(InstitutesManager.searchInstitutes(word))
         Else
             Return getAll()
         End If

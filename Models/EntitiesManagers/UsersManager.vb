@@ -7,7 +7,23 @@
             Return employee_id
         End If
     End Function
-    Private Shared Function getUserGenerique() As User
+    Public Shared Function getGeneriqueList() As List(Of User)
+        Dim userList As New List(Of User)()
+        Try
+
+            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
+            dataTable = New DataTable
+            dataAdapater.Fill(dataTable)
+            For Each row As DataRow In Manager.dataTable.Rows
+                userList.Add(New User(CInt(row("id")), row("username"), row("password_field"), getEmployeeId(row("employee_id"))))
+            Next
+            disposeManager()
+        Catch ex As Exception
+            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "UsersManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return userList
+    End Function
+    Private Shared Function getGenerique() As User
         Dim user As User = New User(Nothing, Nothing, Nothing, Nothing)
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -29,47 +45,31 @@
     Public Shared Function getById(id As Integer) As User
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users WHERE id = @id;", Manager.connection)
         command.Parameters.AddWithValue("@id", id)
-        Return getUserGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByEmployeeId(employee_id As Integer) As User
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users WHERE employee_id = @employee_id;", Manager.connection)
         command.Parameters.AddWithValue("@employee_id", employee_id)
-        Return getUserGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByUsername(username As String) As User
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users WHERE username = @username;", Manager.connection)
         command.Parameters.AddWithValue("@username", username)
-        Return getUserGenerique()
+        Return getGenerique()
     End Function
 
-    Public Shared Function getUsersGenerique() As List(Of User)
-        Dim userList As New List(Of User)()
-        Try
-
-            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
-            dataTable = New DataTable
-            dataAdapater.Fill(dataTable)
-            For Each row As DataRow In Manager.dataTable.Rows
-                userList.Add(New User(CInt(row("id")), row("username"), row("password_field"), getEmployeeId(row("employee_id"))))
-            Next
-            disposeManager()
-        Catch ex As Exception
-            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "UsersManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return userList
-    End Function
 
     Public Shared Function getAll() As List(Of User)
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users;", Manager.connection)
-        Return getUsersGenerique()
+        Return getGeneriqueList()
     End Function
 
-    Public Shared Function searchUsers(world As String)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users WHERE username LIKE @world ;", Manager.connection)
-        command.Parameters.AddWithValue("@world", "%" & world & "%")
-        Return getUsersGenerique()
+    Public Shared Function searchUsers(word As String)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Users WHERE username LIKE @word ;", Manager.connection)
+        command.Parameters.AddWithValue("@word", "%" & word & "%")
+        Return getGeneriqueList()
     End Function
 
     Public Shared Function GetEmployeeId(employeeId As Integer)

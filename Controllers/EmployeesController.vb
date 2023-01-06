@@ -1,7 +1,7 @@
 ﻿Imports Mysqlx.XDevAPI.Relational
 
 Public Class EmployeesController
-    Public Shared Function getEmployeesGenerique(employeesList As List(Of Employee)) As DataTable
+    Public Shared Function getGeneriqueList(employeesList As List(Of Employee)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Nom", GetType(String))
@@ -19,12 +19,12 @@ Public Class EmployeesController
     End Function
 
     Public Shared Function getAll() As DataTable
-        Return getEmployeesGenerique(EmployeesManager.getAll())
+        Return getGeneriqueList(EmployeesManager.getAll())
     End Function
 
-    Public Shared Function searchEmployees(world As String) As DataTable
-        If world <> Nothing Then
-            Return getEmployeesGenerique(EmployeesManager.searchEmployees(world))
+    Public Shared Function searchEmployees(word As String) As DataTable
+        If word <> Nothing Then
+            Return getGeneriqueList(EmployeesManager.searchEmployees(word))
         Else
             Return getAll()
         End If

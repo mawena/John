@@ -1,6 +1,23 @@
 ﻿Public Class InstitutesManager
     Inherits Manager
-    Private Shared Function getInstituteGenerique() As Institute
+    Public Shared Function getGeneriqueList() As List(Of Institute)
+        Dim insituteList As New List(Of Institute)()
+        Try
+
+            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
+            dataTable = New DataTable
+            dataAdapater.Fill(dataTable)
+            For Each row As DataRow In Manager.dataTable.Rows
+                insituteList.Add(New Institute(CInt(row("id")), row("libelle"), row("sigle")))
+            Next
+            disposeManager()
+        Catch ex As Exception
+            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return insituteList
+    End Function
+
+    Private Shared Function getGenerique() As Institute
         Dim insitute As Institute = New Institute(Nothing, Nothing, Nothing)
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -19,50 +36,39 @@
         Return insitute
     End Function
 
+    Public Shared Function getAll() As List(Of Institute)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes;", Manager.connection)
+        Return getGeneriqueList()
+    End Function
+
+    Public Shared Function getBySigle(sigle As String) As List(Of Institute)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE sigle = @sigle;", Manager.connection)
+        command.Parameters.AddWithValue("@sigle", sigle)
+        Return getGeneriqueList()
+    End Function
+
+    Public Shared Function searchInstitutes(word As String)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @word OR sigle LIKE @word;", Manager.connection)
+        command.Parameters.AddWithValue("@word", "%" & word & "%")
+        Return getGeneriqueList()
+    End Function
+
     Public Shared Function getById(id As Integer) As Institute
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE id = @id;", Manager.connection)
         command.Parameters.AddWithValue("@id", id)
-        Return getInstituteGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByLibelle(libelle As String) As Institute
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle = @libelle;", Manager.connection)
         command.Parameters.AddWithValue("@libelle", libelle)
-        Return getInstituteGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByName(name As String) As Institute
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE CONCAT(sigle, ' - ', libelle) = @name;", Manager.connection)
         command.Parameters.AddWithValue("@name", name)
-        Return getInstituteGenerique()
-    End Function
-
-    Public Shared Function getInstitutesGenerique() As List(Of Institute)
-        Dim insituteList As New List(Of Institute)()
-        Try
-
-            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
-            dataTable = New DataTable
-            dataAdapater.Fill(dataTable)
-            For Each row As DataRow In Manager.dataTable.Rows
-                insituteList.Add(New Institute(CInt(row("id")), row("libelle"), row("sigle")))
-            Next
-            disposeManager()
-        Catch ex As Exception
-            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return insituteList
-    End Function
-
-    Public Shared Function getAll() As List(Of Institute)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes;", Manager.connection)
-        Return getInstitutesGenerique()
-    End Function
-
-    Public Shared Function searchInstitutes(world As String)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @world OR sigle LIKE @world;", Manager.connection)
-        command.Parameters.AddWithValue("@world", "%" & world & "%")
-        Return getInstitutesGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function store(institute As Institute) As Boolean
