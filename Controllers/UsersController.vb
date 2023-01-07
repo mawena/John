@@ -1,24 +1,24 @@
 ﻿Public Class UsersController
-    Public Shared Function getUsersGenerique(usersList As List(Of User)) As DataTable
+    Public Shared Function getGeneriqueList(usersList As List(Of User)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Utilisateur", GetType(String))
         table.Columns.Add("Fonction", GetType(String))
         table.Columns.Add("Employé", GetType(String))
 
-        For Each user As User In UsersManager.getAll()
+        For Each user As User In usersList
             table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.EmployeeName}, True)
         Next
         Return table
     End Function
 
     Public Shared Function getAll()
-        Return getUsersGenerique(UsersManager.getAll())
+        Return getGeneriqueList(UsersManager.getAll())
     End Function
 
-    Public Shared Function searchUsers(word As String) As DataTable
+    Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getUsersGenerique(UsersManager.searchUsers(word))
+            Return getGeneriqueList(UsersManager.search(word))
         Else
             Return getAll()
         End If

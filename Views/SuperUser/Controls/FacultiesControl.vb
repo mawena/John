@@ -19,20 +19,17 @@
 
     Public Sub refreshCB_INSTITUTE()
         CB_INSTITUTE.Items.Clear()
-        Dim institutesList As List(Of Institute) = InstitutesManager.getAll()
-        For Each institute As Institute In institutesList
+        For Each institute As Institute In InstitutesManager.getAll()
             CB_INSTITUTE.Items.Add(institute.Sigle & " - " & institute.Libelle)
         Next
-        If (CB_INSTITUTE.Items.Count > 0) Then
+        Dim institutesExist As Boolean = CB_INSTITUTE.Items.Count > 0
+        BT_ADD.Enabled = institutesExist
+        BT_UPDATE.Enabled = institutesExist
+        BT_DELETE.Enabled = institutesExist
+        If institutesExist Then
             CB_INSTITUTE.SelectedIndex = 0
-            BT_ADD.Enabled = True
-            BT_UPDATE.Enabled = True
-            BT_DELETE.Enabled = True
         Else
             CB_INSTITUTE.SelectedIndex = -1
-            BT_ADD.Enabled = False
-            BT_UPDATE.Enabled = False
-            BT_DELETE.Enabled = False
         End If
     End Sub
 
@@ -56,7 +53,6 @@
     End Sub
 
     Private Sub BT_UPDATE_Click(sender As Object, e As EventArgs) Handles BT_UPDATE.Click
-        checkButtons()
         Dim nbRowSelected = DGV_FACULTIES.SelectedRows.Count
         If nbRowSelected > 0 Then
             If nbRowSelected = 1 Then
@@ -91,7 +87,7 @@
         checkButtons()
     End Sub
     Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged
-        DGV_FACULTIES.DataSource = FacultiesController.searchFaculties(TB_SEARCH.Text)
+        DGV_FACULTIES.DataSource = FacultiesController.search(TB_SEARCH.Text)
     End Sub
 
     Private Sub DGV_FACULTIES_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_FACULTIES.CellClick

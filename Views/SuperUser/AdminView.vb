@@ -37,7 +37,7 @@
         P_MAIN.Controls.Add(ecuesControl)
         P_MAIN.Controls.Add(usersControl)
 
-        BT_FACULTIES_MENU_Click(Nothing, Nothing)
+        BT_UES_MENU_Click(Nothing, Nothing)
     End Sub
     Private Sub HideControls()
         employeesControl.Hide()
@@ -94,6 +94,8 @@
         BT_UES_MENU.FillColor = Color.FromArgb(0, 120, 215)
         LBL_DESCRIPTION.Text = "UES"
         PB_GESTION_ILLUSTRATION.ImageLocation = uesIllustrationPath
+        uesControl.refreshCB_FACULTY()
+        uesControl.BT_REFRESH_Click(Nothing, Nothing)
         uesControl.Show()
     End Sub
 

@@ -1,6 +1,23 @@
 ﻿Public Class EmployeesManager
     Inherits Manager
-    Private Shared Function getEmployeeGenerique() As Employee
+    Public Shared Function getGeneriqueList() As List(Of Employee)
+        Dim employeeList As New List(Of Employee)()
+        Try
+
+            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
+            dataTable = New DataTable
+            dataAdapater.Fill(dataTable)
+            For Each row As DataRow In Manager.dataTable.Rows
+                employeeList.Add(New Employee(CInt(row("id")), row("last_name"), row("first_name"), row("phone_number"), row("email"), row("gender"), row("function_field")))
+            Next
+            disposeManager()
+        Catch ex As Exception
+            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "EmployeesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return employeeList
+    End Function
+
+    Private Shared Function getGenerique() As Employee
         Dim employee As Employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -22,60 +39,43 @@
     Public Shared Function getById(id As Integer) As Employee
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE id = @id;", Manager.connection)
         command.Parameters.AddWithValue("@id", id)
-        Return getEmployeeGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByPhoneNumber(phoneNumber As String) As Employee
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE phone_number = @phone_number;", Manager.connection)
         command.Parameters.AddWithValue("@phone_number", phoneNumber)
-        Return getEmployeeGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByEmail(email As String) As Employee
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE email = @email;", Manager.connection)
         command.Parameters.AddWithValue("@email", email)
-        Return getEmployeeGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByLastNameAndFirtName(lastName As String, firstName As String) As Employee
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE last_name = @last_name AND first_name = @first_name;", Manager.connection)
         command.Parameters.AddWithValue("@last_name", lastName)
         command.Parameters.AddWithValue("@first_name", firstName)
-        Return getEmployeeGenerique()
+        Return getGenerique()
     End Function
 
     Public Shared Function getByName(name As String) As Employee
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE CONCAT(first_name, ' - ', last_name) = @name;", Manager.connection)
         command.Parameters.AddWithValue("@name", name)
-        Return getEmployeeGenerique()
-    End Function
-
-    Public Shared Function getEmployeesGenerique() As List(Of Employee)
-        Dim employeeList As New List(Of Employee)()
-        Try
-
-            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
-            dataTable = New DataTable
-            dataAdapater.Fill(dataTable)
-            For Each row As DataRow In Manager.dataTable.Rows
-                employeeList.Add(New Employee(CInt(row("id")), row("last_name"), row("first_name"), row("phone_number"), row("email"), row("gender"), row("function_field")))
-            Next
-            disposeManager()
-        Catch ex As Exception
-            MessageBox.Show("Erreur durant la selection des données : " & ex.Message, "EmployeesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return employeeList
+        Return getGenerique()
     End Function
 
     Public Shared Function getAll() As List(Of Employee)
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees;", Manager.connection)
-        Return getEmployeesGenerique()
+        Return getGeneriqueList()
     End Function
 
-    Public Shared Function searchEmployees(world As String)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE last_name LIKE @world OR first_name LIKE @world OR email LIKE @world;", Manager.connection)
-        command.Parameters.AddWithValue("@world", "%" & world & "%")
-        Return getEmployeesGenerique()
+    Public Shared Function search(word As String)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE last_name LIKE @word OR first_name LIKE @word OR email LIKE @word;", Manager.connection)
+        command.Parameters.AddWithValue("@word", "%" & word & "%")
+        Return getGeneriqueList()
     End Function
 
     Public Shared Function store(employee As Employee) As Boolean
@@ -115,16 +115,7 @@
         Return False
     End Function
 
-    Public Shared Function delete(id As Integer) As Boolean
-        Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM Employees WHERE id = @id;", Manager.connection)
-            command.Parameters.AddWithValue("@id", id)
-            command.ExecuteNonQuery()
-            disposeManager()
-            Return True
-        Catch ex As Exception
-            MessageBox.Show("Erreur durant la supression : " & ex.Message, "EmployeesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return False
+    Public Overloads Shared Function delete(id As Integer) As Boolean
+        Return Manager.delete("Employees", id)
     End Function
 End Class

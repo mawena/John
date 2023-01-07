@@ -51,7 +51,11 @@
         End Get
         Set(value As Integer)
             _instituteId = value
-            _institute = InstitutesManager.getById(_instituteId)
+            If _instituteId = Nothing Then
+                _institute = New Institute(Nothing, Nothing, Nothing)
+            Else
+                _institute = InstitutesManager.getById(_instituteId)
+            End If
         End Set
     End Property
 

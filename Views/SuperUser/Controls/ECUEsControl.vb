@@ -16,5 +16,6 @@
 
     Private Sub ECUEsControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        checkButtons()
     End Sub
 End Class

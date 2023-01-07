@@ -3,7 +3,6 @@
     Private _libelle As String
     Private _semester As Integer
     Private _facultyId As Integer
-
     Private _faculty As Faculty
 
     Public Sub New(id As Integer, libelle As String, semester As Integer, facultyId As Integer)
@@ -52,7 +51,11 @@
         End Get
         Set(value As Integer)
             _facultyId = value
-            _faculty = FacultiesManager.getById(_facultyId)
+            If _facultyId = Nothing Then
+                _faculty = New Faculty(Nothing, Nothing, Nothing, Nothing)
+            Else
+                _faculty = FacultiesManager.getById(_facultyId)
+            End If
         End Set
     End Property
 
@@ -64,7 +67,7 @@
 
     Public ReadOnly Property FacultyName
         Get
-            Return _faculty.Sigle & " - " & _faculty.Libelle
+            Return _facultyId & "-" & _faculty.Sigle & " - " & _faculty.Libelle
         End Get
     End Property
 End Class

@@ -54,7 +54,11 @@
                 _employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
             Else
                 _employeeId = value
-                _employee = EmployeesManager.getById(value)
+                If _employeeId = Nothing Then
+                    _employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+                Else
+                    _employee = EmployeesManager.getById(value)
+                End If
             End If
         End Set
     End Property

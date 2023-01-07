@@ -1,5 +1,5 @@
 ﻿Public Class FacultiesController
-    Public Shared Function getFacultiesGenerique(facultiesList As List(Of Faculty)) As DataTable
+    Public Shared Function getGeneriqueList(facultiesList As List(Of Faculty)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("Identifiant", GetType(Integer))
         table.Columns.Add("Libelle", GetType(String))
@@ -14,12 +14,12 @@
     End Function
 
     Public Shared Function getAll() As DataTable
-        Return getFacultiesGenerique(FacultiesManager.getAll())
+        Return getGeneriqueList(FacultiesManager.getAll())
     End Function
 
-    Public Shared Function searchFaculties(world As String) As DataTable
-        If world <> Nothing Then
-            Return getFacultiesGenerique(FacultiesManager.searchFaculties(world))
+    Public Shared Function search(word As String) As DataTable
+        If word <> Nothing Then
+            Return getGeneriqueList(FacultiesManager.search(word))
         Else
             Return getAll()
         End If
