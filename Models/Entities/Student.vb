@@ -1,18 +1,37 @@
-﻿Public Class Student
-    Public Enum genders
-        F
-        M
-    End Enum
+﻿Public Class Studen
 
     Private _id As Integer
     Private _lastName As String
     Private _firstName As String
     Private _birthDate As Date
-    Private _gender As genders
+    Private _gender As String
     Private _email As String
     Private _phoneNumber As String
     Private _picturePath As String
     Private _facultyId As Integer
+
+    Public Sub New(id As Integer, lastName As String, firstName As String, birthDate As Date, gender As String, email As String, phoneNumber As String, picturePath As String, facultyId As Integer)
+        Me.Id = id
+        Me.LastName = lastName
+        Me.FirstName = firstName
+        Me.BirthDate = birthDate
+        Me.Gender = gender
+        Me.Email = email
+        Me.PhoneNumber = phoneNumber
+        Me.PicturePath = picturePath
+        Me.FacultyId = facultyId
+    End Sub
+
+    Public Sub New(lastName As String, firstName As String, birthDate As Date, gender As String, email As String, phoneNumber As String, picturePath As String, facultyId As Integer)
+        Me.LastName = lastName
+        Me.FirstName = firstName
+        Me.BirthDate = birthDate
+        Me.Gender = gender
+        Me.Email = email
+        Me.PhoneNumber = phoneNumber
+        Me.PicturePath = picturePath
+        Me.FacultyId = facultyId
+    End Sub
 
     Public Property Id As Integer
         Get
@@ -50,11 +69,11 @@
         End Set
     End Property
 
-    Public Property Gender As genders
+    Public Property Gender As String
         Get
             Return _gender
         End Get
-        Set(value As genders)
+        Set(value As String)
             _gender = value
         End Set
     End Property
@@ -94,49 +113,4 @@
             _facultyId = value
         End Set
     End Property
-
-    Public Sub New(id As Integer, lastName As String, firstName As String, birthDate As Date, gender As genders, email As String, phoneNumber As String, picturePath As String, facultyId As Integer)
-        Me.Id = id
-        Me.LastName = lastName
-        Me.FirstName = firstName
-        Me.BirthDate = birthDate
-        Me.Gender = gender
-        Me.Email = email
-        Me.PhoneNumber = phoneNumber
-        Me.PicturePath = picturePath
-        Me.FacultyId = facultyId
-    End Sub
-
-    Public Overrides Function Equals(obj As Object) As Boolean
-        Dim student = TryCast(obj, Student)
-        Return student IsNot Nothing AndAlso
-               _id = student._id AndAlso
-               _lastName = student._lastName AndAlso
-               _firstName = student._firstName AndAlso
-               _birthDate = student._birthDate AndAlso
-               _gender = student._gender AndAlso
-               _email = student._email AndAlso
-               _phoneNumber = student._phoneNumber AndAlso
-               _picturePath = student._picturePath AndAlso
-               _facultyId = student._facultyId
-    End Function
-
-    Public Function GetPropertiesName() As String()
-        Return {"id", "last_name", "first_name", "birth_date", "gender", "email", "phone_number", "picture_path", "faculty_id"}
-    End Function
-
-    Public Function GetProperties() As String()
-        Return {Id.ToString(), LastName.ToString(), FirstName.ToString(), BirthDate.ToShortDateString, Gender.ToString(), Email.ToString(), PhoneNumber.ToString(), PicturePath.ToString(), FacultyId.ToString()}
-    End Function
-    Public Overrides Function ToString() As String
-        Dim str As String = "Student:"
-        Dim comp As Integer = 0
-        Dim propertiesName = GetPropertiesName()
-        For Each prop As String In GetProperties()
-            str += propertiesName(comp) + "= " + prop + ", "
-            comp += 1
-        Next
-
-        Return str
-    End Function
 End Class
