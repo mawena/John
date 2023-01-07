@@ -12,7 +12,7 @@
         Dim usersList As List(Of User) = UsersManager.getAll()
         For Each employee As Employee In employeesList
             If UsersManager.getByEmployeeId(employee.Id).Username = Nothing Then
-                CB_EMPLOYEE.Items.Add(employee.FirstName & " - " & employee.LastName)
+                CB_EMPLOYEE.Items.Add(employee.Id & "-" & employee.FirstName & " - " & employee.LastName)
             End If
         Next
         If (CB_EMPLOYEE.Items.Count > 0) Then
@@ -98,7 +98,7 @@
     Private Sub DGV_USERS_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_USERS.CellClick
         TB_USERNAME.Text = DGV_USERS.SelectedRows(0).Cells(1).Value
         refreshCB_EMPLOYEE()
-        If DGV_USERS.SelectedRows(0).Cells(3).Value <> "Non employé" Then
+        If DGV_USERS.SelectedRows(0).Cells(3).Value <> "Non Employé" Then
             CB_EMPLOYEE.Items.Add(DGV_USERS.SelectedRows(0).Cells(3).Value)
             CB_EMPLOYEE.SelectedItem = DGV_USERS.SelectedRows(0).Cells(3).Value
         End If

@@ -27,7 +27,7 @@ CREATE TABLE
         id int PRIMARY KEY AUTO_INCREMENT,
         username VARCHAR(80) UNIQUE NOT NULL,
         password_field VARCHAR(150) NOT NULL,
-        employee_id int NULL,
+        employee_id int NULL UNIQUE,
         FOREIGN KEY(employee_id) REFERENCES Employees(id) ON DELETE CASCADE
     );
 

@@ -26,10 +26,9 @@ Partial Class ECUEsControl
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.CB_UE = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.LBL_UE = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.LBL_UES = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_SEARCH = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.LBL_INSTITUTE = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.LBL_CAREER = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_LIBELLE = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.BT_REFRESH = New Guna.UI2.WinForms.Guna2Button()
         Me.TB_LIBELLE = New Guna.UI2.WinForms.Guna2TextBox()
@@ -38,63 +37,47 @@ Partial Class ECUEsControl
         Me.TB_SEARCH = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BT_UPDATE = New Guna.UI2.WinForms.Guna2Button()
         Me.DGV_ECUES = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.CB_INSITUTE = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.CB_CAREER = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.CB_EMPLOYEE = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.LBL_EMPLOYEE = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.CB_NB_CREDIT = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.LBL_NB_CREDIT = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.CLB_UES = New System.Windows.Forms.CheckedListBox()
         CType(Me.DGV_ECUES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'CB_UE
+        'LBL_UES
         '
-        Me.CB_UE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CB_UE.BackColor = System.Drawing.Color.Transparent
-        Me.CB_UE.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CB_UE.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.CB_UE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_UE.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_UE.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_UE.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CB_UE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.CB_UE.ItemHeight = 30
-        Me.CB_UE.Location = New System.Drawing.Point(133, 46)
-        Me.CB_UE.Name = "CB_UE"
-        Me.CB_UE.Size = New System.Drawing.Size(808, 36)
-        Me.CB_UE.StartIndex = 0
-        Me.CB_UE.TabIndex = 94
-        '
-        'LBL_UE
-        '
-        Me.LBL_UE.BackColor = System.Drawing.Color.Transparent
-        Me.LBL_UE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_UE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_UE.Location = New System.Drawing.Point(93, 45)
-        Me.LBL_UE.Name = "LBL_UE"
-        Me.LBL_UE.Size = New System.Drawing.Size(34, 27)
-        Me.LBL_UE.TabIndex = 93
-        Me.LBL_UE.Text = "UE"
+        Me.LBL_UES.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_UES.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_UES.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_UES.Location = New System.Drawing.Point(81, 87)
+        Me.LBL_UES.Name = "LBL_UES"
+        Me.LBL_UES.Size = New System.Drawing.Size(46, 27)
+        Me.LBL_UES.TabIndex = 93
+        Me.LBL_UES.Text = "UEs"
         '
         'LBL_SEARCH
         '
         Me.LBL_SEARCH.BackColor = System.Drawing.Color.Transparent
         Me.LBL_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_SEARCH.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_SEARCH.Location = New System.Drawing.Point(3, 202)
+        Me.LBL_SEARCH.Location = New System.Drawing.Point(3, 129)
         Me.LBL_SEARCH.Name = "LBL_SEARCH"
         Me.LBL_SEARCH.Size = New System.Drawing.Size(124, 27)
         Me.LBL_SEARCH.TabIndex = 92
         Me.LBL_SEARCH.Text = "Rechercher"
         '
-        'LBL_INSTITUTE
+        'LBL_CAREER
         '
-        Me.LBL_INSTITUTE.BackColor = System.Drawing.Color.Transparent
-        Me.LBL_INSTITUTE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_INSTITUTE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_INSTITUTE.Location = New System.Drawing.Point(53, 87)
-        Me.LBL_INSTITUTE.Name = "LBL_INSTITUTE"
-        Me.LBL_INSTITUTE.Size = New System.Drawing.Size(74, 27)
-        Me.LBL_INSTITUTE.TabIndex = 91
-        Me.LBL_INSTITUTE.Text = "Institut"
+        Me.LBL_CAREER.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_CAREER.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_CAREER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_CAREER.Location = New System.Drawing.Point(42, 45)
+        Me.LBL_CAREER.Name = "LBL_CAREER"
+        Me.LBL_CAREER.Size = New System.Drawing.Size(85, 27)
+        Me.LBL_CAREER.TabIndex = 91
+        Me.LBL_CAREER.Text = "Parcour"
         '
         'LBL_LIBELLE
         '
@@ -120,7 +103,7 @@ Partial Class ECUEsControl
         Me.BT_REFRESH.ForeColor = System.Drawing.Color.White
         Me.BT_REFRESH.Image = CType(resources.GetObject("BT_REFRESH.Image"), System.Drawing.Image)
         Me.BT_REFRESH.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_REFRESH.Location = New System.Drawing.Point(947, 130)
+        Me.BT_REFRESH.Location = New System.Drawing.Point(947, 129)
         Me.BT_REFRESH.Name = "BT_REFRESH"
         Me.BT_REFRESH.Size = New System.Drawing.Size(150, 36)
         Me.BT_REFRESH.TabIndex = 88
@@ -128,8 +111,6 @@ Partial Class ECUEsControl
         '
         'TB_LIBELLE
         '
-        Me.TB_LIBELLE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TB_LIBELLE.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TB_LIBELLE.DefaultText = ""
         Me.TB_LIBELLE.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -144,7 +125,7 @@ Partial Class ECUEsControl
         Me.TB_LIBELLE.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TB_LIBELLE.PlaceholderText = "Ex: RAD"
         Me.TB_LIBELLE.SelectedText = ""
-        Me.TB_LIBELLE.Size = New System.Drawing.Size(808, 36)
+        Me.TB_LIBELLE.Size = New System.Drawing.Size(324, 36)
         Me.TB_LIBELLE.TabIndex = 82
         '
         'BT_ADD
@@ -198,7 +179,7 @@ Partial Class ECUEsControl
         Me.TB_SEARCH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_SEARCH.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TB_SEARCH.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SEARCH.Location = New System.Drawing.Point(133, 193)
+        Me.TB_SEARCH.Location = New System.Drawing.Point(133, 129)
         Me.TB_SEARCH.Name = "TB_SEARCH"
         Me.TB_SEARCH.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TB_SEARCH.PlaceholderText = ""
@@ -254,11 +235,11 @@ Partial Class ECUEsControl
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DGV_ECUES.DefaultCellStyle = DataGridViewCellStyle3
         Me.DGV_ECUES.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.DGV_ECUES.Location = New System.Drawing.Point(0, 235)
+        Me.DGV_ECUES.Location = New System.Drawing.Point(0, 207)
         Me.DGV_ECUES.Name = "DGV_ECUES"
         Me.DGV_ECUES.ReadOnly = True
         Me.DGV_ECUES.RowHeadersVisible = False
-        Me.DGV_ECUES.Size = New System.Drawing.Size(1100, 262)
+        Me.DGV_ECUES.Size = New System.Drawing.Size(1100, 290)
         Me.DGV_ECUES.TabIndex = 86
         Me.DGV_ECUES.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.DGV_ECUES.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -283,24 +264,23 @@ Partial Class ECUEsControl
         Me.DGV_ECUES.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.DGV_ECUES.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'CB_INSITUTE
+        'CB_CAREER
         '
-        Me.CB_INSITUTE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.CB_CAREER.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CB_INSITUTE.BackColor = System.Drawing.Color.Transparent
-        Me.CB_INSITUTE.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CB_INSITUTE.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.CB_INSITUTE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_INSITUTE.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_INSITUTE.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_INSITUTE.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CB_INSITUTE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.CB_INSITUTE.ItemHeight = 30
-        Me.CB_INSITUTE.Location = New System.Drawing.Point(133, 88)
-        Me.CB_INSITUTE.Name = "CB_INSITUTE"
-        Me.CB_INSITUTE.Size = New System.Drawing.Size(808, 36)
-        Me.CB_INSITUTE.StartIndex = 0
-        Me.CB_INSITUTE.TabIndex = 95
+        Me.CB_CAREER.BackColor = System.Drawing.Color.Transparent
+        Me.CB_CAREER.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CB_CAREER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.CB_CAREER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_CAREER.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_CAREER.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_CAREER.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CB_CAREER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.CB_CAREER.ItemHeight = 30
+        Me.CB_CAREER.Location = New System.Drawing.Point(133, 45)
+        Me.CB_CAREER.Name = "CB_CAREER"
+        Me.CB_CAREER.Size = New System.Drawing.Size(808, 36)
+        Me.CB_CAREER.TabIndex = 95
         '
         'CB_EMPLOYEE
         '
@@ -315,10 +295,9 @@ Partial Class ECUEsControl
         Me.CB_EMPLOYEE.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.CB_EMPLOYEE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CB_EMPLOYEE.ItemHeight = 30
-        Me.CB_EMPLOYEE.Location = New System.Drawing.Point(133, 130)
+        Me.CB_EMPLOYEE.Location = New System.Drawing.Point(590, 3)
         Me.CB_EMPLOYEE.Name = "CB_EMPLOYEE"
-        Me.CB_EMPLOYEE.Size = New System.Drawing.Size(808, 36)
-        Me.CB_EMPLOYEE.StartIndex = 0
+        Me.CB_EMPLOYEE.Size = New System.Drawing.Size(351, 36)
         Me.CB_EMPLOYEE.TabIndex = 96
         '
         'LBL_EMPLOYEE
@@ -326,23 +305,65 @@ Partial Class ECUEsControl
         Me.LBL_EMPLOYEE.BackColor = System.Drawing.Color.Transparent
         Me.LBL_EMPLOYEE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_EMPLOYEE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_EMPLOYEE.Location = New System.Drawing.Point(6, 130)
+        Me.LBL_EMPLOYEE.Location = New System.Drawing.Point(463, 3)
         Me.LBL_EMPLOYEE.Name = "LBL_EMPLOYEE"
         Me.LBL_EMPLOYEE.Size = New System.Drawing.Size(121, 27)
         Me.LBL_EMPLOYEE.TabIndex = 97
         Me.LBL_EMPLOYEE.Text = "Enseignant"
         '
+        'CB_NB_CREDIT
+        '
+        Me.CB_NB_CREDIT.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CB_NB_CREDIT.BackColor = System.Drawing.Color.Transparent
+        Me.CB_NB_CREDIT.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CB_NB_CREDIT.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.CB_NB_CREDIT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_NB_CREDIT.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_NB_CREDIT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_NB_CREDIT.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CB_NB_CREDIT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.CB_NB_CREDIT.ItemHeight = 30
+        Me.CB_NB_CREDIT.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
+        Me.CB_NB_CREDIT.Location = New System.Drawing.Point(872, 87)
+        Me.CB_NB_CREDIT.Name = "CB_NB_CREDIT"
+        Me.CB_NB_CREDIT.Size = New System.Drawing.Size(69, 36)
+        Me.CB_NB_CREDIT.StartIndex = 0
+        Me.CB_NB_CREDIT.TabIndex = 99
+        '
+        'LBL_NB_CREDIT
+        '
+        Me.LBL_NB_CREDIT.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LBL_NB_CREDIT.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_NB_CREDIT.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_NB_CREDIT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_NB_CREDIT.Location = New System.Drawing.Point(788, 87)
+        Me.LBL_NB_CREDIT.Name = "LBL_NB_CREDIT"
+        Me.LBL_NB_CREDIT.Size = New System.Drawing.Size(78, 27)
+        Me.LBL_NB_CREDIT.TabIndex = 98
+        Me.LBL_NB_CREDIT.Text = "Crédits"
+        '
+        'CLB_UES
+        '
+        Me.CLB_UES.FormattingEnabled = True
+        Me.CLB_UES.Items.AddRange(New Object() {"Mathématiques", "Sciences-Physique", "Chimie"})
+        Me.CLB_UES.Location = New System.Drawing.Point(133, 87)
+        Me.CLB_UES.Name = "CLB_UES"
+        Me.CLB_UES.Size = New System.Drawing.Size(649, 34)
+        Me.CLB_UES.TabIndex = 100
+        '
         'ECUEsControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.CLB_UES)
+        Me.Controls.Add(Me.CB_NB_CREDIT)
+        Me.Controls.Add(Me.LBL_NB_CREDIT)
         Me.Controls.Add(Me.LBL_EMPLOYEE)
         Me.Controls.Add(Me.CB_EMPLOYEE)
-        Me.Controls.Add(Me.CB_INSITUTE)
-        Me.Controls.Add(Me.CB_UE)
-        Me.Controls.Add(Me.LBL_UE)
+        Me.Controls.Add(Me.CB_CAREER)
+        Me.Controls.Add(Me.LBL_UES)
         Me.Controls.Add(Me.LBL_SEARCH)
-        Me.Controls.Add(Me.LBL_INSTITUTE)
+        Me.Controls.Add(Me.LBL_CAREER)
         Me.Controls.Add(Me.LBL_LIBELLE)
         Me.Controls.Add(Me.BT_REFRESH)
         Me.Controls.Add(Me.TB_LIBELLE)
@@ -358,10 +379,9 @@ Partial Class ECUEsControl
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents CB_UE As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents LBL_UE As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents LBL_UES As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents LBL_SEARCH As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents LBL_INSTITUTE As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents LBL_CAREER As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents LBL_LIBELLE As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents BT_REFRESH As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TB_LIBELLE As Guna.UI2.WinForms.Guna2TextBox
@@ -370,7 +390,10 @@ Partial Class ECUEsControl
     Friend WithEvents TB_SEARCH As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BT_UPDATE As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents DGV_ECUES As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents CB_INSITUTE As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents CB_CAREER As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents CB_EMPLOYEE As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents LBL_EMPLOYEE As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents CB_NB_CREDIT As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents LBL_NB_CREDIT As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents CLB_UES As CheckedListBox
 End Class

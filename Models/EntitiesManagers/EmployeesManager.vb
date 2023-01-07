@@ -62,7 +62,7 @@
     End Function
 
     Public Shared Function getByName(name As String) As Employee
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE CONCAT(first_name, ' - ', last_name) = @name;", Manager.connection)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Employees WHERE CONCAT(id, '-', first_name, ' - ', last_name) = @name;", Manager.connection)
         command.Parameters.AddWithValue("@name", name)
         Return getGenerique()
     End Function

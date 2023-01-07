@@ -101,6 +101,16 @@
         End Get
     End Property
 
+    Public ReadOnly Property Name() As String
+        Get
+            If LastName = Nothing Then
+                Return "Non Employé"
+            Else
+                Return Id & "-" & FirstName & " - " & LastName
+            End If
+        End Get
+    End Property
+
     Public Shared Function Function_field_to_function_view_field(function_field As String) As String
         If function_field = "TuititionService" Then
             Return "Service Scolarité"

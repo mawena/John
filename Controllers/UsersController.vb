@@ -7,7 +7,7 @@
         table.Columns.Add("Employé", GetType(String))
 
         For Each user As User In usersList
-            table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.EmployeeName}, True)
+            table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.Employee.Name}, True)
         Next
         Return table
     End Function
@@ -46,8 +46,12 @@
         If (verifyUser(username, password_field, True)) Then
             Dim userDB As User = UsersManager.getByUsername(username)
             If (userDB.Username = Nothing) Then
-                Dim userToSave As User = New User(username, password_field, getEmployeeIdByName(employeeName))
-                Return UsersManager.store(userToSave)
+                Dim employeeId As Integer = getEmployeeIdByName(employeeName)
+                If EmployeesManager.getById(employeeId).LastName = Nothing Then
+                    Return UsersManager.store(New User(username, password_field, employeeId))
+                Else
+                    MessageBox.Show("L'employée " & employeeName & " a déjà un compte utilisateur, Voulez vous le mettre à jour?", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             Else
                 MessageBox.Show("L'utilisateur " & username & " existe déjà", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
