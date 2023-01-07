@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FacultiesControl
+Partial Class CareersControl
     Inherits System.Windows.Forms.UserControl
 
     'UserControl remplace la méthode Dispose pour nettoyer la liste des composants.
@@ -22,7 +22,7 @@ Partial Class FacultiesControl
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FacultiesControl))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CareersControl))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -36,10 +36,10 @@ Partial Class FacultiesControl
         Me.BT_DELETE = New Guna.UI2.WinForms.Guna2Button()
         Me.TB_SEARCH = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BT_UPDATE = New Guna.UI2.WinForms.Guna2Button()
-        Me.DGV_FACULTIES = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.DGV_CAREERS = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.LBL_INSTITUTE = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.CB_INSTITUTE = New Guna.UI2.WinForms.Guna2ComboBox()
-        CType(Me.DGV_FACULTIES, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGV_CAREERS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LBL_SEARCH
@@ -214,16 +214,16 @@ Partial Class FacultiesControl
         Me.BT_UPDATE.TabIndex = 73
         Me.BT_UPDATE.Text = "Modifier"
         '
-        'DGV_FACULTIES
+        'DGV_CAREERS
         '
-        Me.DGV_FACULTIES.AllowUserToAddRows = False
-        Me.DGV_FACULTIES.AllowUserToDeleteRows = False
+        Me.DGV_CAREERS.AllowUserToAddRows = False
+        Me.DGV_CAREERS.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.DGV_FACULTIES.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DGV_FACULTIES.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.DGV_CAREERS.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DGV_CAREERS.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DGV_FACULTIES.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.DGV_CAREERS.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -231,9 +231,9 @@ Partial Class FacultiesControl
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_FACULTIES.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DGV_FACULTIES.ColumnHeadersHeight = 30
-        Me.DGV_FACULTIES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.DGV_CAREERS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DGV_CAREERS.ColumnHeadersHeight = 30
+        Me.DGV_CAREERS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -241,36 +241,36 @@ Partial Class FacultiesControl
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGV_FACULTIES.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DGV_FACULTIES.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.DGV_FACULTIES.Location = New System.Drawing.Point(0, 173)
-        Me.DGV_FACULTIES.Name = "DGV_FACULTIES"
-        Me.DGV_FACULTIES.ReadOnly = True
-        Me.DGV_FACULTIES.RowHeadersVisible = False
-        Me.DGV_FACULTIES.Size = New System.Drawing.Size(1100, 326)
-        Me.DGV_FACULTIES.TabIndex = 72
-        Me.DGV_FACULTIES.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
-        Me.DGV_FACULTIES.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.DGV_FACULTIES.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.DGV_FACULTIES.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.DGV_FACULTIES.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.DGV_FACULTIES.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.DGV_FACULTIES.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.DGV_FACULTIES.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.DGV_FACULTIES.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.DGV_FACULTIES.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DGV_FACULTIES.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DGV_FACULTIES.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.DGV_FACULTIES.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.DGV_FACULTIES.ThemeStyle.HeaderStyle.Height = 30
-        Me.DGV_FACULTIES.ThemeStyle.ReadOnly = True
-        Me.DGV_FACULTIES.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.DGV_FACULTIES.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.DGV_FACULTIES.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DGV_FACULTIES.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
-        Me.DGV_FACULTIES.ThemeStyle.RowsStyle.Height = 22
-        Me.DGV_FACULTIES.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        Me.DGV_FACULTIES.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
+        Me.DGV_CAREERS.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DGV_CAREERS.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.DGV_CAREERS.Location = New System.Drawing.Point(0, 173)
+        Me.DGV_CAREERS.Name = "DGV_CAREERS"
+        Me.DGV_CAREERS.ReadOnly = True
+        Me.DGV_CAREERS.RowHeadersVisible = False
+        Me.DGV_CAREERS.Size = New System.Drawing.Size(1100, 326)
+        Me.DGV_CAREERS.TabIndex = 72
+        Me.DGV_CAREERS.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
+        Me.DGV_CAREERS.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.DGV_CAREERS.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.DGV_CAREERS.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.DGV_CAREERS.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.DGV_CAREERS.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.DGV_CAREERS.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.DGV_CAREERS.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.Height = 30
+        Me.DGV_CAREERS.ThemeStyle.ReadOnly = True
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.Height = 22
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
         'LBL_INSTITUTE
         '
@@ -301,7 +301,7 @@ Partial Class FacultiesControl
         Me.CB_INSTITUTE.Size = New System.Drawing.Size(811, 36)
         Me.CB_INSTITUTE.TabIndex = 95
         '
-        'FacultiesControl
+        'CareersControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -317,10 +317,10 @@ Partial Class FacultiesControl
         Me.Controls.Add(Me.BT_DELETE)
         Me.Controls.Add(Me.TB_SEARCH)
         Me.Controls.Add(Me.BT_UPDATE)
-        Me.Controls.Add(Me.DGV_FACULTIES)
-        Me.Name = "FacultiesControl"
+        Me.Controls.Add(Me.DGV_CAREERS)
+        Me.Name = "CareersControl"
         Me.Size = New System.Drawing.Size(1100, 500)
-        CType(Me.DGV_FACULTIES, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV_CAREERS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -336,7 +336,7 @@ Partial Class FacultiesControl
     Friend WithEvents BT_DELETE As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TB_SEARCH As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BT_UPDATE As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents DGV_FACULTIES As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents DGV_CAREERS As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents LBL_INSTITUTE As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents CB_INSTITUTE As Guna.UI2.WinForms.Guna2ComboBox
 End Class

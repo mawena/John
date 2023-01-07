@@ -49,7 +49,7 @@ Public Class Manager
             disposeManager()
             Return True
         Catch ex As Exception
-            MessageBox.Show("Erreur durant la supression : " & ex.Message, "FacultiesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Erreur durant la supression : " & ex.Message, tableName & "Manager", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return False
     End Function

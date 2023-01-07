@@ -46,7 +46,7 @@ Partial Class AdminView
         Me.COB_CLOSE = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
-        Me.BT_FACULTIES_MENU = New Guna.UI2.WinForms.Guna2Button()
+        Me.BT_CAREERS_MENU = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.PB_GESTION_ILLUSTRATION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PB_ADMIN_ILLUSTRATION, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_TOP.SuspendLayout()
@@ -330,23 +330,23 @@ Partial Class AdminView
         Me.Guna2DragControl1.TargetControl = Me.P_TOP
         Me.Guna2DragControl1.TransparentWhileDrag = False
         '
-        'BT_FACULTIES_MENU
+        'BT_CAREERS_MENU
         '
-        Me.BT_FACULTIES_MENU.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BT_FACULTIES_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.BT_FACULTIES_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.BT_FACULTIES_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.BT_FACULTIES_MENU.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.BT_FACULTIES_MENU.FillColor = System.Drawing.Color.DimGray
-        Me.BT_FACULTIES_MENU.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.BT_FACULTIES_MENU.ForeColor = System.Drawing.Color.White
-        Me.BT_FACULTIES_MENU.Image = CType(resources.GetObject("BT_FACULTIES_MENU.Image"), System.Drawing.Image)
-        Me.BT_FACULTIES_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_FACULTIES_MENU.Location = New System.Drawing.Point(4, 303)
-        Me.BT_FACULTIES_MENU.Name = "BT_FACULTIES_MENU"
-        Me.BT_FACULTIES_MENU.Size = New System.Drawing.Size(182, 45)
-        Me.BT_FACULTIES_MENU.TabIndex = 106
-        Me.BT_FACULTIES_MENU.Text = "Facultés"
+        Me.BT_CAREERS_MENU.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BT_CAREERS_MENU.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BT_CAREERS_MENU.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BT_CAREERS_MENU.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BT_CAREERS_MENU.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BT_CAREERS_MENU.FillColor = System.Drawing.Color.DimGray
+        Me.BT_CAREERS_MENU.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_CAREERS_MENU.ForeColor = System.Drawing.Color.White
+        Me.BT_CAREERS_MENU.Image = CType(resources.GetObject("BT_CAREERS_MENU.Image"), System.Drawing.Image)
+        Me.BT_CAREERS_MENU.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.BT_CAREERS_MENU.Location = New System.Drawing.Point(4, 303)
+        Me.BT_CAREERS_MENU.Name = "BT_CAREERS_MENU"
+        Me.BT_CAREERS_MENU.Size = New System.Drawing.Size(182, 45)
+        Me.BT_CAREERS_MENU.TabIndex = 106
+        Me.BT_CAREERS_MENU.Text = "Parcours"
         '
         'AdminView
         '
@@ -355,7 +355,7 @@ Partial Class AdminView
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1243, 661)
-        Me.Controls.Add(Me.BT_FACULTIES_MENU)
+        Me.Controls.Add(Me.BT_CAREERS_MENU)
         Me.Controls.Add(Me.P_TOP)
         Me.Controls.Add(Me.BT_INSTITUTES_MENU)
         Me.Controls.Add(Me.PB_ADMIN_ILLUSTRATION)
@@ -401,5 +401,5 @@ Partial Class AdminView
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2DragControl1 As Guna.UI2.WinForms.Guna2DragControl
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents BT_FACULTIES_MENU As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents BT_CAREERS_MENU As Guna.UI2.WinForms.Guna2Button
 End Class

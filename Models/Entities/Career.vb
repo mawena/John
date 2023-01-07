@@ -1,4 +1,4 @@
-﻿Public Class Faculty
+﻿Public Class Career
     Private _id As Integer
     Private _libelle As String
     Private _sigle As String
@@ -67,7 +67,7 @@
 
     Public ReadOnly Property InstituteName As String
         Get
-            Return Institute.Sigle & " - " & Institute.Libelle
+            Return Institute.Id & "-" & Institute.Sigle & " - " & Institute.Libelle
         End Get
     End Property
 End Class

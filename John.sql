@@ -40,10 +40,10 @@ CREATE TABLE
         sigle VARCHAR(40) NOT NULL
     );
 
-DROP TABLE IF EXISTS Faculties;
+DROP TABLE IF EXISTS Careers;
 
 CREATE TABLE
-    Faculties(
+    Careers(
         id int PRIMARY KEY AUTO_INCREMENT,
         libelle VARCHAR(150) NOT NULL UNIQUE,
         sigle VARCHAR(40) NOT NULL,
@@ -58,9 +58,9 @@ CREATE TABLE
         id int PRIMARY KEY AUTO_INCREMENT,
         libelle VARCHAR(150) NOT NULL,
         semester int NOT NULL,
-        faculty_id int NOT NULL,
-        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE,
-        UNIQUE(libelle, semester, faculty_id)
+        career_id int NOT NULL,
+        FOREIGN KEY(career_id) REFERENCES Careers(id) ON DELETE CASCADE,
+        UNIQUE(libelle, semester, career_id)
     );
 
 DROP TABLE IF EXISTS ECUEs;
@@ -97,8 +97,8 @@ CREATE TABLE
         email VARCHAR(200) NOT NULL,
         phone_number VARCHAR(30) NOT NULL,
         picture_path VARCHAR(300) NOT NULL,
-        faculty_id int NOT NULL,
-        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE,
+        career_id int NOT NULL,
+        FOREIGN KEY(career_id) REFERENCES Careers(id) ON DELETE CASCADE,
         UNIQUE(last_name, first_name, email)
     );
 
@@ -195,7 +195,7 @@ INSERT INTO
 VALUES ("Mawena", "licdovic", NULL), ("Pierrette", "AOUKOU", 1), ("Espoir", "BOUILI", 2), ("Jeff", "jeff", 3), ("Rhamone", "Kota", 4), ("Eusebio", "claude", 5), ("Damli", "Damali", 6);
 
 INSERT INTO
-    Faculties(libelle, sigle, institute_id)
+    Careers(libelle, sigle, institute_id)
 VALUES (
         "Dévéloppement d'Application",
         "DA",
@@ -203,7 +203,7 @@ VALUES (
     ), ("Maths-Informatique", "MI", 1), ("Mathématiques", "Maths", 2);
 
 INSERT INTO
-    UEs(libelle, semester, faculty_id)
+    UEs(libelle, semester, career_id)
 VALUES ("Programmation de Base", 1, 1), ("Programmation de Base", 1, 2), ("Base de données", 1, 2);
 
 INSERT INTO

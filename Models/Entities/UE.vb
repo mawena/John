@@ -2,20 +2,20 @@
     Private _id As Integer
     Private _libelle As String
     Private _semester As Integer
-    Private _facultyId As Integer
-    Private _faculty As Faculty
+    Private _careerId As Integer
+    Private _career As Career
 
-    Public Sub New(id As Integer, libelle As String, semester As Integer, facultyId As Integer)
+    Public Sub New(id As Integer, libelle As String, semester As Integer, careerId As Integer)
         Me.Id = id
         Me.Libelle = libelle
         Me.Semester = semester
-        Me.FacultyId = facultyId
+        Me.CareerId = careerId
     End Sub
 
-    Public Sub New(libelle As String, semester As Integer, facultyId As Integer)
+    Public Sub New(libelle As String, semester As Integer, careerId As Integer)
         Me.Libelle = libelle
         Me.Semester = semester
-        Me.FacultyId = facultyId
+        Me.CareerId = careerId
     End Sub
 
     Public Property Id As Integer
@@ -45,29 +45,29 @@
         End Set
     End Property
 
-    Public Property FacultyId As Integer
+    Public Property CareerId As Integer
         Get
-            Return _facultyId
+            Return _careerId
         End Get
         Set(value As Integer)
-            _facultyId = value
-            If _facultyId = Nothing Then
-                _faculty = New Faculty(Nothing, Nothing, Nothing, Nothing)
+            _careerId = value
+            If _careerId = Nothing Then
+                _career = New Career(Nothing, Nothing, Nothing, Nothing)
             Else
-                _faculty = FacultiesManager.getById(_facultyId)
+                _career = CareersManager.getById(_careerId)
             End If
         End Set
     End Property
 
-    Public ReadOnly Property Faculty
+    Public ReadOnly Property Career
         Get
-            Return _faculty
+            Return _career
         End Get
     End Property
 
-    Public ReadOnly Property FacultyName
+    Public ReadOnly Property CareerName
         Get
-            Return _facultyId & "-" & _faculty.Sigle & " - " & _faculty.Libelle
+            Return _careerId & "-" & _career.Sigle & " - " & _career.Libelle
         End Get
     End Property
 End Class

@@ -8,9 +8,9 @@
     Private _email As String
     Private _phoneNumber As String
     Private _picturePath As String
-    Private _facultyId As Integer
+    Private _careerId As Integer
 
-    Public Sub New(id As Integer, lastName As String, firstName As String, birthDate As Date, gender As String, email As String, phoneNumber As String, picturePath As String, facultyId As Integer)
+    Public Sub New(id As Integer, lastName As String, firstName As String, birthDate As Date, gender As String, email As String, phoneNumber As String, picturePath As String, careerId As Integer)
         Me.Id = id
         Me.LastName = lastName
         Me.FirstName = firstName
@@ -19,10 +19,10 @@
         Me.Email = email
         Me.PhoneNumber = phoneNumber
         Me.PicturePath = picturePath
-        Me.FacultyId = facultyId
+        Me.CareerId = careerId
     End Sub
 
-    Public Sub New(lastName As String, firstName As String, birthDate As Date, gender As String, email As String, phoneNumber As String, picturePath As String, facultyId As Integer)
+    Public Sub New(lastName As String, firstName As String, birthDate As Date, gender As String, email As String, phoneNumber As String, picturePath As String, careerId As Integer)
         Me.LastName = lastName
         Me.FirstName = firstName
         Me.BirthDate = birthDate
@@ -30,7 +30,7 @@
         Me.Email = email
         Me.PhoneNumber = phoneNumber
         Me.PicturePath = picturePath
-        Me.FacultyId = facultyId
+        Me.CareerId = careerId
     End Sub
 
     Public Property Id As Integer
@@ -105,12 +105,12 @@
         End Set
     End Property
 
-    Public Property FacultyId As Integer
+    Public Property CareerId As Integer
         Get
-            Return _facultyId
+            Return _careerId
         End Get
         Set(value As Integer)
-            _facultyId = value
+            _careerId = value
         End Set
     End Property
 End Class

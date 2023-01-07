@@ -15,20 +15,20 @@
         End If
     End Sub
 
-    Public Sub refreshCB_FACULTY()
-        CB_FACULTY.Items.Clear()
-        For Each faculty As Faculty In FacultiesManager.getAll()
-            CB_FACULTY.Items.Add(faculty.Id & "-" & faculty.Sigle & " - " & faculty.Libelle)
+    Public Sub refreshCB_CAREER()
+        CB_CAREER.Items.Clear()
+        For Each career As Career In CareersManager.getAll()
+            CB_CAREER.Items.Add(career.Id & "-" & career.Sigle & " - " & career.Libelle)
         Next
 
-        Dim facultyExist As Boolean = CB_FACULTY.Items.Count > 0
-        BT_ADD.Enabled = facultyExist
-        BT_UPDATE.Enabled = facultyExist
-        BT_DELETE.Enabled = facultyExist
-        If facultyExist Then
-            CB_FACULTY.SelectedIndex = 0
+        Dim careerExist As Boolean = CB_CAREER.Items.Count > 0
+        BT_ADD.Enabled = careerExist
+        BT_UPDATE.Enabled = careerExist
+        BT_DELETE.Enabled = careerExist
+        If careerExist Then
+            CB_CAREER.SelectedIndex = 0
         Else
-            CB_FACULTY.SelectedIndex = -1
+            CB_CAREER.SelectedIndex = -1
         End If
     End Sub
 
@@ -37,13 +37,13 @@
     End Sub
 
     Public Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
-        refreshCB_FACULTY()
+        refreshCB_CAREER()
         DGV_UES.DataSource = UEsController.getAll()
         checkButtons()
     End Sub
 
     Private Sub BT_ADD_Click(sender As Object, e As EventArgs) Handles BT_ADD.Click
-        If (UEsController.store(TB_LIBELLE.Text, CB_SEMESTER.SelectedItem, CB_FACULTY.SelectedItem.ToString())) Then
+        If (UEsController.store(TB_LIBELLE.Text, CB_SEMESTER.SelectedItem, CB_CAREER.SelectedItem.ToString())) Then
             ClearForm()
             BT_REFRESH_Click(Nothing, Nothing)
         End If
@@ -56,7 +56,7 @@
             If nbRowSelected = 1 Then
                 Dim selectedRow As DataGridViewRow = DGV_UES.SelectedRows(0)
                 Dim ueId As Integer = selectedRow.Cells(0).Value
-                If (UEsController.update(TB_LIBELLE.Text, CB_SEMESTER.SelectedItem, CB_FACULTY.SelectedItem.ToString(), ueId)) Then
+                If (UEsController.update(TB_LIBELLE.Text, CB_SEMESTER.SelectedItem, CB_CAREER.SelectedItem.ToString(), ueId)) Then
                     ClearForm()
                     BT_REFRESH_Click(Nothing, Nothing)
                 End If
@@ -88,7 +88,7 @@
     Private Sub DGV_UES_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_UES.CellClick
         TB_LIBELLE.Text = DGV_UES.SelectedRows(0).Cells(1).Value
         CB_SEMESTER.SelectedItem = DGV_UES.SelectedRows(0).Cells(2).Value
-        CB_FACULTY.SelectedItem = DGV_UES.SelectedRows(0).Cells(3).Value
+        CB_CAREER.SelectedItem = DGV_UES.SelectedRows(0).Cells(3).Value
     End Sub
 
     Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged

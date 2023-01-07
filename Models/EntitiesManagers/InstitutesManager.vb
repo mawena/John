@@ -66,7 +66,7 @@
     End Function
 
     Public Shared Function getByName(name As String) As Institute
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE CONCAT(sigle, ' - ', libelle) = @name;", Manager.connection)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE CONCAT(id, '-', sigle, ' - ', libelle) = @name;", Manager.connection)
         command.Parameters.AddWithValue("@name", name)
         Return getGenerique()
     End Function

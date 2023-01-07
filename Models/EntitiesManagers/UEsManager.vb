@@ -10,7 +10,7 @@
             Manager.dataAdapater.Fill(Manager.dataTable)
 
             For Each row As DataRow In Manager.dataTable.Rows
-                uesList.Add(New UE(CInt(row("id")), row("libelle"), CInt(row("semester")), row("faculty_id")))
+                uesList.Add(New UE(CInt(row("id")), row("libelle"), CInt(row("semester")), row("career_id")))
             Next
             disposeManager()
         Catch ex As Exception
@@ -29,7 +29,7 @@
             Manager.dataAdapater.Fill(Manager.dataTable)
 
             For Each row As DataRow In Manager.dataTable.Rows
-                ue = New UE(CInt(row("id")), row("libelle"), CInt(row("semester")), row("faculty_id"))
+                ue = New UE(CInt(row("id")), row("libelle"), CInt(row("semester")), row("career_id"))
             Next
             disposeManager()
         Catch ex As Exception
@@ -62,19 +62,19 @@
         Return getGenerique()
     End Function
 
-    Public Shared Function getByFacultyId(faculty_id As Integer) As UE
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM UEs WHERE faculty_id = @faculty_id;", Manager.connection)
-        command.Parameters.AddWithValue("@faculty_id", faculty_id)
+    Public Shared Function getByCareerId(career_id As Integer) As UE
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM UEs WHERE career_id = @career_id;", Manager.connection)
+        command.Parameters.AddWithValue("@career_id", career_id)
         Return getGenerique()
     End Function
 
 
     Public Shared Function store(ue As UE) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO UEs(libelle, semester, faculty_id) VALUES (@libelle, @semester, @faculty_id);", Manager.connection)
+            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO UEs(libelle, semester, career_id) VALUES (@libelle, @semester, @career_id);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", ue.Libelle)
             command.Parameters.AddWithValue("@semester", ue.Semester)
-            command.Parameters.AddWithValue("@faculty_id", ue.FacultyId)
+            command.Parameters.AddWithValue("@career_id", ue.CareerId)
             command.ExecuteNonQuery()
             disposeManager()
             Return True
@@ -86,10 +86,10 @@
 
     Public Shared Function update(ue As UE, id As Integer) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("UPDATE UEs SET libelle = @libelle, semester = @semester, faculty_id = @faculty_id WHERE id = @id;", Manager.connection)
+            command = New MySql.Data.MySqlClient.MySqlCommand("UPDATE UEs SET libelle = @libelle, semester = @semester, career_id = @career_id WHERE id = @id;", Manager.connection)
             command.Parameters.AddWithValue("@libelle", ue.Libelle)
             command.Parameters.AddWithValue("@semester", ue.Semester)
-            command.Parameters.AddWithValue("@faculty_id", ue.FacultyId)
+            command.Parameters.AddWithValue("@career_id", ue.CareerId)
             command.Parameters.AddWithValue("@id", id)
             command.ExecuteNonQuery()
             disposeManager()

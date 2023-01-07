@@ -23,13 +23,13 @@ Partial Class UEsControl
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UEsControl))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.CB_SEMESTER = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.LBL_SEMESTER = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_SEARCH = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.LBL_FACULTY = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.LBL_CAREER = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_LIBELLE = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.BT_REFRESH = New Guna.UI2.WinForms.Guna2Button()
         Me.TB_LIBELLE = New Guna.UI2.WinForms.Guna2TextBox()
@@ -38,7 +38,7 @@ Partial Class UEsControl
         Me.TB_SEARCH = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BT_UPDATE = New Guna.UI2.WinForms.Guna2Button()
         Me.DGV_UES = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.CB_FACULTY = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.CB_CAREER = New Guna.UI2.WinForms.Guna2ComboBox()
         CType(Me.DGV_UES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -84,16 +84,16 @@ Partial Class UEsControl
         Me.LBL_SEARCH.TabIndex = 91
         Me.LBL_SEARCH.Text = "Rechercher"
         '
-        'LBL_FACULTY
+        'LBL_CAREER
         '
-        Me.LBL_FACULTY.BackColor = System.Drawing.Color.Transparent
-        Me.LBL_FACULTY.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_FACULTY.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_FACULTY.Location = New System.Drawing.Point(46, 87)
-        Me.LBL_FACULTY.Name = "LBL_FACULTY"
-        Me.LBL_FACULTY.Size = New System.Drawing.Size(81, 27)
-        Me.LBL_FACULTY.TabIndex = 90
-        Me.LBL_FACULTY.Text = "Faculté"
+        Me.LBL_CAREER.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_CAREER.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_CAREER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_CAREER.Location = New System.Drawing.Point(46, 87)
+        Me.LBL_CAREER.Name = "LBL_CAREER"
+        Me.LBL_CAREER.Size = New System.Drawing.Size(85, 27)
+        Me.LBL_CAREER.TabIndex = 90
+        Me.LBL_CAREER.Text = "Parcour"
         '
         'LBL_LIBELLE
         '
@@ -228,30 +228,30 @@ Partial Class UEsControl
         '
         Me.DGV_UES.AllowUserToAddRows = False
         Me.DGV_UES.AllowUserToDeleteRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.DGV_UES.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.DGV_UES.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DGV_UES.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV_UES.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_UES.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_UES.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGV_UES.ColumnHeadersHeight = 30
         Me.DGV_UES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGV_UES.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGV_UES.DefaultCellStyle = DataGridViewCellStyle3
         Me.DGV_UES.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.DGV_UES.Location = New System.Drawing.Point(0, 171)
         Me.DGV_UES.Name = "DGV_UES"
@@ -282,33 +282,33 @@ Partial Class UEsControl
         Me.DGV_UES.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.DGV_UES.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'CB_FACULTY
+        'CB_CAREER
         '
-        Me.CB_FACULTY.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.CB_CAREER.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CB_FACULTY.BackColor = System.Drawing.Color.Transparent
-        Me.CB_FACULTY.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CB_FACULTY.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.CB_FACULTY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_FACULTY.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_FACULTY.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_FACULTY.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CB_FACULTY.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.CB_FACULTY.ItemHeight = 30
-        Me.CB_FACULTY.Location = New System.Drawing.Point(133, 88)
-        Me.CB_FACULTY.Name = "CB_FACULTY"
-        Me.CB_FACULTY.Size = New System.Drawing.Size(808, 36)
-        Me.CB_FACULTY.TabIndex = 94
+        Me.CB_CAREER.BackColor = System.Drawing.Color.Transparent
+        Me.CB_CAREER.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CB_CAREER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.CB_CAREER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_CAREER.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_CAREER.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_CAREER.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CB_CAREER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.CB_CAREER.ItemHeight = 30
+        Me.CB_CAREER.Location = New System.Drawing.Point(133, 88)
+        Me.CB_CAREER.Name = "CB_CAREER"
+        Me.CB_CAREER.Size = New System.Drawing.Size(808, 36)
+        Me.CB_CAREER.TabIndex = 94
         '
         'UEsControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.CB_FACULTY)
+        Me.Controls.Add(Me.CB_CAREER)
         Me.Controls.Add(Me.CB_SEMESTER)
         Me.Controls.Add(Me.LBL_SEMESTER)
         Me.Controls.Add(Me.LBL_SEARCH)
-        Me.Controls.Add(Me.LBL_FACULTY)
+        Me.Controls.Add(Me.LBL_CAREER)
         Me.Controls.Add(Me.LBL_LIBELLE)
         Me.Controls.Add(Me.BT_REFRESH)
         Me.Controls.Add(Me.TB_LIBELLE)
@@ -328,7 +328,7 @@ Partial Class UEsControl
     Friend WithEvents CB_SEMESTER As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents LBL_SEMESTER As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents LBL_SEARCH As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents LBL_FACULTY As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents LBL_CAREER As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents LBL_LIBELLE As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents BT_REFRESH As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TB_LIBELLE As Guna.UI2.WinForms.Guna2TextBox
@@ -337,5 +337,5 @@ Partial Class UEsControl
     Friend WithEvents TB_SEARCH As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BT_UPDATE As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents DGV_UES As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents CB_FACULTY As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents CB_CAREER As Guna.UI2.WinForms.Guna2ComboBox
 End Class
