@@ -50,6 +50,11 @@
         command.Parameters.AddWithValue("@word", "%" & word & "%")
         Return getGeneriqueList()
     End Function
+    Public Shared Function getByLibelle(libelle As String) As List(Of UE)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM UEs WHERE libelle = @libelle;", Manager.connection)
+        command.Parameters.AddWithValue("@libelle", libelle)
+        Return getGeneriqueList()
+    End Function
 
     Public Shared Function getById(id As Integer) As UE
         command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM UEs WHERE id = @id;", Manager.connection)
@@ -63,15 +68,10 @@
         Return getGenerique()
     End Function
 
-    Public Shared Function getByLibelle(libelle As String) As UE
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM UEs WHERE libelle = @libelle;", Manager.connection)
-        command.Parameters.AddWithValue("@libelle", libelle)
-        Return getGenerique()
-    End Function
 
     Public Shared Function store(ue As UE) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO UEs(libelle, semester, faculty_id) VALUES (@libelle, @semster, @faculty_id);", Manager.connection)
+            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO UEs(libelle, semester, faculty_id) VALUES (@libelle, @semester, @faculty_id);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", ue.Libelle)
             command.Parameters.AddWithValue("@semester", ue.Semester)
             command.Parameters.AddWithValue("@faculty_id", ue.FacultyId)
@@ -100,17 +100,7 @@
         Return False
     End Function
 
-
-    Public Shared Function delete(id As Integer) As Boolean
-        Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM UEs WHERE id = @id;", Manager.connection)
-            command.Parameters.AddWithValue("@id", id)
-            Command.ExecuteNonQuery()
-            disposeManager()
-            Return True
-        Catch ex As Exception
-            MessageBox.Show("Erreur durant la supression : " & ex.Message, "UEsManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return False
+    Public Overloads Shared Function delete(id As Integer) As Boolean
+        Return Manager.delete("UEs", id)
     End Function
 End Class

@@ -36,24 +36,25 @@
 
     Public Shared Function store(libelle As String, semester As Integer, facultyIdAndName As String) As Boolean
         If verify(libelle) Then
-            Dim ueDB As UE = UEsManager.getByLibelle(libelle)
-            If ueDB.Libelle = Nothing Then
-                Return UEsManager.store(New UE(libelle, semester, FacultiesManager.getByIdAndName(facultyIdAndName).Id))
-            Else
-                MessageBox.Show("L'UE " & libelle & " existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+            For Each ueDB As UE In UEsManager.getByLibelle(libelle)
+                If ueDB.FacultyName = facultyIdAndName Then
+                    MessageBox.Show("L'UE '" & libelle & "' dans la faculté '" & facultyIdAndName & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return False
+                End If
+            Next
         End If
-        Return False
+        Return UEsManager.store(New UE(libelle, semester, FacultiesManager.getByIdAndName(facultyIdAndName).Id))
     End Function
     Public Shared Function update(libelle As String, semester As Integer, facultyIdAndName As String, ueId As Integer) As Boolean
         If verify(libelle) Then
-            Dim ueDB = UEsManager.getByLibelle(libelle)
-            If ueDB.Libelle <> Nothing Then
+            For Each ueDB As UE In UEsManager.getByLibelle(libelle)
                 If ueDB.Id <> ueId Then
-                    MessageBox.Show("Le libelle " & libelle & " est déjà utilisé", "Libellé déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return False
+                    If ueDB.FacultyName = facultyIdAndName Then
+                        MessageBox.Show("L'UE '" & libelle & "' dans la faculté '" & facultyIdAndName & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return False
+                    End If
                 End If
-            End If
+            Next
         End If
         Return UEsManager.update(New UE(libelle, semester, FacultiesManager.getByIdAndName(facultyIdAndName).Id), ueId)
     End Function

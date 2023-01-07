@@ -24,7 +24,6 @@
 
             dataTable = New DataTable
             Manager.dataAdapater.Fill(Manager.dataTable)
-
             For Each row As DataRow In Manager.dataTable.Rows
                 faculty = New Faculty(CInt(row("id")), row("libelle"), row("sigle"), row("institute_id"))
             Next
@@ -32,7 +31,6 @@
         Catch ex As Exception
             MessageBox.Show("Erreur durant une selection de données : " & ex.Message, "FacultiesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
         Return faculty
     End Function
 
@@ -60,7 +58,7 @@
     End Function
 
     Public Shared Function getByIdAndName(idAndName As String) As Faculty
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Faculties WHERE CONCACT(id, '-', sigle, ' - ', libelle) = idAndName;", Manager.connection)
+        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Faculties WHERE CONCAT(id, '-', sigle, ' - ', libelle) = @idAndName;", Manager.connection)
         command.Parameters.AddWithValue("@idAndName", idAndName)
         Return getGenerique()
     End Function
@@ -108,16 +106,7 @@
         Return False
     End Function
 
-    Public Shared Function delete(id As Integer) As Boolean
-        Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM Faculties WHERE id = @id;", Manager.connection)
-            command.Parameters.AddWithValue("@id", id)
-            command.ExecuteNonQuery()
-            disposeManager()
-            Return True
-        Catch ex As Exception
-            MessageBox.Show("Erreur durant la supression : " & ex.Message, "FacultiesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return False
+    Public Overloads Shared Function delete(id As Integer) As Boolean
+        Return Manager.delete("Faculties", id)
     End Function
 End Class

@@ -100,16 +100,7 @@
         Return False
     End Function
 
-    Public Shared Function delete(id As Integer) As Boolean
-        Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM Institutes WHERE id = @id;", Manager.connection)
-            command.Parameters.AddWithValue("@id", id)
-            command.ExecuteNonQuery()
-            disposeManager()
-            Return True
-        Catch ex As Exception
-            MessageBox.Show("Erreur durant la supression : " & ex.Message, "InstitutesManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return False
+    Public Overloads Shared Function delete(id As Integer) As Boolean
+        Return Manager.delete("Institutes", id)
     End Function
 End Class
