@@ -43,7 +43,7 @@
                 End If
             Next
         End If
-        Return UEsManager.store(New UE(libelle, semester, CareersManager.getByIdAndName(careerIdAndName).Id))
+        Return UEsManager.store(New UE(libelle, semester, CareersManager.getByName(careerIdAndName).Id))
     End Function
     Public Shared Function update(libelle As String, semester As Integer, careerIdAndName As String, ueId As Integer) As Boolean
         If verify(libelle) Then
@@ -56,7 +56,7 @@
                 End If
             Next
         End If
-        Return UEsManager.update(New UE(libelle, semester, CareersManager.getByIdAndName(careerIdAndName).Id), ueId)
+        Return UEsManager.update(New UE(libelle, semester, CareersManager.getByName(careerIdAndName).Id), ueId)
     End Function
 
     Public Shared Function delete(idList) As Boolean

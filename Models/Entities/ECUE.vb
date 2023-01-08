@@ -2,20 +2,20 @@
     Private _id As Integer
     Private _libelle As String
     Private _credit As Integer
-    Private _employee_id As Integer
+    Private _employeeId As Integer
     Private _employee As Employee
 
-    Public Sub New(id As Integer, libelle As String, credit As Integer, employee_id As Integer)
+    Public Sub New(id As Integer, libelle As String, credit As Integer, employeeId As Integer)
         Me.Id = id
         Me.Libelle = libelle
         Me.Credit = credit
-        Me.Employee_id = employee_id
+        Me.EmployeeId = employeeId
     End Sub
 
-    Public Sub New(libelle As String, credit As Integer, employee_id As Integer)
+    Public Sub New(libelle As String, credit As Integer, employeeId As Integer)
         Me.Libelle = libelle
         Me.Credit = credit
-        Me.Employee_id = employee_id
+        Me.EmployeeId = employeeId
     End Sub
 
     Public Property Id As Integer
@@ -45,16 +45,16 @@
         End Set
     End Property
 
-    Public Property Employee_id As Integer
+    Public Property EmployeeId As Integer
         Get
-            Return _employee_id
+            Return _employeeId
         End Get
         Set(value As Integer)
-            _employee_id = value
-            If _employee_id = Nothing Then
+            _employeeId = value
+            If _employeeId = Nothing Then
                 _employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
             Else
-                _employee = EmployeesManager.getById(_employee_id)
+                _employee = EmployeesManager.getById(_employeeId)
             End If
         End Set
     End Property
