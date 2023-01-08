@@ -8,7 +8,7 @@
 
 
         For Each career As Career In careersList
-            table.LoadDataRow(New Object() {career.Id, career.Libelle, career.Sigle, career.InstituteName}, True)
+            table.LoadDataRow(New Object() {career.Id, career.Libelle, career.Sigle, career.Institute.Name}, True)
         Next
         Return table
     End Function

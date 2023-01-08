@@ -64,10 +64,4 @@
             Return _employee
         End Get
     End Property
-
-    Public ReadOnly Property EmployeeName
-        Get
-            Return ""
-        End Get
-    End Property
 End Class
