@@ -80,12 +80,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ECUEsController.vb" />
     <Compile Include="Controllers\EmployeesController.vb" />
     <Compile Include="Controllers\CareersController.vb" />
     <Compile Include="Controllers\InstitutesController.vb" />
     <Compile Include="Controllers\UEsController.vb" />
     <Compile Include="Controllers\UsersController.vb" />
     <Compile Include="Models\EntitiesManagers\CareersManager.vb" />
+    <Compile Include="Models\EntitiesManagers\ECUEsManager.vb" />
     <Compile Include="Models\EntitiesManagers\InstitutesManager.vb" />
     <Compile Include="Models\EntitiesManagers\EmployeesManager.vb" />
     <Compile Include="Models\EntitiesManagers\Manager.vb" />

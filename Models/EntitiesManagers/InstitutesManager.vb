@@ -1,4 +1,5 @@
-﻿Public Class InstitutesManager
+﻿Imports MySql.Data.MySqlClient
+Public Class InstitutesManager
     Inherits Manager
     Public Shared Function getGeneriqueList() As List(Of Institute)
         Dim insituteList As New List(Of Institute)()
@@ -16,6 +17,21 @@
         End Try
         Return insituteList
     End Function
+    Public Shared Function getAll() As List(Of Institute)
+        command = New MySqlCommand("SELECT * FROM Institutes;", Manager.connection)
+        Return getGeneriqueList()
+    End Function
+    Public Shared Function search(word As String)
+        command = New MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @word OR sigle LIKE @word;", Manager.connection)
+        command.Parameters.AddWithValue("@word", "%" & word & "%")
+        Return getGeneriqueList()
+    End Function
+    Public Shared Function getBySigle(sigle As String) As List(Of Institute)
+        command = New MySqlCommand("SELECT * FROM Institutes WHERE sigle = @sigle;", Manager.connection)
+        command.Parameters.AddWithValue("@sigle", sigle)
+        Return getGeneriqueList()
+    End Function
+
 
     Private Shared Function getGenerique() As Institute
         Dim insitute As Institute = New Institute(Nothing, Nothing, Nothing)
@@ -35,45 +51,26 @@
 
         Return insitute
     End Function
-
-    Public Shared Function getAll() As List(Of Institute)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes;", Manager.connection)
-        Return getGeneriqueList()
-    End Function
-
-    Public Shared Function getBySigle(sigle As String) As List(Of Institute)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE sigle = @sigle;", Manager.connection)
-        command.Parameters.AddWithValue("@sigle", sigle)
-        Return getGeneriqueList()
-    End Function
-
-    Public Shared Function search(word As String)
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @word OR sigle LIKE @word;", Manager.connection)
-        command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
-    End Function
-
     Public Shared Function getById(id As Integer) As Institute
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE id = @id;", Manager.connection)
+        command = New MySqlCommand("SELECT * FROM Institutes WHERE id = @id;", Manager.connection)
         command.Parameters.AddWithValue("@id", id)
         Return getGenerique()
     End Function
-
     Public Shared Function getByLibelle(libelle As String) As Institute
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE libelle = @libelle;", Manager.connection)
+        command = New MySqlCommand("SELECT * FROM Institutes WHERE libelle = @libelle;", Manager.connection)
         command.Parameters.AddWithValue("@libelle", libelle)
         Return getGenerique()
     End Function
-
     Public Shared Function getByName(name As String) As Institute
-        command = New MySql.Data.MySqlClient.MySqlCommand("SELECT * FROM Institutes WHERE CONCAT(id, '-', sigle, ' - ', libelle) = @name;", Manager.connection)
+        command = New MySqlCommand("SELECT * FROM Institutes WHERE CONCAT(id, '-', sigle, ' - ', libelle) = @name;", Manager.connection)
         command.Parameters.AddWithValue("@name", name)
         Return getGenerique()
     End Function
 
+
     Public Shared Function store(institute As Institute) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("INSERT INTO Institutes(libelle, sigle) VALUES(@libelle, @sigle);", Manager.connection)
+            command = New MySqlCommand("INSERT INTO Institutes(libelle, sigle) VALUES(@libelle, @sigle);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", institute.Libelle)
             command.Parameters.AddWithValue("@sigle", institute.Sigle)
             command.ExecuteNonQuery()
@@ -85,9 +82,10 @@
         Return False
     End Function
 
+
     Public Shared Function update(institute As Institute, id As Integer) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("UPDATE Institutes SET libelle = @libelle, sigle = @sigle WHERE id = @id;", Manager.connection)
+            command = New MySqlCommand("UPDATE Institutes SET libelle = @libelle, sigle = @sigle WHERE id = @id;", Manager.connection)
             command.Parameters.AddWithValue("@libelle", institute.Libelle)
             command.Parameters.AddWithValue("@sigle", institute.Sigle)
             command.Parameters.AddWithValue("@id", id)
@@ -99,6 +97,7 @@
         End Try
         Return False
     End Function
+
 
     Public Overloads Shared Function delete(id As Integer) As Boolean
         Return Manager.delete("Institutes", id)

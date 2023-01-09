@@ -64,4 +64,10 @@
             Return _institute
         End Get
     End Property
+
+    Public ReadOnly Property Name As String
+        Get
+            Return _id & "-" & _sigle & " - " & _libelle
+        End Get
+    End Property
 End Class

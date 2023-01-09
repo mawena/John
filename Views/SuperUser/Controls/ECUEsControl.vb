@@ -14,8 +14,30 @@
         End If
     End Sub
 
-    Private Sub ECUEsControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub RefreshUEList()
+        CLB_UES.BeginUpdate()
+        CLB_UES.Items.Clear()
 
+        For Each ueName In ECUEsController.getEUsList()
+            CLB_UES.Items.Add(ueName)
+        Next
+
+        CLB_UES.EndUpdate()
+    End Sub
+
+    Public Sub ResizeDataGridViewRowHeight()
+        DGV_ECUES.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None
+        For i As Integer = 0 To DGV_ECUES.RowCount - 1
+            DGV_ECUES.Rows(i).DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        Next
+    End Sub
+
+
+    Private Sub ECUEsControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DGV_ECUES.DataSource = ECUEsController.getAll()
+        RefreshUEList()
+        ResizeDataGridViewRowHeight()
         checkButtons()
     End Sub
+
 End Class

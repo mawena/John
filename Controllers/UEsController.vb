@@ -8,7 +8,7 @@
 
 
         For Each ue As UE In uesList
-            table.LoadDataRow(New Object() {ue.Id, ue.Libelle, ue.Semester, ue.CareerName}, True)
+            table.LoadDataRow(New Object() {ue.Id, ue.Libelle, ue.Semester, ue.Career.Name}, True)
         Next
         Return table
     End Function
@@ -37,7 +37,7 @@
     Public Shared Function store(libelle As String, semester As Integer, careerIdAndName As String) As Boolean
         If verify(libelle) Then
             For Each ueDB As UE In UEsManager.getByLibelle(libelle)
-                If ueDB.CareerName = careerIdAndName Then
+                If ueDB.Career.Name = careerIdAndName Then
                     MessageBox.Show("L'UE '" & libelle & "' dans le parcour '" & careerIdAndName & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Return False
                 End If
@@ -49,7 +49,7 @@
         If verify(libelle) Then
             For Each ueDB As UE In UEsManager.getByLibelle(libelle)
                 If ueDB.Id <> ueId Then
-                    If ueDB.CareerName = careerIdAndName Then
+                    If ueDB.Career.Name = careerIdAndName Then
                         MessageBox.Show("L'UE '" & libelle & "' dans le parcour '" & careerIdAndName & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Return False
                     End If

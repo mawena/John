@@ -41,9 +41,27 @@ Public Class Manager
         End Try
     End Function
 
+    Public Shared Function getLastId(tableName) As Integer
+        Dim id As Integer
+        Try
+            command = New MySqlCommand("SELECT MAX(id) AS id FROM" & tableName & ";", Manager.connection)
+            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
+
+            dataTable = New DataTable
+            Manager.dataAdapater.Fill(Manager.dataTable)
+            For Each row As DataRow In Manager.dataTable.Rows
+                id = CInt(row("id"))
+            Next
+            disposeManager()
+        Catch ex As Exception
+            MessageBox.Show("Erreur durant une selection du dernier id de la table '" & tableName & "' : " & ex.Message, "ECUEsManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return id
+    End Function
+
     Public Shared Function delete(tableName As String, id As Integer) As Boolean
         Try
-            command = New MySql.Data.MySqlClient.MySqlCommand("DELETE FROM " & tableName & " WHERE id = @id;", Manager.connection)
+            command = New MySqlCommand("DELETE FROM " & tableName & " WHERE id = @id;", Manager.connection)
             command.Parameters.AddWithValue("@id", id)
             command.ExecuteNonQuery()
             disposeManager()

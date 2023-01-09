@@ -69,7 +69,7 @@ CREATE TABLE
     ECUEs(
         id int PRIMARY KEY AUTO_INCREMENT,
         libelle VARCHAR(150) NOT NULL UNIQUE,
-        credit int,
+        credit int NOT NULL,
         employee_id int NOT NULL,
         FOREIGN KEY(employee_id) REFERENCES Employees(id) ON DELETE CASCADE
     );

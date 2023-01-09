@@ -64,4 +64,15 @@
             Return _employee
         End Get
     End Property
+
+    Public ReadOnly Property UEListName
+        Get
+            Dim UENameListTmp As New List(Of String)()
+            For Each ue As UE In UEsManager.getByECUEId(_id)
+                UENameListTmp.Add(ue.Libelle)
+            Next
+            Return String.Join("
+", UENameListTmp)
+        End Get
+    End Property
 End Class

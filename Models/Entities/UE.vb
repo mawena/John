@@ -65,9 +65,10 @@
         End Get
     End Property
 
-    Public ReadOnly Property CareerName
+    Public ReadOnly Property Name
         Get
-            Return _careerId & "-" & _career.Sigle & " - " & _career.Libelle
+            Return _id & "-" & _libelle
         End Get
     End Property
+
 End Class
