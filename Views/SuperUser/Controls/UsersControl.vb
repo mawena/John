@@ -20,7 +20,6 @@
         Else
             CB_EMPLOYEE.SelectedIndex = -1
         End If
-        CB_EMPLOYEE.SelectedIndex = 0
     End Sub
 
     Public Sub checkButtons()

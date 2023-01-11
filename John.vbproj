@@ -164,6 +164,12 @@
     <Compile Include="Views\SuperUser\Controls\UsersControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\Teacher\TeacherView.Designer.vb">
+      <DependentUpon>TeacherView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Teacher\TeacherView.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\TuititionService\TuititionServiceView.Designer.vb">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>
     </Compile>
@@ -199,6 +205,9 @@
     <EmbeddedResource Include="Views\SuperUser\Controls\UsersControl.resx">
       <DependentUpon>UsersControl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Teacher\TeacherView.resx">
+      <DependentUpon>TeacherView.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TuititionService\TuititionServiceView.resx">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>
     </EmbeddedResource>
@@ -217,7 +226,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Teacher\Controls\" />
     <Folder Include="Views\TuititionService\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -1,10 +1,10 @@
 ﻿Public Class CareersController
     Public Shared Function getGeneriqueList(careersList As List(Of Career)) As DataTable
         Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Libelle", GetType(String))
-        table.Columns.Add("Sigle", GetType(String))
-        table.Columns.Add("Institut", GetType(String))
+        table.Columns.Add("id", GetType(Integer))
+        table.Columns.Add("libelle", GetType(String))
+        table.Columns.Add("sigle", GetType(String))
+        table.Columns.Add("institutName", GetType(String))
 
 
         For Each career As Career In careersList

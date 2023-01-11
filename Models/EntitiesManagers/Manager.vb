@@ -44,7 +44,7 @@ Public Class Manager
     Public Shared Function getLastId(tableName) As Integer
         Dim id As Integer
         Try
-            command = New MySqlCommand("SELECT MAX(id) AS id FROM" & tableName & ";", Manager.connection)
+            command = New MySqlCommand("SELECT MAX(id) AS id FROM " & tableName & ";", Manager.connection)
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
 
             dataTable = New DataTable

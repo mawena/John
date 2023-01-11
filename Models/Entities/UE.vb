@@ -67,7 +67,7 @@
 
     Public ReadOnly Property Name
         Get
-            Return _id & "-" & _libelle
+            Return _id & "-" & _libelle & "[" & _career.Libelle & "]"
         End Get
     End Property
 

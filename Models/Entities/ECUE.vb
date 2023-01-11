@@ -69,10 +69,12 @@
         Get
             Dim UENameListTmp As New List(Of String)()
             For Each ue As UE In UEsManager.getByECUEId(_id)
-                UENameListTmp.Add(ue.Libelle)
+                UENameListTmp.Add(ue.Id & "-" & ue.Libelle & "[" & ue.Career.Libelle & "]")
             Next
-            Return String.Join("
-", UENameListTmp)
+            If (UENameListTmp.Count = 0) Then
+                Return "Aucune"
+            End If
+            Return String.Join(", ", UENameListTmp)
         End Get
     End Property
 End Class

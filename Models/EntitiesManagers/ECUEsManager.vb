@@ -25,11 +25,6 @@ Public Class ECUEsManager
         command.Parameters.AddWithValue("@word", "%" & word & "%")
         Return getGeneriqueList()
     End Function
-    Public Shared Function getByLibelle(libelle As String) As List(Of ECUE)
-        command = New MySqlCommand("SELECT * FROM ECUEs WHERE libelle = @libelle;", Manager.connection)
-        command.Parameters.AddWithValue("@libelle", libelle)
-        Return getGeneriqueList()
-    End Function
     Public Shared Function getByEmployeeId(employeeId As Integer) As ECUE
         command = New MySqlCommand("SELECT * FROM ECUEs WHERE employee_id = @employee_id;", Manager.connection)
         command.Parameters.AddWithValue("@employee_id", employeeId)
@@ -58,10 +53,15 @@ Public Class ECUEsManager
         command.Parameters.AddWithValue("@id", id)
         Return getGenerique()
     End Function
+    Public Shared Function getByLibelle(libelle As String) As ECUE
+        command = New MySqlCommand("SELECT * FROM ECUEs WHERE libelle = @libelle;", Manager.connection)
+        command.Parameters.AddWithValue("@libelle", libelle)
+        Return getGenerique()
+    End Function
     Public Shared Function getByName(name As String) As ECUE
         command = New MySqlCommand("SELECT * FROM ECUEs WHERE CONCAT(id, '-', libelle) = @name;", Manager.connection)
         command.Parameters.AddWithValue("@name", name)
-        Return getGenerique()
+    Return getGenerique()
     End Function
 
 
@@ -89,7 +89,7 @@ Public Class ECUEsManager
             Dim ecueId As Integer = getLastId("ECUEs")
             deleteECUEUEs(ecueId)
             For Each ueId As Integer In ueList
-                command = New MySqlCommand("INSERT INTO ECUEsUEs(ECUE_id, UE_id) VALUES(@ECUE_id, @UE_id);")
+                command = New MySqlCommand("INSERT INTO ECUEsUEs(ECUE_id, UE_id) VALUES(@ECUE_id, @UE_id);", Manager.connection)
                 command.Parameters.AddWithValue("@ECUE_id", ecueId)
                 command.Parameters.AddWithValue("@UE_id", ueId)
                 command.ExecuteNonQuery()
@@ -112,11 +112,10 @@ Public Class ECUEsManager
             disposeManager()
 
 
-            Dim ecueId As Integer = getLastId("ECUEs")
-            deleteECUEUEs(ecueId)
+            deleteECUEUEs(id)
             For Each ueId As Integer In ueList
-                command = New MySqlCommand("INSERT INTO ECUEsUEs(ECUE_id, UE_id) VALUES(@ECUE_id, @UE_id);")
-                command.Parameters.AddWithValue("@ECUE_id", ecueId)
+                command = New MySqlCommand("INSERT INTO ECUEsUEs(ECUE_id, UE_id) VALUES(@ECUE_id, @UE_id);", Manager.connection)
+                command.Parameters.AddWithValue("@ECUE_id", id)
                 command.Parameters.AddWithValue("@UE_id", ueId)
                 command.ExecuteNonQuery()
                 disposeManager()
@@ -131,10 +130,7 @@ Public Class ECUEsManager
 
 
     Public Overloads Shared Function delete(id As Integer) As Boolean
-        If Manager.delete("ECUEs", id) Then
-            Return deleteECUEUEs(id)
-        Else
-            Return False
-        End If
+        deleteECUEUEs(id)
+        Return Manager.delete("ECUEs", id)
     End Function
 End Class

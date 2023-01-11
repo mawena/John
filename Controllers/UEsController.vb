@@ -1,10 +1,10 @@
 ﻿Public Class UEsController
     Public Shared Function getGeneriqueList(uesList As List(Of UE)) As DataTable
         Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Libelle", GetType(String))
-        table.Columns.Add("Semestre", GetType(Integer))
-        table.Columns.Add("Parcours", GetType(String))
+        table.Columns.Add("id", GetType(Integer))
+        table.Columns.Add("libelle", GetType(String))
+        table.Columns.Add("semester", GetType(Integer))
+        table.Columns.Add("career", GetType(String))
 
 
         For Each ue As UE In uesList

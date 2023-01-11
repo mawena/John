@@ -21,7 +21,7 @@ Public Class UEsManager
         Return uesList
     End Function
     Public Shared Function getAll() As List(Of UE)
-        command = New MySqlCommand("SELECT * FROM UEs;", Manager.connection)
+        command = New MySqlCommand("SELECT * FROM UEs ORDER BY id;", Manager.connection)
         Return getGeneriqueList()
     End Function
     Public Shared Function search(word As String) As List(Of UE)
@@ -32,6 +32,11 @@ Public Class UEsManager
     Public Shared Function getByLibelle(libelle As String) As List(Of UE)
         command = New MySqlCommand("SELECT * FROM UEs WHERE libelle = @libelle;", Manager.connection)
         command.Parameters.AddWithValue("@libelle", libelle)
+        Return getGeneriqueList()
+    End Function
+    Public Shared Function getByCareerId(careerid As Integer) As List(Of UE)
+        command = New MySqlCommand("SELECT * FROM UEs WHERE career_id = @careerId;", Manager.connection)
+        command.Parameters.AddWithValue("@careerId", careerid)
         Return getGeneriqueList()
     End Function
     Public Shared Function getByECUEId(ecueId As String) As List(Of UE)

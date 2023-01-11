@@ -121,6 +121,12 @@
         BT_ECUES_MENU.ImageAlign = HorizontalAlignment.Right
         LBL_DESCRIPTION.Text = "ECUES"
         PB_GESTION_ILLUSTRATION.ImageLocation = ecuesIllustrationPath
+
+        ecuesControl.BT_REFRESH_Click(Nothing, Nothing)
+        ecuesControl.RefreshTeacherList()
+        ecuesControl.RefreshUEList()
+        ecuesControl.ResizeDataGridViewRowHeight()
+        ecuesControl.CheckButtons()
         ecuesControl.Show()
     End Sub
 

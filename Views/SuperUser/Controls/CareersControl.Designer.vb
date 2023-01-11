@@ -37,6 +37,10 @@ Partial Class CareersControl
         Me.TB_SEARCH = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BT_UPDATE = New Guna.UI2.WinForms.Guna2Button()
         Me.DGV_CAREERS = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.libelle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.sigle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Institut = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LBL_INSTITUTE = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.CB_INSTITUTE = New Guna.UI2.WinForms.Guna2ComboBox()
         CType(Me.DGV_CAREERS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,7 +90,7 @@ Partial Class CareersControl
         Me.TB_SIGLE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_SIGLE.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_SIGLE.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SIGLE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_SIGLE.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TB_SIGLE.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_SIGLE.Location = New System.Drawing.Point(130, 47)
         Me.TB_SIGLE.Name = "TB_SIGLE"
@@ -105,7 +109,7 @@ Partial Class CareersControl
         Me.BT_REFRESH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_REFRESH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_REFRESH.FillColor = System.Drawing.Color.DimGray
-        Me.BT_REFRESH.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_REFRESH.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BT_REFRESH.ForeColor = System.Drawing.Color.White
         Me.BT_REFRESH.Image = CType(resources.GetObject("BT_REFRESH.Image"), System.Drawing.Image)
         Me.BT_REFRESH.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -126,7 +130,7 @@ Partial Class CareersControl
         Me.TB_LIBELLE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_LIBELLE.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_LIBELLE.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_LIBELLE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_LIBELLE.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TB_LIBELLE.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_LIBELLE.Location = New System.Drawing.Point(130, 5)
         Me.TB_LIBELLE.Name = "TB_LIBELLE"
@@ -145,7 +149,7 @@ Partial Class CareersControl
         Me.BT_ADD.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_ADD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_ADD.FillColor = System.Drawing.Color.DimGray
-        Me.BT_ADD.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_ADD.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BT_ADD.ForeColor = System.Drawing.Color.White
         Me.BT_ADD.Image = CType(resources.GetObject("BT_ADD.Image"), System.Drawing.Image)
         Me.BT_ADD.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -164,7 +168,7 @@ Partial Class CareersControl
         Me.BT_DELETE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_DELETE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_DELETE.FillColor = System.Drawing.Color.DimGray
-        Me.BT_DELETE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_DELETE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BT_DELETE.ForeColor = System.Drawing.Color.White
         Me.BT_DELETE.Image = CType(resources.GetObject("BT_DELETE.Image"), System.Drawing.Image)
         Me.BT_DELETE.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -185,7 +189,7 @@ Partial Class CareersControl
         Me.TB_SEARCH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_SEARCH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_SEARCH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SEARCH.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TB_SEARCH.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_SEARCH.Location = New System.Drawing.Point(130, 131)
         Me.TB_SEARCH.Name = "TB_SEARCH"
@@ -204,7 +208,7 @@ Partial Class CareersControl
         Me.BT_UPDATE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_UPDATE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_UPDATE.FillColor = System.Drawing.Color.DimGray
-        Me.BT_UPDATE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_UPDATE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BT_UPDATE.ForeColor = System.Drawing.Color.White
         Me.BT_UPDATE.Image = CType(resources.GetObject("BT_UPDATE.Image"), System.Drawing.Image)
         Me.BT_UPDATE.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -226,7 +230,7 @@ Partial Class CareersControl
         Me.DGV_CAREERS.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -234,9 +238,10 @@ Partial Class CareersControl
         Me.DGV_CAREERS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGV_CAREERS.ColumnHeadersHeight = 30
         Me.DGV_CAREERS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.DGV_CAREERS.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.libelle, Me.sigle, Me.Institut})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
@@ -259,18 +264,50 @@ Partial Class CareersControl
         Me.DGV_CAREERS.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.DGV_CAREERS.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.DGV_CAREERS.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DGV_CAREERS.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DGV_CAREERS.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
         Me.DGV_CAREERS.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.DGV_CAREERS.ThemeStyle.HeaderStyle.Height = 30
         Me.DGV_CAREERS.ThemeStyle.ReadOnly = True
         Me.DGV_CAREERS.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         Me.DGV_CAREERS.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.DGV_CAREERS.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DGV_CAREERS.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DGV_CAREERS.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
         Me.DGV_CAREERS.ThemeStyle.RowsStyle.Height = 22
         Me.DGV_CAREERS.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.DGV_CAREERS.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
+        '
+        'id
+        '
+        Me.id.DataPropertyName = "id"
+        Me.id.FillWeight = 12.0!
+        Me.id.HeaderText = "Identifiant"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
+        'libelle
+        '
+        Me.libelle.DataPropertyName = "libelle"
+        Me.libelle.FillWeight = 40.0!
+        Me.libelle.HeaderText = "Libellé"
+        Me.libelle.Name = "libelle"
+        Me.libelle.ReadOnly = True
+        '
+        'sigle
+        '
+        Me.sigle.DataPropertyName = "sigle"
+        Me.sigle.FillWeight = 8.0!
+        Me.sigle.HeaderText = "Sigle"
+        Me.sigle.Name = "sigle"
+        Me.sigle.ReadOnly = True
+        '
+        'Institut
+        '
+        Me.Institut.DataPropertyName = "institutName"
+        Me.Institut.FillWeight = 40.0!
+        Me.Institut.HeaderText = "Institut"
+        Me.Institut.Name = "Institut"
+        Me.Institut.ReadOnly = True
         '
         'LBL_INSTITUTE
         '
@@ -293,7 +330,7 @@ Partial Class CareersControl
         Me.CB_INSTITUTE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_INSTITUTE.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CB_INSTITUTE.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_INSTITUTE.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CB_INSTITUTE.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_INSTITUTE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CB_INSTITUTE.ItemHeight = 30
         Me.CB_INSTITUTE.Location = New System.Drawing.Point(130, 89)
@@ -339,4 +376,8 @@ Partial Class CareersControl
     Friend WithEvents DGV_CAREERS As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents LBL_INSTITUTE As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents CB_INSTITUTE As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents id As DataGridViewTextBoxColumn
+    Friend WithEvents libelle As DataGridViewTextBoxColumn
+    Friend WithEvents sigle As DataGridViewTextBoxColumn
+    Friend WithEvents Institut As DataGridViewTextBoxColumn
 End Class
