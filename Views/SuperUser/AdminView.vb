@@ -15,7 +15,6 @@
     Const usersIllustrationPath As String = "..\..\assets\Pictures\Illustrations\AdminView\users_illustration.png"
 
     Private Sub AdminView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Manager.connect()
         employeesControl = New EmployeesControl
         institutesControl = New InstitutesControl
         careersControl = New CareersControl
@@ -37,7 +36,7 @@
         P_MAIN.Controls.Add(ecuesControl)
         P_MAIN.Controls.Add(usersControl)
 
-        BT_ECUES_MENU_Click(Nothing, Nothing)
+        BT_EMPLOYEES_MENU_Click(Nothing, Nothing)
     End Sub
     Private Sub HideControls()
         employeesControl.Hide()
@@ -142,7 +141,12 @@
         usersControl.Show()
     End Sub
 
-    Private Sub AdminView_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Manager.close()
+    Private Sub COB_CLOSE_Click(sender As Object, e As EventArgs) Handles COB_CLOSE.Click
+        Manager.Close()
+        End
+    End Sub
+
+    Private Sub BT_LOGOUT_Click(sender As Object, e As EventArgs) Handles BT_LOGOUT.Click
+        JohnController.Logout()
     End Sub
 End Class

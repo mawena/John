@@ -5,6 +5,9 @@
     Private _employeeId As Integer
     Private _employee As Employee
 
+    Const Teacher = "Teacher"
+    Const TuititionService = "TuititionService"
+
     Public Sub New(id As Integer, username As String, passwordField As String, employeeId As Integer)
         Me.Id = id
         Me.Username = username

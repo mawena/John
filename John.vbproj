@@ -84,6 +84,7 @@
     <Compile Include="Controllers\EmployeesController.vb" />
     <Compile Include="Controllers\CareersController.vb" />
     <Compile Include="Controllers\InstitutesController.vb" />
+    <Compile Include="Controllers\JohnController.vb" />
     <Compile Include="Controllers\UEsController.vb" />
     <Compile Include="Controllers\UsersController.vb" />
     <Compile Include="Models\EntitiesManagers\CareersManager.vb" />
@@ -100,10 +101,10 @@
     <Compile Include="Models\Entities\Student.vb" />
     <Compile Include="Models\Entities\UE.vb" />
     <Compile Include="Models\Entities\User.vb" />
-    <Compile Include="Views\Login.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
+    <Compile Include="Views\LoginView.Designer.vb">
+      <DependentUpon>LoginView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login.vb">
+    <Compile Include="Views\LoginView.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -183,6 +184,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginView.resx">
+      <DependentUpon>LoginView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SuperUser\AdminView.resx">
       <DependentUpon>AdminView.vb</DependentUpon>

@@ -17,9 +17,8 @@ Public Class Manager
         End Try
     End Function
 
-    Public Shared Function close() As Boolean
+    Public Shared Function Close() As Boolean
         Try
-            Manager.connection.Close()
             Manager.connection = Nothing
             Return True
         Catch ex As Exception

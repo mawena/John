@@ -206,7 +206,7 @@ INSERT INTO
         password_field,
         employee_id
     )
-VALUES ("Mawena", "licdovic", NULL), ("Laba", "dums", 1), ("Espoir", "BOUILI", 2), ("Mensah", "dums", 3), ("Wodome", "dums", 4), ("Amelina", "dums", 5), ("Eusebio", "claude", 6), ("Damli", "Damali", 7);
+VALUES ("Mawena", "licdovic", NULL), ("Laba", "dums", 1), ("Espoir", "BOUILI", 2), ("Mensah", "dums", 3), ("Wodome", "dums", 4), ("Amelina", "dums", 5), ("Eusebio", "claude", 6), ("Dalmeda", "dums", 7), ("Damli", "Damali", 8);
 
 INSERT INTO
     Careers(libelle, sigle, institute_id)

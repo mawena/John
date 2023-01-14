@@ -110,4 +110,8 @@
             TB_PASSWORD_FIELD.PasswordChar = "*"
         End If
     End Sub
+
+    Private Sub LBL_DISPLAY_PASSWORD_Click(sender As Object, e As EventArgs) Handles LBL_DISPLAY_PASSWORD.Click
+
+    End Sub
 End Class
