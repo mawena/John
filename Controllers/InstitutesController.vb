@@ -1,9 +1,9 @@
 ﻿Public Class InstitutesController
     Public Shared Function getGeneriqueList(institutesList As List(Of Institute)) As DataTable
         Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Libelle", GetType(String))
-        table.Columns.Add("Sigle", GetType(String))
+        table.Columns.Add("id", GetType(Integer))
+        table.Columns.Add("libelle", GetType(String))
+        table.Columns.Add("sigle", GetType(String))
 
 
         For Each institute As Institute In institutesList

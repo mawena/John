@@ -7,6 +7,8 @@
     Private _gender As String
     Private _functionField As String
 
+    Public Const Teacher As String = "Teacher"
+    Public Const TuititionService As String = "TuititionService"
     Public Sub New(id As Integer, lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String)
         Me.Id = id
         Me.LastName = lastName
@@ -101,8 +103,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property Name() As String
+        Get
+            If LastName = Nothing Then
+                Return "Non Employé"
+            Else
+                Return Id & "-" & FirstName & " - " & LastName
+            End If
+        End Get
+    End Property
+
     Public Shared Function Function_field_to_function_view_field(function_field As String) As String
-        If function_field = "TuititionService" Then
+        If function_field = TuititionService Then
             Return "Service Scolarité"
         Else
             Return "Enseignant"
@@ -111,9 +123,9 @@
 
     Public Shared Function Function_view_field_to_function_field(function_view_field As String) As String
         If function_view_field = "Service Scolarité" Then
-            Return "TuititionService"
+            Return TuititionService
         Else
-            Return "Teacher"
+            Return Teacher
         End If
     End Function
 

@@ -40,4 +40,10 @@
             _sigle = value
         End Set
     End Property
+
+    Public ReadOnly Property Name As String
+        Get
+            Return Id & "-" & Sigle & " - " & Libelle
+        End Get
+    End Property
 End Class

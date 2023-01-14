@@ -49,16 +49,11 @@
             Return _employeeId
         End Get
         Set(value As Integer)
-            If value = Nothing Then
-                _employeeId = Nothing
-                _employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            _employeeId = value
+            If _employeeId = Nothing Then
+                _employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
             Else
-                _employeeId = value
-                If _employeeId = Nothing Then
-                    _employee = New Employee(Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                Else
-                    _employee = EmployeesManager.getById(value)
-                End If
+                _employee = EmployeesManager.getById(value)
             End If
         End Set
     End Property
@@ -75,15 +70,6 @@
                 Return "Administrateur"
             End If
             Return FunctionFieldToFunctionViewField(_employee.FunctionField)
-        End Get
-    End Property
-
-    Public ReadOnly Property EmployeeName() As String
-        Get
-            If _employee.LastName = Nothing Then
-                Return "Non employé"
-            End If
-            Return _employee.FirstName & " - " & _employee.LastName
         End Get
     End Property
 

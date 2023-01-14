@@ -9208,10 +9208,10 @@
   <metadata name="Guna2Elipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="BT_FACULTIES_MENU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BT_CAREERS_MENU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAJHRJREFUeF7tnQuoHdXVx0WkFClSikgJIkWkFBERESlFREoRKSIiUoqUUqRIEREp
+        wQAADsEBuJFr7QAAJHRJREFUeF7tnQuoHdXVx0WkFClSikgJIkWkFBERESlFREoRKSIiUoqUUqRIEREp
         RURKQURCEZEiIiJSRESkfIiIiBSRkqYh2KImtXkhSZrce3Nvcu7jnHse95Xv+/+v/5Mvjzt3Zs6smVlz
         zvpBSHLOmrXXXo89e87sPXPZ+vr6R8vLyzdcFowVi4uL31lbW/sf/uG/9XEwJrBmWbuX/S84e/Zsf3V1
         9fdTU1Pf0PdBg+n1endubGwcZ2wJ/83P9HXQYFijrFXWLGO7WcBDEOgD/X7/LskGDQPBvQLBfRbB3VBI

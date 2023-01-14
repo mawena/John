@@ -3,13 +3,13 @@
 Public Class EmployeesController
     Public Shared Function getGeneriqueList(employeesList As List(Of Employee)) As DataTable
         Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Nom", GetType(String))
-        table.Columns.Add("Prénoms", GetType(String))
-        table.Columns.Add("Téléphone", GetType(String))
-        table.Columns.Add("Email", GetType(String))
-        table.Columns.Add("Genre", GetType(String))
-        table.Columns.Add("Fonction", GetType(String))
+        table.Columns.Add("id", GetType(Integer))
+        table.Columns.Add("lastName", GetType(String))
+        table.Columns.Add("firstName", GetType(String))
+        table.Columns.Add("phoneNumber", GetType(String))
+        table.Columns.Add("email", GetType(String))
+        table.Columns.Add("gender", GetType(String))
+        table.Columns.Add("functionField", GetType(String))
 
 
         For Each employee As Employee In employeesList

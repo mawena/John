@@ -80,23 +80,32 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ECUEsController.vb" />
     <Compile Include="Controllers\EmployeesController.vb" />
-    <Compile Include="Controllers\FacultiesController.vb" />
+    <Compile Include="Controllers\CareersController.vb" />
     <Compile Include="Controllers\InstitutesController.vb" />
     <Compile Include="Controllers\UEsController.vb" />
     <Compile Include="Controllers\UsersController.vb" />
-    <Compile Include="Models\EntitiesManagers\FacultiesManager.vb" />
+    <Compile Include="Models\EntitiesManagers\CareersManager.vb" />
+    <Compile Include="Models\EntitiesManagers\ECUEsManager.vb" />
     <Compile Include="Models\EntitiesManagers\InstitutesManager.vb" />
     <Compile Include="Models\EntitiesManagers\EmployeesManager.vb" />
     <Compile Include="Models\EntitiesManagers\Manager.vb" />
     <Compile Include="Models\EntitiesManagers\UEsManager.vb" />
     <Compile Include="Models\EntitiesManagers\UsersManager.vb" />
+    <Compile Include="Models\Entities\ECUE.vb" />
     <Compile Include="Models\Entities\Employee.vb" />
-    <Compile Include="Models\Entities\Faculty.vb" />
+    <Compile Include="Models\Entities\Career.vb" />
     <Compile Include="Models\Entities\Institute.vb" />
     <Compile Include="Models\Entities\Student.vb" />
     <Compile Include="Models\Entities\UE.vb" />
     <Compile Include="Models\Entities\User.vb" />
+    <Compile Include="Views\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -131,10 +140,10 @@
     <Compile Include="Views\SuperUser\Controls\EmployeesControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\FacultiesControl.Designer.vb">
-      <DependentUpon>FacultiesControl.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\Controls\CareersControl.Designer.vb">
+      <DependentUpon>CareersControl.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\FacultiesControl.vb">
+    <Compile Include="Views\SuperUser\Controls\CareersControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\SuperUser\Controls\InstitutesControl.Designer.vb">
@@ -154,6 +163,12 @@
     </Compile>
     <Compile Include="Views\SuperUser\Controls\UsersControl.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Teacher\TeacherView.Designer.vb">
+      <DependentUpon>TeacherView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Teacher\TeacherView.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\TuititionService\TuititionServiceView.Designer.vb">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>
@@ -178,8 +193,8 @@
     <EmbeddedResource Include="Views\SuperUser\Controls\EmployeesControl.resx">
       <DependentUpon>EmployeesControl.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SuperUser\Controls\FacultiesControl.resx">
-      <DependentUpon>FacultiesControl.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\Controls\CareersControl.resx">
+      <DependentUpon>CareersControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SuperUser\Controls\InstitutesControl.resx">
       <DependentUpon>InstitutesControl.vb</DependentUpon>
@@ -189,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SuperUser\Controls\UsersControl.resx">
       <DependentUpon>UsersControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Teacher\TeacherView.resx">
+      <DependentUpon>TeacherView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TuititionService\TuititionServiceView.resx">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>
@@ -208,7 +226,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Teacher\Controls\" />
     <Folder Include="Views\TuititionService\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
