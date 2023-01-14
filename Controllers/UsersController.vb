@@ -1,21 +1,19 @@
 ﻿Public Class UsersController
     Public Shared Function getGeneriqueList(usersList As List(Of User)) As DataTable
         Dim table As DataTable = New DataTable
-        table.Columns.Add("Identifiant", GetType(Integer))
-        table.Columns.Add("Utilisateur", GetType(String))
-        table.Columns.Add("Fonction", GetType(String))
-        table.Columns.Add("Employé", GetType(String))
+        table.Columns.Add("id", GetType(Integer))
+        table.Columns.Add("username", GetType(String))
+        table.Columns.Add("functionField", GetType(String))
+        table.Columns.Add("employee", GetType(String))
 
         For Each user As User In usersList
-            table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.EmployeeName}, True)
+            table.LoadDataRow(New Object() {user.Id, user.Username, user.FunctionViewField, user.Employee.Name}, True)
         Next
         Return table
     End Function
-
     Public Shared Function getAll()
         Return getGeneriqueList(UsersManager.getAll())
     End Function
-
     Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
             Return getGeneriqueList(UsersManager.search(word))
@@ -23,6 +21,7 @@
             Return getAll()
         End If
     End Function
+
 
     Public Shared Function verifyUser(username As String, password_field As String, update_password_field As Boolean)
         If (username = "") Then
@@ -46,8 +45,12 @@
         If (verifyUser(username, password_field, True)) Then
             Dim userDB As User = UsersManager.getByUsername(username)
             If (userDB.Username = Nothing) Then
-                Dim userToSave As User = New User(username, password_field, getEmployeeIdByName(employeeName))
-                Return UsersManager.store(userToSave)
+                Dim employeeId As Integer = getEmployeeIdByName(employeeName)
+                If EmployeesManager.getById(employeeId).LastName = Nothing Then
+                    Return UsersManager.store(New User(username, password_field, employeeId))
+                Else
+                    MessageBox.Show("L'employée " & employeeName & " a déjà un compte utilisateur, Voulez vous le mettre à jour?", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             Else
                 MessageBox.Show("L'utilisateur " & username & " existe déjà", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

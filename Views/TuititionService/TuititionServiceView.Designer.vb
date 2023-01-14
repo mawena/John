@@ -55,7 +55,7 @@ Partial Class TuititionServiceView
         Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel8 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2ComboBox5 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.PIC_STUDENT = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.P_TOP = New Guna.UI2.WinForms.Guna2Panel()
@@ -64,7 +64,7 @@ Partial Class TuititionServiceView
         Me.COB_CLOSE = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
         CType(Me.DGV_Students, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PIC_STUDENT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_TOP.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -278,7 +278,7 @@ Partial Class TuititionServiceView
         Me.BT_REFRESH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_REFRESH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_REFRESH.FillColor = System.Drawing.Color.DimGray
-        Me.BT_REFRESH.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_REFRESH.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_REFRESH.ForeColor = System.Drawing.Color.White
         Me.BT_REFRESH.Image = CType(resources.GetObject("BT_REFRESH.Image"), System.Drawing.Image)
         Me.BT_REFRESH.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -297,7 +297,7 @@ Partial Class TuititionServiceView
         Me.BT_ADD.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_ADD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_ADD.FillColor = System.Drawing.Color.DimGray
-        Me.BT_ADD.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_ADD.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_ADD.ForeColor = System.Drawing.Color.White
         Me.BT_ADD.Image = CType(resources.GetObject("BT_ADD.Image"), System.Drawing.Image)
         Me.BT_ADD.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -316,7 +316,7 @@ Partial Class TuititionServiceView
         Me.BT_DELETE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_DELETE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_DELETE.FillColor = System.Drawing.Color.DimGray
-        Me.BT_DELETE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_DELETE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_DELETE.ForeColor = System.Drawing.Color.White
         Me.BT_DELETE.Image = CType(resources.GetObject("BT_DELETE.Image"), System.Drawing.Image)
         Me.BT_DELETE.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -335,7 +335,7 @@ Partial Class TuititionServiceView
         Me.BT_UPDATE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_UPDATE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_UPDATE.FillColor = System.Drawing.Color.DimGray
-        Me.BT_UPDATE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_UPDATE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_UPDATE.ForeColor = System.Drawing.Color.White
         Me.BT_UPDATE.Image = CType(resources.GetObject("BT_UPDATE.Image"), System.Drawing.Image)
         Me.BT_UPDATE.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -361,11 +361,11 @@ Partial Class TuititionServiceView
         Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(679, 163)
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(675, 163)
         Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
-        Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(81, 27)
+        Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(85, 27)
         Me.Guna2HtmlLabel2.TabIndex = 91
-        Me.Guna2HtmlLabel2.Text = "Faculté"
+        Me.Guna2HtmlLabel2.Text = "Parcour"
         '
         'Guna2ComboBox1
         '
@@ -480,11 +480,11 @@ Partial Class TuititionServiceView
         Me.Guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2HtmlLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.Guna2HtmlLabel7.Location = New System.Drawing.Point(404, 230)
+        Me.Guna2HtmlLabel7.Location = New System.Drawing.Point(388, 230)
         Me.Guna2HtmlLabel7.Name = "Guna2HtmlLabel7"
-        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(81, 27)
+        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(97, 27)
         Me.Guna2HtmlLabel7.TabIndex = 100
-        Me.Guna2HtmlLabel7.Text = "Faculté"
+        Me.Guna2HtmlLabel7.Text = "Parcours"
         '
         'Guna2ComboBox4
         '
@@ -544,14 +544,14 @@ Partial Class TuititionServiceView
         Me.Guna2ComboBox5.StartIndex = 1
         Me.Guna2ComboBox5.TabIndex = 101
         '
-        'Guna2PictureBox1
+        'PIC_STUDENT
         '
-        Me.Guna2PictureBox1.ImageRotate = 0!
-        Me.Guna2PictureBox1.Location = New System.Drawing.Point(12, 37)
-        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Me.Guna2PictureBox1.Size = New System.Drawing.Size(171, 162)
-        Me.Guna2PictureBox1.TabIndex = 103
-        Me.Guna2PictureBox1.TabStop = False
+        Me.PIC_STUDENT.ImageRotate = 0!
+        Me.PIC_STUDENT.Location = New System.Drawing.Point(12, 37)
+        Me.PIC_STUDENT.Name = "PIC_STUDENT"
+        Me.PIC_STUDENT.Size = New System.Drawing.Size(171, 162)
+        Me.PIC_STUDENT.TabIndex = 103
+        Me.PIC_STUDENT.TabStop = False
         '
         'Guna2Elipse1
         '
@@ -618,7 +618,7 @@ Partial Class TuititionServiceView
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1084, 661)
         Me.Controls.Add(Me.P_TOP)
-        Me.Controls.Add(Me.Guna2PictureBox1)
+        Me.Controls.Add(Me.PIC_STUDENT)
         Me.Controls.Add(Me.Guna2HtmlLabel8)
         Me.Controls.Add(Me.Guna2ComboBox5)
         Me.Controls.Add(Me.Guna2HtmlLabel7)
@@ -652,7 +652,7 @@ Partial Class TuititionServiceView
         Me.Text = "TuititionServiceView"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DGV_Students, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PIC_STUDENT, System.ComponentModel.ISupportInitialize).EndInit()
         Me.P_TOP.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -687,7 +687,7 @@ Partial Class TuititionServiceView
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel8 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2ComboBox5 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents PIC_STUDENT As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents P_TOP As Guna.UI2.WinForms.Guna2Panel

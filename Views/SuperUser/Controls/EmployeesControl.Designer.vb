@@ -45,6 +45,13 @@ Partial Class EmployeesControl
         Me.DGV_EMPLOYEES = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.TB_FIRST_NAME = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TB_EMAIL = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.firstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.phoneNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.gender = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.functionField = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DGV_EMPLOYEES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,7 +63,7 @@ Partial Class EmployeesControl
         Me.CB_FUNCTION.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_FUNCTION.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CB_FUNCTION.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_FUNCTION.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CB_FUNCTION.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_FUNCTION.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CB_FUNCTION.ItemHeight = 30
         Me.CB_FUNCTION.Items.AddRange(New Object() {"Service Scolarité", "Enseignant"})
@@ -118,7 +125,7 @@ Partial Class EmployeesControl
         Me.CB_GENDER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_GENDER.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CB_GENDER.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_GENDER.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CB_GENDER.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CB_GENDER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CB_GENDER.ItemHeight = 30
         Me.CB_GENDER.Items.AddRange(New Object() {"Femme", "Homme"})
@@ -148,7 +155,8 @@ Partial Class EmployeesControl
         Me.TB_PHONE_NUMBER.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_PHONE_NUMBER.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_PHONE_NUMBER.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_PHONE_NUMBER.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_PHONE_NUMBER.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_PHONE_NUMBER.ForeColor = System.Drawing.Color.Black
         Me.TB_PHONE_NUMBER.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_PHONE_NUMBER.Location = New System.Drawing.Point(130, 45)
         Me.TB_PHONE_NUMBER.Name = "TB_PHONE_NUMBER"
@@ -167,7 +175,7 @@ Partial Class EmployeesControl
         Me.BT_REFRESH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_REFRESH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_REFRESH.FillColor = System.Drawing.Color.DimGray
-        Me.BT_REFRESH.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_REFRESH.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_REFRESH.ForeColor = System.Drawing.Color.White
         Me.BT_REFRESH.Image = CType(resources.GetObject("BT_REFRESH.Image"), System.Drawing.Image)
         Me.BT_REFRESH.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -186,7 +194,8 @@ Partial Class EmployeesControl
         Me.TB_LAST_NAME.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_LAST_NAME.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_LAST_NAME.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_LAST_NAME.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_LAST_NAME.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_LAST_NAME.ForeColor = System.Drawing.Color.Black
         Me.TB_LAST_NAME.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_LAST_NAME.Location = New System.Drawing.Point(130, 4)
         Me.TB_LAST_NAME.Name = "TB_LAST_NAME"
@@ -205,7 +214,7 @@ Partial Class EmployeesControl
         Me.BT_ADD.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_ADD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_ADD.FillColor = System.Drawing.Color.DimGray
-        Me.BT_ADD.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_ADD.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_ADD.ForeColor = System.Drawing.Color.White
         Me.BT_ADD.Image = CType(resources.GetObject("BT_ADD.Image"), System.Drawing.Image)
         Me.BT_ADD.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -235,7 +244,7 @@ Partial Class EmployeesControl
         Me.BT_DELETE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_DELETE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_DELETE.FillColor = System.Drawing.Color.DimGray
-        Me.BT_DELETE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_DELETE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_DELETE.ForeColor = System.Drawing.Color.White
         Me.BT_DELETE.Image = CType(resources.GetObject("BT_DELETE.Image"), System.Drawing.Image)
         Me.BT_DELETE.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -256,7 +265,8 @@ Partial Class EmployeesControl
         Me.TB_SEARCH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_SEARCH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_SEARCH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SEARCH.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_SEARCH.ForeColor = System.Drawing.Color.Black
         Me.TB_SEARCH.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_SEARCH.Location = New System.Drawing.Point(130, 129)
         Me.TB_SEARCH.Name = "TB_SEARCH"
@@ -286,7 +296,7 @@ Partial Class EmployeesControl
         Me.BT_UPDATE.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.BT_UPDATE.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.BT_UPDATE.FillColor = System.Drawing.Color.DimGray
-        Me.BT_UPDATE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BT_UPDATE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.BT_UPDATE.ForeColor = System.Drawing.Color.White
         Me.BT_UPDATE.Image = CType(resources.GetObject("BT_UPDATE.Image"), System.Drawing.Image)
         Me.BT_UPDATE.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -308,7 +318,7 @@ Partial Class EmployeesControl
         Me.DGV_EMPLOYEES.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -316,9 +326,10 @@ Partial Class EmployeesControl
         Me.DGV_EMPLOYEES.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGV_EMPLOYEES.ColumnHeadersHeight = 30
         Me.DGV_EMPLOYEES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.DGV_EMPLOYEES.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.lastName, Me.firstName, Me.phoneNumber, Me.email, Me.gender, Me.functionField})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
@@ -341,14 +352,14 @@ Partial Class EmployeesControl
         Me.DGV_EMPLOYEES.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.DGV_EMPLOYEES.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.DGV_EMPLOYEES.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DGV_EMPLOYEES.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DGV_EMPLOYEES.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DGV_EMPLOYEES.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
         Me.DGV_EMPLOYEES.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.DGV_EMPLOYEES.ThemeStyle.HeaderStyle.Height = 30
         Me.DGV_EMPLOYEES.ThemeStyle.ReadOnly = True
         Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
         Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.Height = 22
         Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
@@ -364,7 +375,8 @@ Partial Class EmployeesControl
         Me.TB_FIRST_NAME.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_FIRST_NAME.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_FIRST_NAME.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_FIRST_NAME.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_FIRST_NAME.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_FIRST_NAME.ForeColor = System.Drawing.Color.Black
         Me.TB_FIRST_NAME.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_FIRST_NAME.Location = New System.Drawing.Point(570, 5)
         Me.TB_FIRST_NAME.Name = "TB_FIRST_NAME"
@@ -383,7 +395,8 @@ Partial Class EmployeesControl
         Me.TB_EMAIL.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_EMAIL.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TB_EMAIL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_EMAIL.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TB_EMAIL.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_EMAIL.ForeColor = System.Drawing.Color.Black
         Me.TB_EMAIL.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TB_EMAIL.Location = New System.Drawing.Point(570, 46)
         Me.TB_EMAIL.Name = "TB_EMAIL"
@@ -392,6 +405,62 @@ Partial Class EmployeesControl
         Me.TB_EMAIL.SelectedText = ""
         Me.TB_EMAIL.Size = New System.Drawing.Size(200, 36)
         Me.TB_EMAIL.TabIndex = 34
+        '
+        'id
+        '
+        Me.id.DataPropertyName = "id"
+        Me.id.FillWeight = 8.0!
+        Me.id.HeaderText = "Identifiant"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
+        'lastName
+        '
+        Me.lastName.DataPropertyName = "lastName"
+        Me.lastName.FillWeight = 10.0!
+        Me.lastName.HeaderText = "Nom"
+        Me.lastName.Name = "lastName"
+        Me.lastName.ReadOnly = True
+        '
+        'firstName
+        '
+        Me.firstName.DataPropertyName = "firstName"
+        Me.firstName.FillWeight = 18.0!
+        Me.firstName.HeaderText = "Prénoms"
+        Me.firstName.Name = "firstName"
+        Me.firstName.ReadOnly = True
+        '
+        'phoneNumber
+        '
+        Me.phoneNumber.DataPropertyName = "phoneNumber"
+        Me.phoneNumber.FillWeight = 10.0!
+        Me.phoneNumber.HeaderText = "Téléphone"
+        Me.phoneNumber.Name = "phoneNumber"
+        Me.phoneNumber.ReadOnly = True
+        '
+        'email
+        '
+        Me.email.DataPropertyName = "email"
+        Me.email.FillWeight = 22.0!
+        Me.email.HeaderText = "Email"
+        Me.email.Name = "email"
+        Me.email.ReadOnly = True
+        '
+        'gender
+        '
+        Me.gender.DataPropertyName = "gender"
+        Me.gender.FillWeight = 5.0!
+        Me.gender.HeaderText = "Genre"
+        Me.gender.Name = "gender"
+        Me.gender.ReadOnly = True
+        '
+        'functionField
+        '
+        Me.functionField.DataPropertyName = "functionField"
+        Me.functionField.FillWeight = 10.0!
+        Me.functionField.HeaderText = "Fonction"
+        Me.functionField.Name = "functionField"
+        Me.functionField.ReadOnly = True
         '
         'EmployeesControl
         '
@@ -444,4 +513,11 @@ Partial Class EmployeesControl
     Friend WithEvents DGV_EMPLOYEES As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents TB_FIRST_NAME As Guna.UI2.WinForms.Guna2TextBox
     Private WithEvents TB_EMAIL As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents id As DataGridViewTextBoxColumn
+    Friend WithEvents lastName As DataGridViewTextBoxColumn
+    Friend WithEvents firstName As DataGridViewTextBoxColumn
+    Friend WithEvents phoneNumber As DataGridViewTextBoxColumn
+    Friend WithEvents email As DataGridViewTextBoxColumn
+    Friend WithEvents gender As DataGridViewTextBoxColumn
+    Friend WithEvents functionField As DataGridViewTextBoxColumn
 End Class

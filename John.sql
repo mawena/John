@@ -27,7 +27,7 @@ CREATE TABLE
         id int PRIMARY KEY AUTO_INCREMENT,
         username VARCHAR(80) UNIQUE NOT NULL,
         password_field VARCHAR(150) NOT NULL,
-        employee_id int NULL,
+        employee_id int NULL UNIQUE,
         FOREIGN KEY(employee_id) REFERENCES Employees(id) ON DELETE CASCADE
     );
 
@@ -40,10 +40,10 @@ CREATE TABLE
         sigle VARCHAR(40) NOT NULL
     );
 
-DROP TABLE IF EXISTS Faculties;
+DROP TABLE IF EXISTS Careers;
 
 CREATE TABLE
-    Faculties(
+    Careers(
         id int PRIMARY KEY AUTO_INCREMENT,
         libelle VARCHAR(150) NOT NULL UNIQUE,
         sigle VARCHAR(40) NOT NULL,
@@ -58,9 +58,9 @@ CREATE TABLE
         id int PRIMARY KEY AUTO_INCREMENT,
         libelle VARCHAR(150) NOT NULL,
         semester int NOT NULL,
-        faculty_id int NOT NULL,
-        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE,
-        UNIQUE(libelle, semester, faculty_id)
+        career_id int NOT NULL,
+        FOREIGN KEY(career_id) REFERENCES Careers(id) ON DELETE CASCADE,
+        UNIQUE(libelle, semester, career_id)
     );
 
 DROP TABLE IF EXISTS ECUEs;
@@ -69,7 +69,7 @@ CREATE TABLE
     ECUEs(
         id int PRIMARY KEY AUTO_INCREMENT,
         libelle VARCHAR(150) NOT NULL UNIQUE,
-        credit int,
+        credit int NOT NULL,
         employee_id int NOT NULL,
         FOREIGN KEY(employee_id) REFERENCES Employees(id) ON DELETE CASCADE
     );
@@ -97,8 +97,8 @@ CREATE TABLE
         email VARCHAR(200) NOT NULL,
         phone_number VARCHAR(30) NOT NULL,
         picture_path VARCHAR(300) NOT NULL,
-        faculty_id int NOT NULL,
-        FOREIGN KEY(faculty_id) REFERENCES Faculties(id) ON DELETE CASCADE,
+        career_id int NOT NULL,
+        FOREIGN KEY(career_id) REFERENCES Careers(id) ON DELETE CASCADE,
         UNIQUE(last_name, first_name, email)
     );
 
@@ -143,44 +143,58 @@ INSERT INTO
         function_field
     )
 VALUES (
-        "AOUKOU",
-        "Pierrette",
+        "LABA",
+        "Laba",
         "+228 98676615",
-        "pierretteaoukou@gmail.com",
-        "Female",
-        "TuititionService"
+        "Laba@gmail.com",
+        "Male",
+        "Teacher"
     ), (
         "BOUILI",
         "Espoir",
         "+228 91919191",
         "espoir@gmail.com",
         "Male",
-        "Teacher"
-    ), (
-        "BILAZA",
-        "Jeff",
-        "+228 91919192",
-        "jeff@gmail.com",
-        "Male",
         "TuititionService"
     ), (
-        "NYAVEDJI",
-        "Rhamone",
-        "+228 91909090",
-        "rhamone@gmail.com",
+        "MENSAH",
+        "Mensah",
+        "+228 91909292",
+        "mensah@gmail.com",
+        "Male",
+        "Teacher"
+    ), (
+        "WODOME",
+        "Wodome",
+        "+228 91349292",
+        "wodome@gmail.com",
+        "Male",
+        "Teacher"
+    ), (
+        "AMELINA",
+        "Amelina",
+        "+228 91999292",
+        "amelina@gmail.com",
         "Male",
         "Teacher"
     ), (
         "EUSEBIO",
         "Claude",
-        "+228 91909290",
+        "+228 91969290",
         "eusebio@gmail.com",
         "Male",
         "Teacher"
     ), (
+        "DALMEDA",
+        "Dalmeda",
+        "+228 91929290",
+        "dalmeda@gmail.com",
+        "Female",
+        "Teacher"
+    ), (
         "DAMALI",
-        "Claude",
-        "+228 91939090",
+        "Damali",
+        "+228 91931290",
         "Damali@gmail.com",
         "Male",
         "Teacher"
@@ -192,27 +206,111 @@ INSERT INTO
         password_field,
         employee_id
     )
-VALUES ("Mawena", "licdovic", NULL), ("Pierrette", "AOUKOU", 1), ("Espoir", "BOUILI", 2), ("Jeff", "jeff", 3), ("Rhamone", "Kota", 4), ("Eusebio", "claude", 5), ("Damli", "Damali", 6);
+VALUES ("Mawena", "licdovic", NULL), ("Laba", "dums", 1), ("Espoir", "BOUILI", 2), ("Mensah", "dums", 3), ("Wodome", "dums", 4), ("Amelina", "dums", 5), ("Eusebio", "claude", 6), ("Damli", "Damali", 7);
 
 INSERT INTO
-    Faculties(libelle, sigle, institute_id)
+    Careers(libelle, sigle, institute_id)
 VALUES (
         "Dévéloppement d'Application",
         "DA",
         1
-    ), ("Maths-Informatique", "MI", 1), ("Mathématiques", "Maths", 2);
+    ), ("Maths-Informatique", "MI", 1), (
+        "Réseaux Informatique et Télécomunication",
+        "RIT",
+        1
+    );
 
 INSERT INTO
-    UEs(libelle, semester, faculty_id)
-VALUES ("Programmation de Base", 1, 1), ("Programmation de Base", 1, 2), ("Base de données", 1, 2);
+    UEs(libelle, semester, career_id)
+VALUES (
+        "COMMUNICATION-ETHIQUE-LANGUE",
+        1,
+        1
+    ), (
+        "COMMUNICATION-ETHIQUE-LANGUE",
+        1,
+        2
+    ), (
+        "COMMUNICATION-ETHIQUE-LANGUE",
+        1,
+        3
+    ), ("MATHEMATIQUES", 1, 1), ("MATHEMATIQUES", 1, 2), ("MATHEMATIQUES", 1, 3), (
+        "PROBABILITE-STATISTIQUE",
+        1,
+        1
+    ), (
+        "PROBABILITE-STATISTIQUE",
+        1,
+        2
+    ), (
+        "PROBABILITE-STATISTIQUE",
+        1,
+        3
+    ), (
+        "PROGRAMMATION-ARCHITECHTURE",
+        1,
+        1
+    ), (
+        "PROGRAMMATION-ARCHITECHTURE",
+        1,
+        2
+    ), (
+        "PROGRAMMATION-ARCHITECHTURE",
+        1,
+        3
+    ), (
+        "SYSTEME D'EXPLOITATION-BASE DE DONNEES",
+        1,
+        1
+    ), (
+        "SYSTEME D'EXPLOITATION-BASE DE DONNEES",
+        1,
+        2
+    ), (
+        "SYSTEME D'EXPLOITATION-BASE DE DONNEES",
+        1,
+        3
+    );
 
 INSERT INTO
     ECUEs(libelle, credit, employee_id)
-VALUES (
-        "Aplication Programmation 1",
+VALUES ("Anglais", 2, 1), (
+        "Cours d'Education aux valeurs (Ethique)",
+        2,
+        1
+    ), (
+        "Technique de Communication Ecrite et Orale",
+        2,
+        1
+    ), (
+        "Logique Ensembles et Relation",
         3,
-        5
-    ), ("Base de données", 3, 6);
+        3
+    ), (
+        "Nombres Réels - Suites et Fonctions Numérique",
+        3,
+        3
+    ), (
+        "Base de calcul de Probabilité",
+        3,
+        4
+    ), (
+        "Statistiques Descriptives",
+        3,
+        4
+    ), (
+        "Algorithme Programmation de Base",
+        4,
+        6
+    ), (
+        "Architechture et Technologie des Ordinateurs",
+        2,
+        7
+    ), ("Base de Données", 3, 8), ("Système d'Exploitation", 3, 5);
+
+INSERT INTO
+    `ecuesues` (`ECUE_id`, `UE_id`)
+VALUES (1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3), (4, 4), (4, 5), (4, 6), (5, 4), (5, 5), (5, 6), (6, 7), (6, 8), (6, 9), (7, 7), (7, 8), (7, 9), (8, 10), (8, 11), (8, 12), (9, 10), (9, 11), (9, 12), (10, 13), (10, 14), (10, 15), (11, 13), (11, 14), (11, 15);
 
 INSERT INTO Students
 VALUES (
