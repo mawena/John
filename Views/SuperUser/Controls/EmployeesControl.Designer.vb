@@ -43,8 +43,6 @@ Partial Class EmployeesControl
         Me.LBL_FUNCTION = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.BT_UPDATE = New Guna.UI2.WinForms.Guna2Button()
         Me.DGV_EMPLOYEES = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.TB_FIRST_NAME = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.TB_EMAIL = New Guna.UI2.WinForms.Guna2TextBox()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.firstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,6 +50,8 @@ Partial Class EmployeesControl
         Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gender = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.functionField = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TB_FIRST_NAME = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.TB_EMAIL = New Guna.UI2.WinForms.Guna2TextBox()
         CType(Me.DGV_EMPLOYEES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -125,7 +125,7 @@ Partial Class EmployeesControl
         Me.CB_GENDER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_GENDER.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CB_GENDER.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_GENDER.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CB_GENDER.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.CB_GENDER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CB_GENDER.ItemHeight = 30
         Me.CB_GENDER.Items.AddRange(New Object() {"Femme", "Homme"})
@@ -365,47 +365,6 @@ Partial Class EmployeesControl
         Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
         Me.DGV_EMPLOYEES.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black
         '
-        'TB_FIRST_NAME
-        '
-        Me.TB_FIRST_NAME.AutoSize = True
-        Me.TB_FIRST_NAME.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TB_FIRST_NAME.DefaultText = ""
-        Me.TB_FIRST_NAME.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TB_FIRST_NAME.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TB_FIRST_NAME.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_FIRST_NAME.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_FIRST_NAME.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_FIRST_NAME.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TB_FIRST_NAME.ForeColor = System.Drawing.Color.Black
-        Me.TB_FIRST_NAME.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_FIRST_NAME.Location = New System.Drawing.Point(570, 5)
-        Me.TB_FIRST_NAME.Name = "TB_FIRST_NAME"
-        Me.TB_FIRST_NAME.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TB_FIRST_NAME.PlaceholderText = "Ex: Albert"
-        Me.TB_FIRST_NAME.SelectedText = ""
-        Me.TB_FIRST_NAME.Size = New System.Drawing.Size(200, 35)
-        Me.TB_FIRST_NAME.TabIndex = 32
-        '
-        'TB_EMAIL
-        '
-        Me.TB_EMAIL.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TB_EMAIL.DefaultText = ""
-        Me.TB_EMAIL.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TB_EMAIL.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TB_EMAIL.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_EMAIL.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_EMAIL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_EMAIL.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TB_EMAIL.ForeColor = System.Drawing.Color.Black
-        Me.TB_EMAIL.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_EMAIL.Location = New System.Drawing.Point(570, 46)
-        Me.TB_EMAIL.Name = "TB_EMAIL"
-        Me.TB_EMAIL.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TB_EMAIL.PlaceholderText = "Ex: albert@gmail.com"
-        Me.TB_EMAIL.SelectedText = ""
-        Me.TB_EMAIL.Size = New System.Drawing.Size(200, 36)
-        Me.TB_EMAIL.TabIndex = 34
-        '
         'id
         '
         Me.id.DataPropertyName = "id"
@@ -461,6 +420,47 @@ Partial Class EmployeesControl
         Me.functionField.HeaderText = "Fonction"
         Me.functionField.Name = "functionField"
         Me.functionField.ReadOnly = True
+        '
+        'TB_FIRST_NAME
+        '
+        Me.TB_FIRST_NAME.AutoSize = True
+        Me.TB_FIRST_NAME.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_FIRST_NAME.DefaultText = ""
+        Me.TB_FIRST_NAME.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_FIRST_NAME.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_FIRST_NAME.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_FIRST_NAME.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_FIRST_NAME.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_FIRST_NAME.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_FIRST_NAME.ForeColor = System.Drawing.Color.Black
+        Me.TB_FIRST_NAME.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_FIRST_NAME.Location = New System.Drawing.Point(570, 5)
+        Me.TB_FIRST_NAME.Name = "TB_FIRST_NAME"
+        Me.TB_FIRST_NAME.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_FIRST_NAME.PlaceholderText = "Ex: Albert"
+        Me.TB_FIRST_NAME.SelectedText = ""
+        Me.TB_FIRST_NAME.Size = New System.Drawing.Size(200, 35)
+        Me.TB_FIRST_NAME.TabIndex = 32
+        '
+        'TB_EMAIL
+        '
+        Me.TB_EMAIL.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_EMAIL.DefaultText = ""
+        Me.TB_EMAIL.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_EMAIL.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_EMAIL.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_EMAIL.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_EMAIL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_EMAIL.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_EMAIL.ForeColor = System.Drawing.Color.Black
+        Me.TB_EMAIL.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_EMAIL.Location = New System.Drawing.Point(570, 46)
+        Me.TB_EMAIL.Name = "TB_EMAIL"
+        Me.TB_EMAIL.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_EMAIL.PlaceholderText = "Ex: albert@gmail.com"
+        Me.TB_EMAIL.SelectedText = ""
+        Me.TB_EMAIL.Size = New System.Drawing.Size(200, 36)
+        Me.TB_EMAIL.TabIndex = 34
         '
         'EmployeesControl
         '

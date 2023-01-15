@@ -40,6 +40,7 @@ Partial Class AdminView
         Me.PB_ADMIN_ILLUSTRATION = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.BT_INSTITUTES_MENU = New Guna.UI2.WinForms.Guna2Button()
         Me.P_TOP = New Guna.UI2.WinForms.Guna2Panel()
+        Me.BT_LOGOUT = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.COB_MAXIMAZE = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.COB_MINIMIZE = New Guna.UI2.WinForms.Guna2ControlBox()
@@ -47,7 +48,6 @@ Partial Class AdminView
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
         Me.BT_CAREERS_MENU = New Guna.UI2.WinForms.Guna2Button()
-        Me.BT_LOGOUT = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.PB_GESTION_ILLUSTRATION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PB_ADMIN_ILLUSTRATION, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_TOP.SuspendLayout()
@@ -236,7 +236,7 @@ Partial Class AdminView
         Me.PB_GESTION_ILLUSTRATION.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.PB_GESTION_ILLUSTRATION.Image = CType(resources.GetObject("PB_GESTION_ILLUSTRATION.Image"), System.Drawing.Image)
         Me.PB_GESTION_ILLUSTRATION.ImageRotate = 0!
-        Me.PB_GESTION_ILLUSTRATION.Location = New System.Drawing.Point(0, 492)
+        Me.PB_GESTION_ILLUSTRATION.Location = New System.Drawing.Point(0, 545)
         Me.PB_GESTION_ILLUSTRATION.Name = "PB_GESTION_ILLUSTRATION"
         Me.PB_GESTION_ILLUSTRATION.Size = New System.Drawing.Size(200, 143)
         Me.PB_GESTION_ILLUSTRATION.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -279,6 +279,7 @@ Partial Class AdminView
         '
         'P_TOP
         '
+        Me.P_TOP.Controls.Add(Me.BT_LOGOUT)
         Me.P_TOP.Controls.Add(Me.Guna2HtmlLabel1)
         Me.P_TOP.Controls.Add(Me.COB_MAXIMAZE)
         Me.P_TOP.Controls.Add(Me.COB_MINIMIZE)
@@ -289,6 +290,27 @@ Partial Class AdminView
         Me.P_TOP.Name = "P_TOP"
         Me.P_TOP.Size = New System.Drawing.Size(1250, 31)
         Me.P_TOP.TabIndex = 105
+        '
+        'BT_LOGOUT
+        '
+        Me.BT_LOGOUT.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BT_LOGOUT.Animated = True
+        Me.BT_LOGOUT.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BT_LOGOUT.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.BT_LOGOUT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.BT_LOGOUT.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.BT_LOGOUT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.BT_LOGOUT.FillColor = System.Drawing.Color.DimGray
+        Me.BT_LOGOUT.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.BT_LOGOUT.ForeColor = System.Drawing.Color.White
+        Me.BT_LOGOUT.Image = CType(resources.GetObject("BT_LOGOUT.Image"), System.Drawing.Image)
+        Me.BT_LOGOUT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.BT_LOGOUT.IndicateFocus = True
+        Me.BT_LOGOUT.Location = New System.Drawing.Point(1028, 0)
+        Me.BT_LOGOUT.Name = "BT_LOGOUT"
+        Me.BT_LOGOUT.Size = New System.Drawing.Size(132, 24)
+        Me.BT_LOGOUT.TabIndex = 109
+        Me.BT_LOGOUT.Text = "Deconnexion"
         '
         'Guna2HtmlLabel1
         '
@@ -365,29 +387,6 @@ Partial Class AdminView
         Me.BT_CAREERS_MENU.TabIndex = 106
         Me.BT_CAREERS_MENU.Text = "Parcours"
         '
-        'BT_LOGOUT
-        '
-        Me.BT_LOGOUT.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BT_LOGOUT.Animated = True
-        Me.BT_LOGOUT.AutoRoundedCorners = True
-        Me.BT_LOGOUT.BorderRadius = 21
-        Me.BT_LOGOUT.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BT_LOGOUT.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.BT_LOGOUT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.BT_LOGOUT.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.BT_LOGOUT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.BT_LOGOUT.FillColor = System.Drawing.Color.DimGray
-        Me.BT_LOGOUT.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.BT_LOGOUT.ForeColor = System.Drawing.Color.White
-        Me.BT_LOGOUT.Image = CType(resources.GetObject("BT_LOGOUT.Image"), System.Drawing.Image)
-        Me.BT_LOGOUT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.BT_LOGOUT.IndicateFocus = True
-        Me.BT_LOGOUT.Location = New System.Drawing.Point(0, 643)
-        Me.BT_LOGOUT.Name = "BT_LOGOUT"
-        Me.BT_LOGOUT.Size = New System.Drawing.Size(200, 45)
-        Me.BT_LOGOUT.TabIndex = 107
-        Me.BT_LOGOUT.Text = "Deconnexion"
-        '
         'AdminView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -395,7 +394,6 @@ Partial Class AdminView
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1250, 700)
-        Me.Controls.Add(Me.BT_LOGOUT)
         Me.Controls.Add(Me.BT_CAREERS_MENU)
         Me.Controls.Add(Me.P_TOP)
         Me.Controls.Add(Me.BT_INSTITUTES_MENU)

@@ -58,6 +58,11 @@
             End If
         End Set
     End Property
+    Public ReadOnly Property Name
+        Get
+            Return _id & "-" & _libelle
+        End Get
+    End Property
 
     Public ReadOnly Property Employee
         Get
@@ -69,7 +74,7 @@
         Get
             Dim UENameListTmp As New List(Of String)()
             For Each ue As UE In UEsManager.getByECUEId(_id)
-                UENameListTmp.Add(ue.Id & "-" & ue.Libelle & "[" & ue.Career.Libelle & "]")
+                UENameListTmp.Add(ue.Name)
             Next
             If (UENameListTmp.Count = 0) Then
                 Return "Aucune"

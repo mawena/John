@@ -30,6 +30,16 @@ Public Class CareersManager
         command.Parameters.AddWithValue("@sigle", sigle)
         Return getGeneriqueList()
     End Function
+    Public Shared Function getByUEId(ueId As String) As List(Of Career)
+        command = New MySqlCommand("SELECT Careers.id As id, Careers.libelle As libelle, Careers.sigle as sigle, Careers.institute_id As institute_id FROM Careers, CareersUEs WHERE CareersUEs.UE_id = @ueId AND  CareersUEs.Career_id = Careers.id;", Manager.connection)
+        command.Parameters.AddWithValue("@ueId", ueId)
+        Return getGeneriqueList()
+    End Function
+    Public Shared Function getByInstituteId(institute_id As Integer) As List(Of Career)
+        command = New MySqlCommand("SELECT * FROM Careers WHERE institute_id = @institute_id;", Manager.connection)
+        command.Parameters.AddWithValue("@institute_id", institute_id)
+        Return getGeneriqueList()
+    End Function
 
 
     Private Shared Function getGenerique() As Career
@@ -56,11 +66,6 @@ Public Class CareersManager
     Public Shared Function getByName(name As String) As Career
         command = New MySqlCommand("SELECT * FROM Careers WHERE CONCAT(id, '-', sigle, ' - ', libelle) = @name;", Manager.connection)
         command.Parameters.AddWithValue("@name", name)
-        Return getGenerique()
-    End Function
-    Public Shared Function getByInstituteId(institute_id As Integer) As Career
-        command = New MySqlCommand("SELECT * FROM Careers WHERE employee_id = @institute_id;", Manager.connection)
-        command.Parameters.AddWithValue("@institute_id", institute_id)
         Return getGenerique()
     End Function
     Public Shared Function getByLibelle(libelle As String) As Career

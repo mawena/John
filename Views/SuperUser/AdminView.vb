@@ -36,7 +36,7 @@
         P_MAIN.Controls.Add(ecuesControl)
         P_MAIN.Controls.Add(usersControl)
 
-        BT_EMPLOYEES_MENU_Click(Nothing, Nothing)
+        BT_UES_MENU_Click(Nothing, Nothing)
     End Sub
     Private Sub HideControls()
         employeesControl.Hide()
@@ -108,7 +108,7 @@
         BT_UES_MENU.ImageAlign = HorizontalAlignment.Right
         LBL_DESCRIPTION.Text = "UES"
         PB_GESTION_ILLUSTRATION.ImageLocation = uesIllustrationPath
-        uesControl.refreshCB_CAREER()
+        uesControl.ReloadCB_INSTITUTE()
         uesControl.BT_REFRESH_Click(Nothing, Nothing)
         uesControl.Show()
     End Sub
@@ -122,8 +122,8 @@
         PB_GESTION_ILLUSTRATION.ImageLocation = ecuesIllustrationPath
 
         ecuesControl.BT_REFRESH_Click(Nothing, Nothing)
-        ecuesControl.RefreshTeacherList()
-        ecuesControl.RefreshUEList()
+        ecuesControl.Reload_CB_TEACHER()
+        ecuesControl.Reload_CLB_UES()
         ecuesControl.ResizeDataGridViewRowHeight()
         ecuesControl.CheckButtons()
         ecuesControl.Show()

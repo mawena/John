@@ -4,11 +4,11 @@
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("libelle", GetType(String))
         table.Columns.Add("semester", GetType(Integer))
-        table.Columns.Add("career", GetType(String))
+        table.Columns.Add("careers", GetType(String))
 
 
         For Each ue As UE In uesList
-            table.LoadDataRow(New Object() {ue.Id, ue.Libelle, ue.Semester, ue.Career.Name}, True)
+            table.LoadDataRow(New Object() {ue.Id, ue.Libelle, ue.Semester, ue.CareerListName}, True)
         Next
         Return table
     End Function
@@ -34,29 +34,37 @@
         Return False
     End Function
 
-    Public Shared Function store(libelle As String, semester As Integer, careerIdAndName As String) As Boolean
+    Public Shared Function store(libelle As String, semester As Integer, careerIdList As List(Of Integer)) As Boolean
         If verify(libelle) Then
-            For Each ueDB As UE In UEsManager.getByLibelle(libelle)
-                If ueDB.Career.Name = careerIdAndName Then
-                    MessageBox.Show("L'UE '" & libelle & "' dans le parcour '" & careerIdAndName & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return False
-                End If
-            Next
+            Dim ueDB As UE = UEsManager.getByLibelle(libelle)
+            If ueDB.Libelle = Nothing Then
+                Dim careerList As New List(Of Career)()
+                For Each careerId As Integer In careerIdList
+                    careerList.Add(CareersManager.getById(careerId))
+                Next
+                Return UEsManager.store(New UE(libelle, semester, careerList))
+            Else
+                MessageBox.Show("L'UE '" & libelle & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+            End If
         End If
-        Return UEsManager.store(New UE(libelle, semester, CareersManager.getByName(careerIdAndName).Id))
+        Return False
     End Function
-    Public Shared Function update(libelle As String, semester As Integer, careerIdAndName As String, ueId As Integer) As Boolean
+    Public Shared Function update(libelle As String, semester As Integer, careerIdList As List(Of Integer), ueId As Integer) As Boolean
         If verify(libelle) Then
-            For Each ueDB As UE In UEsManager.getByLibelle(libelle)
-                If ueDB.Id <> ueId Then
-                    If ueDB.Career.Name = careerIdAndName Then
-                        MessageBox.Show("L'UE '" & libelle & "' dans le parcour '" & careerIdAndName & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Return False
-                    End If
-                End If
-            Next
+            Dim ueDB As UE = UEsManager.getByLibelle(libelle)
+            If ueDB.Libelle = Nothing Then
+                MessageBox.Show("L'UE '" & libelle & "' n'existe déjà", "UE inexistant", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+            Else
+                Dim careerList As New List(Of Career)()
+                For Each careerId As Integer In careerIdList
+                    careerList.Add(CareersManager.getById(careerId))
+                Next
+                Return UEsManager.update(New UE(libelle, semester, careerList), ueId)
+            End If
         End If
-        Return UEsManager.update(New UE(libelle, semester, CareersManager.getByName(careerIdAndName).Id), ueId)
+        Return False
     End Function
 
     Public Shared Function delete(idList) As Boolean

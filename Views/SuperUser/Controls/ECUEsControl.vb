@@ -5,15 +5,15 @@
     End Sub
     Public Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
         DGV_ECUES.DataSource = ECUEsController.getAll()
-        RefreshTeacherList()
-        RefreshUEList()
+        Reload_CB_TEACHER()
+        Reload_CLB_UES()
         ResizeDataGridViewRowHeight()
         CheckButtons()
     End Sub
     Private Sub DGV_ECUES_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_ECUES.CellClick
         TB_LIBELLE.Text = DGV_ECUES.SelectedRows(0).Cells(1).Value
         CB_TEACHER.SelectedItem = DGV_ECUES.SelectedRows(0).Cells(3).Value
-        UnCheckedCLB_UES()
+        UnCheck_CLB_UES_Items()
         For i As Integer = 0 To CLB_UES.Items.Count - 1
             If DGV_ECUES.SelectedRows(0).Cells(4).Value.Contains(CLB_UES.Items(i)) Then
                 CLB_UES.SetItemChecked(i, True)
@@ -21,7 +21,6 @@
         Next
 
     End Sub
-
     Private Sub BT_ADD_Click(sender As Object, e As EventArgs) Handles BT_ADD.Click
         Dim ueNameSelectedList As New List(Of String)
         For Each selectedItem In CLB_UES.CheckedItems
@@ -66,8 +65,8 @@
 
     Public Sub ClearForm()
         TB_LIBELLE.Text = ""
-        RefreshTeacherList()
-        RefreshUEList()
+        Reload_CB_TEACHER()
+        Reload_CLB_UES()
         CheckButtons()
     End Sub
     Public Sub CheckButtons()
@@ -80,7 +79,7 @@
             BT_UPDATE.Enabled = False
         End If
     End Sub
-    Public Sub RefreshTeacherList()
+    Public Sub Reload_CB_TEACHER()
         CB_TEACHER.Items.Clear()
         For Each teacher In ECUEsController.getTeacherNameList()
             CB_TEACHER.Items.Add(teacher)
@@ -96,7 +95,7 @@
             CB_TEACHER.SelectedIndex = -1
         End If
     End Sub
-    Public Sub RefreshUEList()
+    Public Sub Reload_CLB_UES()
         CLB_UES.BeginUpdate()
         CLB_UES.Items.Clear()
         For Each ueName In ECUEsController.getEUNameList()
@@ -112,7 +111,7 @@
         DGV_ECUES.DefaultCellStyle.WrapMode = DataGridViewTriState.True
     End Sub
 
-    Public Sub UnCheckedCLB_UES()
+    Public Sub UnCheck_CLB_UES_Items()
         For i As Integer = 0 To CLB_UES.Items.Count - 1
             CLB_UES.SetItemChecked(i, False)
         Next

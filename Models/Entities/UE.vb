@@ -2,20 +2,19 @@
     Private _id As Integer
     Private _libelle As String
     Private _semester As Integer
-    Private _careerId As Integer
-    Private _career As Career
+    Private _careerList As List(Of Career)
 
-    Public Sub New(id As Integer, libelle As String, semester As Integer, careerId As Integer)
+    Public Sub New(id As Integer, libelle As String, semester As Integer)
         Me.Id = id
         Me.Libelle = libelle
         Me.Semester = semester
-        Me.CareerId = careerId
+        CareerList = CareersManager.getByUEId(id)
     End Sub
 
-    Public Sub New(libelle As String, semester As Integer, careerId As Integer)
+    Public Sub New(libelle As String, semester As Integer, listOfCareer As List(Of Career))
         Me.Libelle = libelle
         Me.Semester = semester
-        Me.CareerId = careerId
+        CareerList = listOfCareer
     End Sub
 
     Public Property Id As Integer
@@ -44,31 +43,27 @@
             _semester = value
         End Set
     End Property
-
-    Public Property CareerId As Integer
+    Public Property CareerList As List(Of Career)
         Get
-            Return _careerId
+            Return _careerList
         End Get
-        Set(value As Integer)
-            _careerId = value
-            If _careerId = Nothing Then
-                _career = New Career(Nothing, Nothing, Nothing, Nothing)
-            Else
-                _career = CareersManager.getById(_careerId)
-            End If
+        Set(value As List(Of Career))
+            _careerList = value
         End Set
     End Property
-
-    Public ReadOnly Property Career
-        Get
-            Return _career
-        End Get
-    End Property
-
     Public ReadOnly Property Name
         Get
-            Return _id & "-" & _libelle & "[" & _career.Libelle & "]"
+            Return _id & "-" & _libelle & "[" & CareerListName & "]"
         End Get
     End Property
 
+    Public ReadOnly Property CareerListName
+        Get
+            Dim careerNameList As New List(Of String)()
+            For Each career As Career In _careerList
+                careerNameList.Add(career.Sigle)
+            Next
+            Return String.Join(", ", careerNameList)
+        End Get
+    End Property
 End Class

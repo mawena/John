@@ -29,7 +29,7 @@ Partial Class UEsControl
         Me.CB_SEMESTER = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.LBL_SEMESTER = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_SEARCH = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.LBL_CAREER = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.LBL_CAREERS = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_LIBELLE = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.BT_REFRESH = New Guna.UI2.WinForms.Guna2Button()
         Me.TB_LIBELLE = New Guna.UI2.WinForms.Guna2TextBox()
@@ -41,15 +41,16 @@ Partial Class UEsControl
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.libelle = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.semester = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.career = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CB_CAREER = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.careers = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CLB_CAREERS = New System.Windows.Forms.CheckedListBox()
+        Me.CB_INSTITUTE = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.LBL_INSTITUTE = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.DGV_UES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CB_SEMESTER
         '
-        Me.CB_SEMESTER.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CB_SEMESTER.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CB_SEMESTER.BackColor = System.Drawing.Color.Transparent
         Me.CB_SEMESTER.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CB_SEMESTER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
@@ -60,18 +61,19 @@ Partial Class UEsControl
         Me.CB_SEMESTER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CB_SEMESTER.ItemHeight = 30
         Me.CB_SEMESTER.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6"})
-        Me.CB_SEMESTER.Location = New System.Drawing.Point(133, 46)
+        Me.CB_SEMESTER.Location = New System.Drawing.Point(887, 3)
         Me.CB_SEMESTER.Name = "CB_SEMESTER"
-        Me.CB_SEMESTER.Size = New System.Drawing.Size(808, 36)
+        Me.CB_SEMESTER.Size = New System.Drawing.Size(54, 36)
         Me.CB_SEMESTER.StartIndex = 0
         Me.CB_SEMESTER.TabIndex = 93
         '
         'LBL_SEMESTER
         '
+        Me.LBL_SEMESTER.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LBL_SEMESTER.BackColor = System.Drawing.Color.Transparent
         Me.LBL_SEMESTER.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_SEMESTER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_SEMESTER.Location = New System.Drawing.Point(25, 45)
+        Me.LBL_SEMESTER.Location = New System.Drawing.Point(779, 3)
         Me.LBL_SEMESTER.Name = "LBL_SEMESTER"
         Me.LBL_SEMESTER.Size = New System.Drawing.Size(102, 27)
         Me.LBL_SEMESTER.TabIndex = 92
@@ -82,22 +84,22 @@ Partial Class UEsControl
         Me.LBL_SEARCH.BackColor = System.Drawing.Color.Transparent
         Me.LBL_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_SEARCH.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_SEARCH.Location = New System.Drawing.Point(3, 129)
+        Me.LBL_SEARCH.Location = New System.Drawing.Point(3, 184)
         Me.LBL_SEARCH.Name = "LBL_SEARCH"
         Me.LBL_SEARCH.Size = New System.Drawing.Size(124, 27)
         Me.LBL_SEARCH.TabIndex = 91
         Me.LBL_SEARCH.Text = "Rechercher"
         '
-        'LBL_CAREER
+        'LBL_CAREERS
         '
-        Me.LBL_CAREER.BackColor = System.Drawing.Color.Transparent
-        Me.LBL_CAREER.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_CAREER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
-        Me.LBL_CAREER.Location = New System.Drawing.Point(46, 87)
-        Me.LBL_CAREER.Name = "LBL_CAREER"
-        Me.LBL_CAREER.Size = New System.Drawing.Size(85, 27)
-        Me.LBL_CAREER.TabIndex = 90
-        Me.LBL_CAREER.Text = "Parcour"
+        Me.LBL_CAREERS.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_CAREERS.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_CAREERS.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_CAREERS.Location = New System.Drawing.Point(30, 106)
+        Me.LBL_CAREERS.Name = "LBL_CAREERS"
+        Me.LBL_CAREERS.Size = New System.Drawing.Size(97, 27)
+        Me.LBL_CAREERS.TabIndex = 90
+        Me.LBL_CAREERS.Text = "Parcours"
         '
         'LBL_LIBELLE
         '
@@ -123,7 +125,7 @@ Partial Class UEsControl
         Me.BT_REFRESH.ForeColor = System.Drawing.Color.White
         Me.BT_REFRESH.Image = CType(resources.GetObject("BT_REFRESH.Image"), System.Drawing.Image)
         Me.BT_REFRESH.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.BT_REFRESH.Location = New System.Drawing.Point(947, 129)
+        Me.BT_REFRESH.Location = New System.Drawing.Point(947, 184)
         Me.BT_REFRESH.Name = "BT_REFRESH"
         Me.BT_REFRESH.Size = New System.Drawing.Size(150, 36)
         Me.BT_REFRESH.TabIndex = 87
@@ -148,7 +150,7 @@ Partial Class UEsControl
         Me.TB_LIBELLE.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TB_LIBELLE.PlaceholderText = "Ex: Mathématiques"
         Me.TB_LIBELLE.SelectedText = ""
-        Me.TB_LIBELLE.Size = New System.Drawing.Size(808, 36)
+        Me.TB_LIBELLE.Size = New System.Drawing.Size(645, 36)
         Me.TB_LIBELLE.TabIndex = 81
         '
         'BT_ADD
@@ -203,7 +205,7 @@ Partial Class UEsControl
         Me.TB_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TB_SEARCH.ForeColor = System.Drawing.Color.Black
         Me.TB_SEARCH.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SEARCH.Location = New System.Drawing.Point(133, 129)
+        Me.TB_SEARCH.Location = New System.Drawing.Point(133, 184)
         Me.TB_SEARCH.Name = "TB_SEARCH"
         Me.TB_SEARCH.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TB_SEARCH.PlaceholderText = "Ex : Mathématiques"
@@ -250,7 +252,7 @@ Partial Class UEsControl
         Me.DGV_UES.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGV_UES.ColumnHeadersHeight = 30
         Me.DGV_UES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.DGV_UES.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.libelle, Me.semester, Me.career})
+        Me.DGV_UES.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.libelle, Me.semester, Me.careers})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -260,11 +262,11 @@ Partial Class UEsControl
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DGV_UES.DefaultCellStyle = DataGridViewCellStyle3
         Me.DGV_UES.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.DGV_UES.Location = New System.Drawing.Point(0, 171)
+        Me.DGV_UES.Location = New System.Drawing.Point(0, 226)
         Me.DGV_UES.Name = "DGV_UES"
         Me.DGV_UES.ReadOnly = True
         Me.DGV_UES.RowHeadersVisible = False
-        Me.DGV_UES.Size = New System.Drawing.Size(1100, 326)
+        Me.DGV_UES.Size = New System.Drawing.Size(1100, 271)
         Me.DGV_UES.TabIndex = 85
         Me.DGV_UES.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt
         Me.DGV_UES.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
@@ -313,41 +315,68 @@ Partial Class UEsControl
         Me.semester.Name = "semester"
         Me.semester.ReadOnly = True
         '
-        'career
+        'careers
         '
-        Me.career.DataPropertyName = "career"
-        Me.career.FillWeight = 40.0!
-        Me.career.HeaderText = "Parcour"
-        Me.career.Name = "career"
-        Me.career.ReadOnly = True
+        Me.careers.DataPropertyName = "careers"
+        Me.careers.FillWeight = 40.0!
+        Me.careers.HeaderText = "Parcours"
+        Me.careers.Name = "careers"
+        Me.careers.ReadOnly = True
         '
-        'CB_CAREER
+        'CLB_CAREERS
         '
-        Me.CB_CAREER.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.CLB_CAREERS.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CB_CAREER.BackColor = System.Drawing.Color.Transparent
-        Me.CB_CAREER.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CB_CAREER.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.CB_CAREER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_CAREER.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_CAREER.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CB_CAREER.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CB_CAREER.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.CB_CAREER.ItemHeight = 30
-        Me.CB_CAREER.Location = New System.Drawing.Point(133, 88)
-        Me.CB_CAREER.Name = "CB_CAREER"
-        Me.CB_CAREER.Size = New System.Drawing.Size(808, 36)
-        Me.CB_CAREER.TabIndex = 94
+        Me.CLB_CAREERS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CLB_CAREERS.FormattingEnabled = True
+        Me.CLB_CAREERS.Items.AddRange(New Object() {"A", "B", "C", "D"})
+        Me.CLB_CAREERS.Location = New System.Drawing.Point(133, 89)
+        Me.CLB_CAREERS.Name = "CLB_CAREERS"
+        Me.CLB_CAREERS.Size = New System.Drawing.Size(808, 89)
+        Me.CLB_CAREERS.TabIndex = 101
+        '
+        'CB_INSTITUTE
+        '
+        Me.CB_INSTITUTE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CB_INSTITUTE.BackColor = System.Drawing.Color.Transparent
+        Me.CB_INSTITUTE.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CB_INSTITUTE.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.CB_INSTITUTE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_INSTITUTE.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_INSTITUTE.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CB_INSTITUTE.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.CB_INSTITUTE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.CB_INSTITUTE.ItemHeight = 30
+        Me.CB_INSTITUTE.Items.AddRange(New Object() {"1-ISTIN", "2-ISEG", "3-FDS", "4-ISSG"})
+        Me.CB_INSTITUTE.Location = New System.Drawing.Point(133, 45)
+        Me.CB_INSTITUTE.Name = "CB_INSTITUTE"
+        Me.CB_INSTITUTE.Size = New System.Drawing.Size(808, 36)
+        Me.CB_INSTITUTE.StartIndex = 0
+        Me.CB_INSTITUTE.TabIndex = 102
+        '
+        'LBL_INSTITUTE
+        '
+        Me.LBL_INSTITUTE.BackColor = System.Drawing.Color.Transparent
+        Me.LBL_INSTITUTE.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBL_INSTITUTE.ForeColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(79, Byte), Integer))
+        Me.LBL_INSTITUTE.Location = New System.Drawing.Point(53, 45)
+        Me.LBL_INSTITUTE.Name = "LBL_INSTITUTE"
+        Me.LBL_INSTITUTE.Size = New System.Drawing.Size(74, 27)
+        Me.LBL_INSTITUTE.TabIndex = 103
+        Me.LBL_INSTITUTE.Text = "Institut"
         '
         'UEsControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.CB_CAREER)
+        Me.Controls.Add(Me.LBL_INSTITUTE)
+        Me.Controls.Add(Me.CB_INSTITUTE)
+        Me.Controls.Add(Me.CLB_CAREERS)
         Me.Controls.Add(Me.CB_SEMESTER)
         Me.Controls.Add(Me.LBL_SEMESTER)
         Me.Controls.Add(Me.LBL_SEARCH)
-        Me.Controls.Add(Me.LBL_CAREER)
+        Me.Controls.Add(Me.LBL_CAREERS)
         Me.Controls.Add(Me.LBL_LIBELLE)
         Me.Controls.Add(Me.BT_REFRESH)
         Me.Controls.Add(Me.TB_LIBELLE)
@@ -367,7 +396,7 @@ Partial Class UEsControl
     Friend WithEvents CB_SEMESTER As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents LBL_SEMESTER As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents LBL_SEARCH As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents LBL_CAREER As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents LBL_CAREERS As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents LBL_LIBELLE As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents BT_REFRESH As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TB_LIBELLE As Guna.UI2.WinForms.Guna2TextBox
@@ -376,9 +405,11 @@ Partial Class UEsControl
     Friend WithEvents TB_SEARCH As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BT_UPDATE As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents DGV_UES As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents CB_CAREER As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents CLB_CAREERS As CheckedListBox
+    Friend WithEvents CB_INSTITUTE As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents LBL_INSTITUTE As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents id As DataGridViewTextBoxColumn
     Friend WithEvents libelle As DataGridViewTextBoxColumn
     Friend WithEvents semester As DataGridViewTextBoxColumn
-    Friend WithEvents career As DataGridViewTextBoxColumn
+    Friend WithEvents careers As DataGridViewTextBoxColumn
 End Class
