@@ -21,4 +21,16 @@
         Manager.Close()
         End
     End Sub
+
+    Private Sub TB_USERNAME_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB_USERNAME.KeyPress
+        If e.KeyChar = ControlChars.Cr Then
+            BT_CONNEXION_Click(Nothing, Nothing)
+        End If
+    End Sub
+
+    Private Sub TB_PASSWORD_FIELD_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TB_PASSWORD_FIELD.KeyPress
+        If e.KeyChar = ControlChars.Cr Then
+            BT_CONNEXION_Click(Nothing, Nothing)
+        End If
+    End Sub
 End Class

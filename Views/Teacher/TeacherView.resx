@@ -127,7 +127,7 @@
   <data name="TB_SEARCH.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAFzNJREFUeF7tnV1oXVXextvz/f2RnKSJTaTpCTlpqslroRDb0vZqEKnDoCFBG0pp
+        vQAADr0BR/uQrQAAFzNJREFUeF7tnV1oXVXextvz/f2RnKSJTaTpCTlpqslroRDb0vZqEKnDoCFBG0pp
         QaSRNNbWS+FFZJBeiBeDiMjglYiIFzKISPFChpfBi0FkkEFEBhERLwaZiyIinefR3ZdW/21P9tlrn/3x
         /OBhrXPSnr32/+OstdfZe60dYnusr6+XpqenF0ZGRk40Go0nK5XKC6VS6fVisfge9DHqX+ZyuW9Q/lAo
         FK5ls9lrO3fu/Fms8z3+zfs3X/L/8P/yM/hZ/Ex+No/BY3mHFUJsl4WFhT3tdnulWq0+jwR7F8n3BZLw
@@ -232,7 +232,7 @@
   <data name="TB_STUDENT_SEARCH.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAFzNJREFUeF7tnV1oXVXextvz/f2RnKSJTaTpCTlpqslroRDb0vZqEKnDoCFBG0pp
+        vQAADr0BR/uQrQAAFzNJREFUeF7tnV1oXVXextvz/f2RnKSJTaTpCTlpqslroRDb0vZqEKnDoCFBG0pp
         QaSRNNbWS+FFZJBeiBeDiMjglYiIFzKISPFChpfBi0FkkEFEBhERLwaZiyIinefR3ZdW/21P9tlrn/3x
         /OBhrXPSnr32/+OstdfZe60dYnusr6+XpqenF0ZGRk40Go0nK5XKC6VS6fVisfge9DHqX+ZyuW9Q/lAo
         FK5ls9lrO3fu/Fms8z3+zfs3X/L/8P/yM/hZ/Ex+No/BY3mHFUJsl4WFhT3tdnulWq0+jwR7F8n3BZLw

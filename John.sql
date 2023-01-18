@@ -71,7 +71,7 @@ CREATE TABLE Students(
   last_name VARCHAR(30) NOT NULL,
   first_name VARCHAR(150) NOT NULL,
   birth_date DATE,
-  gender ENUM('Female', 'Male') NOT NULL,
+  gender ENUM('Homme', 'Femme') NOT NULL,
   email VARCHAR(200) NOT NULL,
   phone_number VARCHAR(30) NOT NULL,
   picture_path VARCHAR(300) NOT NULL,
@@ -360,4 +360,14 @@ VALUES
 INSERT INTO
     Evaluations
 VALUES
-    (1, 20, 11, NOW(), 50, "Devoir");
+    (1, 20, 11, NOW(), 50, "Devoir"),
+    (2, 18, 1, NOW(), 50, "Devoir"),
+    (3, 18, 2, NOW(), 50, "Devoir"),
+    (4, 18, 3, NOW(), 50, "Devoir"),
+    (5, 18, 4, NOW(), 50, "Devoir"),
+    (6, 18, 5, NOW(), 50, "Devoir"),
+    (7, 18, 6, NOW(), 50, "Devoir"),
+    (8, 18, 7, NOW(), 50, "Devoir"),
+    (9, 18, 8, NOW(), 50, "Devoir"),
+    (10, 18, 9, NOW(), 50, "Devoir"),
+    (11, 18, 10, NOW(), 50, "Devoir");

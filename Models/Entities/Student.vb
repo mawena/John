@@ -112,7 +112,9 @@
         End Get
         Set(value As Integer)
             _careerId = value
-            _career = CareersManager.getById(_careerId)
+            If _careerId <> Nothing Then
+                _career = CareersManager.getById(_careerId)
+            End If
         End Set
     End Property
 
