@@ -5,7 +5,6 @@ Public Class EvaluationsManager
     Public Shared Function getGeneriqueList() As List(Of Evaluation)
         Dim evaluationList As New List(Of Evaluation)()
         Try
-
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
             dataTable = New DataTable
             dataAdapater.Fill(dataTable)
@@ -32,8 +31,9 @@ Public Class EvaluationsManager
         command.Parameters.AddWithValue("studentId", studentId)
         Return getGeneriqueList()
     End Function
-    Public Shared Function getECUEId(ecueId As Integer) As List(Of Evaluation)
-        command = New MySqlCommand("SELECT * FROM Evaluations WHERE ECUE_id = ecueId;", Manager.connection)
+    Public Shared Function getByECUEId(ecueId As Integer) As List(Of Evaluation)
+        'ECUEs.id As id, ECUEs.grade As grade, ECUEs.ECUEsStudents_id As ECUEsStudents_id, ECUEs.date_field As date_field, ECUEs.weight_field As weight_field, ECUEs.type_field As type_field
+        command = New MySqlCommand("SELECT Evaluations.id As id, Evaluations.grade As grade, Evaluations.ECUEsStudents_id As ECUEsStudents_id, Evaluations.date_field As date_field, Evaluations.weight_field As weight_field, Evaluations.type_field As type_field FROM Evaluations, ECUEsStudents WHERE ECUEsStudents.id = Evaluations.ECUEsStudents_id AND ECUEsStudents.ECUE_id = @ecueId;", Manager.connection)
         command.Parameters.AddWithValue("ecueId", ecueId)
         Return getGeneriqueList()
     End Function
@@ -61,8 +61,32 @@ Public Class EvaluationsManager
         command.Parameters.AddWithValue("@id", id)
         Return getGenerique()
     End Function
+    Public Shared Function getByECUEsStudentsId(ecuesStudentsId As Integer) As Evaluation
+        command = New MySqlCommand("SELECT * FROM Evaluations WHERE ECUEsStudents_id = @ecuesStudentsId;", Manager.connection)
+        command.Parameters.AddWithValue("@ecuesStudentsId", ecuesStudentsId)
+        Return getGenerique()
+    End Function
 
+    Public Shared Function getECUEsStudentsId(ecueId As Integer, StudentId As Integer)
+        command = New MySqlCommand("SELECT id FROM ECUEsStudents WHERE ECUE_id = @ecueId AND Student_id = @studentId;", Manager.connection)
+        command.Parameters.AddWithValue("@ecueId", ecueId)
+        command.Parameters.AddWithValue("@studentId", StudentId)
+        Dim id As Integer
+        Try
+            dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
 
+            dataTable = New DataTable
+            Manager.dataAdapater.Fill(Manager.dataTable)
+
+            For Each row As DataRow In Manager.dataTable.Rows
+                id = CInt(row("id"))
+            Next
+            disposeManager()
+        Catch ex As Exception
+            MessageBox.Show("Erreur durant la sélection de données : " & ex.Message, "EvaluationsManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return id
+    End Function
 
     Public Shared Function store(evaluation As Evaluation) As Boolean
         Try

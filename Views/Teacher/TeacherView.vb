@@ -1,16 +1,17 @@
 ﻿Public Class TeacherView
     Private Sub TeacherView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Reload_CB_ECUES()
         BT_REFRESH_Click(Nothing, Nothing)
     End Sub
 
 
     Private Sub CB_ECUES_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_ECUES.SelectedIndexChanged
         Reload_CB_Students("")
+        DGV_EVALUATIONS.DataSource = EvaluationsController.getByECUEId(CInt(CB_ECUES.SelectedItem().Split("-")(0)))
     End Sub
     Private Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
-        Reload_CB_ECUES()
         Reload_CB_Students("")
-        DGV_EVALUATIONS.DataSource = EvaluationsController.getAll()
+        DGV_EVALUATIONS.DataSource = EvaluationsController.getByECUEId(CInt(CB_ECUES.SelectedItem().Split("-")(0)))
     End Sub
     Private Sub TB_STUDENT_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_STUDENT_SEARCH.TextChanged
         Reload_CB_Students(TB_STUDENT_SEARCH.Text)
@@ -58,10 +59,35 @@
             End If
         End If
     End Sub
+    Private Sub BT_ADD_Click(sender As Object, e As EventArgs) Handles BT_ADD.Click
+        If EvaluationsController.store(CInt(CB_ECUES.SelectedItem().Split("-")(0)), CInt(CB_STUDENTS.SelectedItem().Split("-")(0)), DTP_DATE.Value, CB_TYPE.SelectedItem, CInt(CB_WEIGHT.SelectedItem.Split("%")(0)), CInt(CB_GRADE.SelectedItem().Split("-")(0))) Then
+            BT_REFRESH_Click(Nothing, Nothing)
+        End If
+    End Sub
+    Private Sub BT_UPDATE_Click(sender As Object, e As EventArgs) Handles BT_UPDATE.Click
+        If EvaluationsController.update(CInt(CB_ECUES.SelectedItem().Split("-")(0)), CInt(CB_STUDENTS.SelectedItem().Split("-")(0)), DTP_DATE.Value, CB_TYPE.SelectedItem, CInt(CB_WEIGHT.SelectedItem.Split("%")(0)), CInt(CB_GRADE.SelectedItem().Split("-")(0)), CInt(DGV_EVALUATIONS.SelectedRows(0).Cells(0).Value)) Then
+            BT_REFRESH_Click(Nothing, Nothing)
+        End If
+    End Sub
+    Private Sub BT_DELETE_Click(sender As Object, e As EventArgs) Handles BT_DELETE.Click
+        Dim uesIdList As New List(Of Integer)()
+        If DGV_EVALUATIONS.SelectedRows.Count > 0 Then
+            For Each selectedRow As DataGridViewRow In DGV_EVALUATIONS.SelectedRows
+                Dim ueId As Integer = selectedRow.Cells(0).Value
+                uesIdList.Add(ueId)
+            Next
+            If (EvaluationsController.delete(uesIdList)) Then
+                BT_REFRESH_Click(Nothing, Nothing)
+            End If
+        Else
+            MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Lignes non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
 
     Private Sub BT_LOGOUT_Click(sender As Object, e As EventArgs) Handles BT_LOGOUT.Click
         JohnController.Logout()
     End Sub
+
 
 
     Private Sub COB_CLOSE_Click(sender As Object, e As EventArgs) Handles COB_CLOSE.Click

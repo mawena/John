@@ -4,11 +4,11 @@
     Private _ecuesStudentsId As Integer
     Private _ecue As ECUE
     Private _student As Student
-    Private _dateField As Date
+    Private _dateField As String
     Private _weight As Integer
     Private _type As String
 
-    Public Sub New(id As Integer, grade As Integer, ecuesStudentsId As Integer, dateField As Date, weight As Integer, type As String)
+    Public Sub New(id As Integer, grade As Integer, ecuesStudentsId As Integer, dateField As String, weight As Integer, type As String)
         Me.Id = id
         Me.Grade = grade
         Me.EcuesStudentsId = ecuesStudentsId
@@ -16,7 +16,7 @@
         Me.Weight = weight
         Me.Type = type
     End Sub
-    Public Sub New(grade As Integer, ecuesStudentsId As Integer, dateField As Date, weight As Integer, type As String)
+    Public Sub New(grade As Integer, ecuesStudentsId As Integer, dateField As String, weight As Integer, type As String)
         Me.Grade = grade
         Me.EcuesStudentsId = ecuesStudentsId
         Me.DateField = dateField
@@ -30,8 +30,10 @@
         End Get
         Set(value As Integer)
             _id = value
-            _ecue = ECUEsManager.getByEvaluationId(_id)
-            _student = StudentsManager.getByEvaluationId(_id)
+            If _id <> Nothing Then
+                _ecue = ECUEsManager.getByEvaluationId(_id)
+                _student = StudentsManager.getByEvaluationId(_id)
+            End If
         End Set
     End Property
 
@@ -53,11 +55,11 @@
         End Set
     End Property
 
-    Public Property DateField As Date
+    Public Property DateField As String
         Get
             Return _dateField
         End Get
-        Set(value As Date)
+        Set(value As String)
             _dateField = value
         End Set
     End Property

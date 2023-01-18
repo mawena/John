@@ -12,6 +12,7 @@
     End Sub
     Private Sub DGV_ECUES_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_ECUES.CellClick
         TB_LIBELLE.Text = DGV_ECUES.SelectedRows(0).Cells(1).Value
+        CB_NB_CREDIT.SelectedItem = DGV_ECUES.SelectedRows(0).Cells(2).Value
         CB_TEACHER.SelectedItem = DGV_ECUES.SelectedRows(0).Cells(3).Value
         UnCheck_CLB_UES_Items()
         For i As Integer = 0 To CLB_UES.Items.Count - 1

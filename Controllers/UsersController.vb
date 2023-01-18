@@ -46,7 +46,8 @@
             Dim userDB As User = UsersManager.getByUsername(username)
             If (userDB.Username = Nothing) Then
                 Dim employeeId As Integer = getEmployeeIdByName(employeeName)
-                If EmployeesManager.getById(employeeId).LastName = Nothing Then
+                userDB = UsersManager.getByEmployeeId(employeeId)
+                If userDB.Username = Nothing Then
                     Return UsersManager.store(New User(username, password_field, employeeId))
                 Else
                     MessageBox.Show("L'employée " & employeeName & " a déjà un compte utilisateur, Voulez vous le mettre à jour?", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)

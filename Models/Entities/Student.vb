@@ -9,6 +9,7 @@
     Private _phoneNumber As String
     Private _picturePath As String
     Private _careerId As Integer
+    Private _career As Career
 
     Public Sub New(id As Integer, lastName As String, firstName As String, birthDate As String, gender As String, email As String, phoneNumber As String, picturePath As String, careerId As Integer)
         Me.Id = id
@@ -111,12 +112,13 @@
         End Get
         Set(value As Integer)
             _careerId = value
+            _career = CareersManager.getById(_careerId)
         End Set
     End Property
 
     Public ReadOnly Property Career
         Get
-            Return CareersManager.getById(_careerId)
+            Return _career
         End Get
     End Property
 

@@ -14,14 +14,14 @@
         Next
         Return table
     End Function
-    Public Shared Function getAll() As DataTable
-        Return getGeneriqueList(EvaluationsManager.getAll())
+    Public Shared Function getByECUEId(ecueId As String) As DataTable
+        Return getGeneriqueList(EvaluationsManager.getByECUEId(ecueId))
     End Function
-    Public Shared Function search(word As String) As DataTable
+    Public Shared Function search(ecueId As String, word As String) As DataTable
         If word <> Nothing Then
             Return getGeneriqueList(EvaluationsManager.search(word))
         Else
-            Return getAll()
+            Return getByECUEId(ecueId)
         End If
     End Function
     Public Shared Function getTeacherNameList()
@@ -41,58 +41,32 @@
         Return ueNameList
     End Function
 
-
-
-    Public Shared Function verify(libelle As String) As Boolean
-        If libelle = "" Then
-            MessageBox.Show("Le libelle ne doit pas être vide", "Libelle vide", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    Public Shared Function store(ecueId As Integer, studentId As Integer, dateField As String, typeField As String, percentage As Integer, grade As Integer) As Boolean
+        Dim ecuesStudentsId As Integer = EvaluationsManager.getECUEsStudentsId(ecueId, studentId)
+        Dim evaluationDB As Evaluation = EvaluationsManager.getByECUEsStudentsId(ecuesStudentsId)
+        If evaluationDB.Type = Nothing Then
+            Return EvaluationsManager.store(New Evaluation(grade, ecuesStudentsId, dateField, percentage, typeField))
         Else
-            Return True
+            MessageBox.Show("La note de cet étudiant dans cette matière existe déjà", "Note déjà existante", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
         End If
-        Return False
     End Function
-    'Public Shared Function store(libelle As String, credit As Integer, employeeName As String, ueNameList As List(Of String)) As Boolean
-    '    If verify(libelle) Then
-    '        Dim employee As Employee = EmployeesManager.getByName(employeeName)
-    '        Dim evaluationDB As Evaluation = EvaluationsManager.getByLibelle(libelle)
-    '        If evaluationDB.Libelle <> Nothing Then
-    '            MessageBox.Show("La matière '" & libelle & "' existe déjà", "Matière déjà existante", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '            Return False
-    '        End If
-
-    '        Dim ueIdList As New List(Of Integer)()
-    '        For Each ueName As String In ueNameList
-    '            ueIdList.Add(CInt(ueName.Split("-")(0)))
-    '        Next
-    '        Return EvaluationsManager.store(New Evaluation(libelle, credit, employee.Id), ueIdList)
-    '    Else
-    '        Return False
-    '    End If
-    'End Function
-    'Public Shared Function update(libelle As String, credit As Integer, employeeName As String, ueNameList As List(Of String), evaluationId As Integer) As Boolean
-    '    If verify(libelle) Then
-    '        Dim employee As Employee = EmployeesManager.getByName(employeeName)
-    '        Dim evaluationDB As Evaluation = EvaluationsManager.getByLibelle(libelle)
-    '        If evaluationDB.Libelle = Nothing Then
-    '            MessageBox.Show("La matière '" & libelle & "' n'existe déjà", "Matière inexistante", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '            Return False
-    '        End If
-
-    '        Dim ueIdList As New List(Of Integer)()
-    '        For Each ueName As String In ueNameList
-    '            ueIdList.Add(CInt(ueName.Split("-")(0)))
-    '        Next
-    '        Return EvaluationsManager.update(New Evaluation(libelle, credit, employee.Id), ueIdList, evaluationId)
-    '    Else
-    '        Return False
-    '    End If
-    'End Function
+    Public Shared Function update(ecueId As Integer, studentId As Integer, dateField As String, typeField As String, percentage As Integer, grade As Integer, evaluationId As Integer) As Boolean
+        MsgBox(evaluationId)
+        Dim evaluationDB As Evaluation = EvaluationsManager.getById(evaluationId)
+        If evaluationDB.Type = Nothing Then
+            MessageBox.Show("La note de cet étudiant dans cette matière n'existe déjà", "Note inexistante", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        Else
+            Return EvaluationsManager.update(New Evaluation(grade, evaluationDB.EcuesStudentsId, dateField, percentage, typeField), evaluationId)
+        End If
+    End Function
 
 
 
     Public Shared Function delete(idList) As Boolean
         Dim response As Boolean = False
-        If (MessageBox.Show("Etes vous sûr de vouloir supprimer cet(s) Matières(s)?", "Confirmation de supression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes) Then
+        If (MessageBox.Show("Etes vous sûr de vouloir supprimer cet(s) Notes(s)?", "Confirmation de supression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes) Then
             For Each id As Integer In idList
                 If EvaluationsManager.delete(id) Then
                     response = True
