@@ -4,7 +4,6 @@ Public Class StudentsController
     Public Shared Function getGeneriqueList(studentsList As List(Of Student)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("picturePath", GetType(Image))
-        'table.Columns.Add("picturePath", GetType(String))
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("lastName", GetType(String))
         table.Columns.Add("firstName", GetType(String))
@@ -26,6 +25,31 @@ Public Class StudentsController
         Next
         Return table
     End Function
+
+    Public Shared Function getGeneriqueList(studentsList As List(Of Student)) As DataTable
+        Dim table As DataTable = New DataTable
+        table.Columns.Add("id", GetType(Integer))
+        table.Columns.Add("lastName", GetType(String))
+        table.Columns.Add("firstName", GetType(String))
+        table.Columns.Add("birthDate", GetType(String))
+        table.Columns.Add("gender", GetType(String))
+        table.Columns.Add("email", GetType(String))
+        table.Columns.Add("phoneNumber", GetType(String))
+        table.Columns.Add("careerName", GetType(String))
+
+        For Each student As Student In studentsList
+            Dim img As Image
+            Try
+                img = Image.FromFile(student.PicturePath)
+
+            Catch ex As Exception
+                img = Image.FromFile(Student.PicturePathDefault)
+            End Try
+            table.LoadDataRow(New Object() {img, student.Id, student.LastName, student.FirstName, student.BirthDate, student.Gender, student.Email, student.PhoneNumber, student.Career.Name}, True)
+        Next
+        Return table
+    End Function
+
     Public Shared Function getAll() As DataTable
         Return getGeneriqueList(StudentsManager.getAll())
     End Function

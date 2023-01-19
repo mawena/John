@@ -143,17 +143,10 @@ Public Class TuititionServiceView
 
     Private Sub B_PRINT_Click(sender As Object, e As EventArgs) Handles B_PRINT.Click
         Dim report As New StudentsReport()
-        report.SetParameterValue("id", CInt(DGV_STUDENTS.SelectedRows(0).Cells(1).Value))
-        report.SetParameterValue("lastName", DGV_STUDENTS.SelectedRows(0).Cells(2).Value)
-        report.SetParameterValue("firstName", DGV_STUDENTS.SelectedRows(0).Cells(3).Value)
-        report.SetParameterValue("birthDate", DGV_STUDENTS.SelectedRows(0).Cells(4).Value)
-        report.SetParameterValue("gender", DGV_STUDENTS.SelectedRows(0).Cells(5).Value)
-        report.SetParameterValue("email", DGV_STUDENTS.SelectedRows(0).Cells(6).Value)
-        report.SetParameterValue("phoneNumber", DGV_STUDENTS.SelectedRows(0).Cells(7).Value)
         Dim table As New DataTable
         table.Columns.Add("id", GetType(Integer))
         table.LoadDataRow(New Object() {2}, True)
-        report.SetDataSource(table)
+        report.SetDataSource(DGV_STUDENTS.DataSource)
 
 
         CrystalReportViewerForm.CRV_STUDENTS.ReportSource = report
