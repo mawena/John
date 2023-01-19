@@ -48,6 +48,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
@@ -59,6 +63,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -106,6 +112,12 @@
     <Compile Include="Models\Entities\Student.vb" />
     <Compile Include="Models\Entities\UE.vb" />
     <Compile Include="Models\Entities\User.vb" />
+    <Compile Include="Views\CrystalReportViewerForm.Designer.vb">
+      <DependentUpon>CrystalReportViewerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrystalReportViewerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\LoginView.Designer.vb">
       <DependentUpon>LoginView.vb</DependentUpon>
     </Compile>
@@ -170,11 +182,23 @@
     <Compile Include="Views\SuperUser\Controls\UsersControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\Teacher\Reports\teacherList.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>teacherList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Views\Teacher\TeacherView.Designer.vb">
       <DependentUpon>TeacherView.vb</DependentUpon>
     </Compile>
     <Compile Include="Views\Teacher\TeacherView.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TuititionService\Reports\StudentsReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\TuititionService\TuititionServiceView.Designer.vb">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>
@@ -189,6 +213,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CrystalReportViewerForm.resx">
+      <DependentUpon>CrystalReportViewerForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.vb</DependentUpon>
@@ -214,8 +241,16 @@
     <EmbeddedResource Include="Views\SuperUser\Controls\UsersControl.resx">
       <DependentUpon>UsersControl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Teacher\Reports\teacherList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>teacherList.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Teacher\TeacherView.resx">
       <DependentUpon>TeacherView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TuititionService\Reports\StudentsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentsReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TuititionService\TuititionServiceView.resx">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>
@@ -226,6 +261,14 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Career.datasource" />
+    <None Include="My Project\DataSources\ECUE.datasource" />
+    <None Include="My Project\DataSources\Employee.datasource" />
+    <None Include="My Project\DataSources\Evaluation.datasource" />
+    <None Include="My Project\DataSources\Institute.datasource" />
+    <None Include="My Project\DataSources\Student.datasource" />
+    <None Include="My Project\DataSources\UE.datasource" />
+    <None Include="My Project\DataSources\User.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -234,8 +277,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Views\TuititionService\Controls\" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -1,15 +1,18 @@
 ﻿Imports System.IO
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class TuititionServiceView
     Private Sub TuititionServiceView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ResizeDataGridViewRowHeight()
         PB_STUDENT.ImageLocation = Student.PicturePathDefault
-        BT_REFRESH_Click(Nothing, Nothing)
+        Reload_CB_INSTITUTE()
+        Reload_CB_CAREER()
+        DGV_STUDENTS.DataSource = StudentsController.getAll()
+        B_PRINT_Click(Nothing, Nothing)
     End Sub
     Private Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
         ResizeDataGridViewRowHeight()
-        Reload_CB_INSTITUTE()
-        Reload_CB_CAREER()
-        DGV_STUDENTS.DataSource = StudentsController.getByCareerId(CInt(CB_CAREER.SelectedItem.Split("-")(0)))
+        DGV_STUDENTS.DataSource = StudentsController.getAll()
     End Sub
     Private Sub CB_INSTITUTE_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_INSTITUTE.SelectedIndexChanged
         Reload_CB_CAREER()
@@ -18,6 +21,23 @@ Public Class TuititionServiceView
         If StudentsController.store(TB_LAST_NAME.Text, TB_FIRST_NAME.Text, DTP_DATE.Value, CB_GENDER.SelectedItem, TB_EMAIL.Text, TB_PHONE_NUMBER.Text, PB_STUDENT.ImageLocation, CB_CAREER.SelectedItem.Split("-")(0), CInt(CB_SEMESTER.SelectedItem)) Then
             ClearForm()
             BT_REFRESH_Click(Nothing, Nothing)
+        End If
+    End Sub
+    Private Sub BT_UPDATE_Click(sender As Object, e As EventArgs) Handles BT_UPDATE.Click
+        Dim nbRowSelected = DGV_STUDENTS.SelectedRows.Count
+        If nbRowSelected > 0 Then
+            If nbRowSelected = 1 Then
+                Dim selectedRow As DataGridViewRow = DGV_STUDENTS.SelectedRows(0)
+                Dim studentId As Integer = selectedRow.Cells(1).Value
+                If StudentsController.update(TB_LAST_NAME.Text, TB_FIRST_NAME.Text, DTP_DATE.Value, CB_GENDER.SelectedItem, TB_EMAIL.Text, TB_PHONE_NUMBER.Text, PB_STUDENT.ImageLocation, CB_CAREER.SelectedItem.Split("-")(0), CInt(CB_SEMESTER.SelectedItem), studentId) Then
+                    ClearForm()
+                    BT_REFRESH_Click(Nothing, Nothing)
+                End If
+            Else
+                MessageBox.Show("Vous ne pouvez modifier qu'une ligne à la fois", "Modification multiple non permise", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else
+            MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Ligne non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
     Private Sub BT_DELETE_Click(sender As Object, e As EventArgs) Handles BT_DELETE.Click
@@ -32,17 +52,17 @@ Public Class TuititionServiceView
             Next
             If (StudentsController.delete(studentsIdList)) Then
                 BT_REFRESH_Click(Nothing, Nothing)
-                'For Each studentPicturePath As String In studentsPicturePathList
-                '    MsgBox(studentPicturePath)
-                '    File.Delete(studentPicturePath)
-                'Next
+                For Each studentpicturepath As String In studentsPicturePathList
+                    MsgBox(studentpicturepath)
+                    File.Delete(studentpicturepath)
+                Next
             End If
         Else
             MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Lignes non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
-    Private Sub CB_ADD_PICTURE_Click(sender As Object, e As EventArgs) Handles CB_ADD_PICTURE.Click
+    Private Sub CB_ADD_PICTURE_Click(sender As Object, e As EventArgs) Handles B_ADD_PICTURE.Click
         Dim openFileDialog As New OpenFileDialog()
         openFileDialog.InitialDirectory = "."
         openFileDialog.Filter = "Images (*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF)|*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF|" & "All files (*.*)|*.*"
@@ -119,5 +139,24 @@ Public Class TuititionServiceView
         TB_EMAIL.Text = DGV_STUDENTS.SelectedRows(0).Cells(6).Value
         TB_PHONE_NUMBER.Text = DGV_STUDENTS.SelectedRows(0).Cells(7).Value
         CB_CAREER.SelectedItem = DGV_STUDENTS.SelectedRows(0).Cells(8).Value
+    End Sub
+
+    Private Sub B_PRINT_Click(sender As Object, e As EventArgs) Handles B_PRINT.Click
+        Dim report As New StudentsReport()
+        report.SetParameterValue("id", CInt(DGV_STUDENTS.SelectedRows(0).Cells(1).Value))
+        report.SetParameterValue("lastName", DGV_STUDENTS.SelectedRows(0).Cells(2).Value)
+        report.SetParameterValue("firstName", DGV_STUDENTS.SelectedRows(0).Cells(3).Value)
+        report.SetParameterValue("birthDate", DGV_STUDENTS.SelectedRows(0).Cells(4).Value)
+        report.SetParameterValue("gender", DGV_STUDENTS.SelectedRows(0).Cells(5).Value)
+        report.SetParameterValue("email", DGV_STUDENTS.SelectedRows(0).Cells(6).Value)
+        report.SetParameterValue("phoneNumber", DGV_STUDENTS.SelectedRows(0).Cells(7).Value)
+        Dim table As New DataTable
+        table.Columns.Add("id", GetType(Integer))
+        table.LoadDataRow(New Object() {2}, True)
+        report.SetDataSource(table)
+
+
+        CrystalReportViewerForm.CRV_STUDENTS.ReportSource = report
+        CrystalReportViewerForm.Show()
     End Sub
 End Class

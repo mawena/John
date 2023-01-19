@@ -26,6 +26,9 @@ Public Class StudentsController
         Next
         Return table
     End Function
+    Public Shared Function getAll() As DataTable
+        Return getGeneriqueList(StudentsManager.getAll())
+    End Function
     Public Shared Function getByCareerId(studentId As Integer) As DataTable
         Return getGeneriqueList(StudentsManager.getByCareerId(studentId))
     End Function
@@ -80,20 +83,51 @@ Public Class StudentsController
                     MessageBox.Show("Le numéro de téléphone " & phoneNumber & " est déjà utilisé", "Numéro de téléphone déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Else
-                MessageBox.Show("L'employé " & firstName & " - " & lastName & " existe déjà", "Employé déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("L'étudiant " & firstName & " - " & lastName & " existe déjà", "Etudiant déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
         Return False
     End Function
-    'Public Shared Function update(studentId As Integer, studentId As Integer, dateField As String, typeField As String, percentage As Integer, grade As Integer, studentId As Integer) As Boolean
-    '    Dim studentDB As Student = StudentsManager.getById(studentId)
-    '    If studentDB.Type = Nothing Then
-    '        MessageBox.Show("La note de cet étudiant dans cette matière n'existe déjà", "Note inexistante", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '        Return False
-    '    Else
-    '        Return StudentsManager.update(New Student(grade, studentDB.EcuesStudentsId, dateField, percentage, typeField), studentId)
-    '    End If
-    'End Function
+    Public Shared Function update(lastName As String, firstName As String, birthDate As String, gender As String, email As String, phoneNumber As String, picturePath As String, careerId As Integer, semester As Integer, studentId As Integer) As Boolean
+        If verify(lastName, firstName, gender, email, phoneNumber) Then
+            Dim studentDB As Student = StudentsManager.getByLastNameAndFirtName(lastName, firstName)
+            If studentDB.LastName <> Nothing Then
+                If studentDB.Id = studentId Then
+                    studentDB = StudentsManager.getByPhoneNumber(phoneNumber)
+                    If studentDB.LastName <> Nothing Then
+                        If studentDB.Id = studentId Then
+                            studentDB = StudentsManager.getByEmail(email)
+                            If studentDB.LastName <> Nothing Then
+                                If studentDB.Id <> studentId Then
+                                    MessageBox.Show("L'email " & email & " est déjà utilisé pas", "Email déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Return False
+                                End If
+                            End If
+                        Else
+                            MessageBox.Show("Le numéro de téléphone " & phoneNumber & " est déjà utilisé", "Numéro de téléphone déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Return False
+                        End If
+                    End If
+                Else
+                    MessageBox.Show("Le nom " & lastName & " - " & firstName & " est déjà utilisé", "Nom déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return False
+                End If
+            End If
+        End If
+        If StudentsManager.update(New Student(lastName, firstName, birthDate, gender, email, phoneNumber, picturePath, careerId), studentId) Then
+            Dim student As Student = StudentsManager.getById(studentId)
+            StudentsManager.deleteECUEsStudents(student.Id)
+            For Each ecue As ECUE In ECUEsManager.getByCareerIdAndSemester(careerId, semester)
+                StudentsManager.storeECUEsStudents(ecue.Id, student.Id, "2023-2024")
+            Next
+            If (picturePath <> student.PicturePath) Then
+                student.PicturePath = Student.PictureDirectoryPath & student.Name & ".png"
+                File.Copy(picturePath, student.PicturePath, True)
+            End If
+            StudentsManager.update(student, student.Id)
+            Return True
+        End If
+    End Function
 
 
 
