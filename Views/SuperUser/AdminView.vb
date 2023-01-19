@@ -36,7 +36,7 @@
         P_MAIN.Controls.Add(ecuesControl)
         P_MAIN.Controls.Add(usersControl)
 
-        BT_UES_MENU_Click(Nothing, Nothing)
+        BT_EMPLOYEES_MENU_Click(Nothing, Nothing)
     End Sub
     Private Sub HideControls()
         employeesControl.Hide()

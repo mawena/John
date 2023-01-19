@@ -30,7 +30,7 @@ Public Class EmployeesController
         End If
     End Function
 
-    Public Shared Function verifyEmployee(lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String)
+    Public Shared Function verify(lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String)
         If lastName = "" Then
             MessageBox.Show("Le nom ne doit pas être vide", "Nom vide", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf firstName = "" Then
@@ -52,7 +52,7 @@ Public Class EmployeesController
     Public Shared Function store(lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String) As Boolean
         gender = Employee.Gender_view_to_gender(gender)
         functionField = Employee.Function_view_field_to_function_field(functionField)
-        If (verifyEmployee(lastName, firstName, phoneNumber, email, gender, functionField)) Then
+        If (verify(lastName, firstName, phoneNumber, email, gender, functionField)) Then
             Dim employeeDB As Employee = EmployeesManager.getByLastNameAndFirtName(lastName, firstName)
             If (employeeDB.LastName = Nothing) Then
                 employeeDB = EmployeesManager.getByPhoneNumber(phoneNumber)
@@ -76,7 +76,7 @@ Public Class EmployeesController
     Public Shared Function update(lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String, employeeId As Integer) As Boolean
         gender = Employee.Gender_view_to_gender(gender)
         functionField = Employee.Function_view_field_to_function_field(functionField)
-        If (verifyEmployee(lastName, firstName, phoneNumber, email, gender, functionField)) Then
+        If (verify(lastName, firstName, phoneNumber, email, gender, functionField)) Then
             Dim employeeDB As Employee = EmployeesManager.getByLastNameAndFirtName(lastName, firstName)
             If employeeDB.LastName <> Nothing Then
                 If employeeDB.Id = employeeId Then

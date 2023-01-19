@@ -52,7 +52,6 @@
         End If
     End Function
     Public Shared Function update(ecueId As Integer, studentId As Integer, dateField As String, typeField As String, percentage As Integer, grade As Integer, evaluationId As Integer) As Boolean
-        MsgBox(evaluationId)
         Dim evaluationDB As Evaluation = EvaluationsManager.getById(evaluationId)
         If evaluationDB.Type = Nothing Then
             MessageBox.Show("La note de cet étudiant dans cette matière n'existe déjà", "Note inexistante", MessageBoxButtons.OK, MessageBoxIcon.Error)

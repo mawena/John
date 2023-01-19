@@ -45,8 +45,8 @@ CREATE TABLE UEs(
 CREATE TABLE CareersUEs(
   Career_id int NOT NULL,
   UE_id int NOT NULL,
-  FOREIGN KEY(Career_id) REFERENCES Careers(id),
-  FOREIGN KEY(UE_id) REFERENCES UEs(id),
+  FOREIGN KEY(Career_id) REFERENCES Careers(id) ON DELETE CASCADE,
+  FOREIGN KEY(UE_id) REFERENCES UEs(id) ON DELETE CASCADE,
   PRIMARY KEY(Career_id, UE_id)
 );
 DROP TABLE IF EXISTS ECUEs;
@@ -200,7 +200,7 @@ INSERT INTO
     employee_id
   )
 VALUES
-  ("Mawena", "licdovic", NULL),
+  ("Mawena", "dums", NULL),
   ("Laba", "dums", 1),
   ("Espoir", "dums", 2),
   ("Mensah", "dums", 3),
@@ -322,10 +322,10 @@ VALUES
     "GAMLIGO",
     "Charles Dieu-Donné",
     "03-03-2000",
-    "Male",
+    "Homme",
     "gamligocharles@gmail.com",
     "+228 98676615",
-    "/home/mawena/dums.jpg",
+    "..\\..\\Data\\Pictures\\Students\\default.png",
     1
   ),
   (
@@ -333,10 +333,10 @@ VALUES
     "BOUILI",
     "Espoir",
     "03-03-2000",
-    "Male",
+    "Femme",
     "espoir@gmail.com",
     "+228 918676615",
-    "/home/mawena/default.jpg",
+    "..\\..\\Data\\Pictures\\Students\\2-BOUILI - Espoir.jpg",
     1
   );
 INSERT INTO

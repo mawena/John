@@ -26,7 +26,11 @@ Public Class StudentsManager
         command.Parameters.AddWithValue("@word", "%" & word & "%")
         Return getGeneriqueList()
     End Function
-
+    Public Shared Function getByCareerId(careerId As Integer)
+        command = New MySqlCommand("SELECT * FROM Students WHERE career_id = @careerId;", Manager.connection)
+        command.Parameters.AddWithValue("@careerId", careerId)
+        Return getGeneriqueList()
+    End Function
     Public Shared Function getByECUEId(ecueId As Integer)
         command = New MySqlCommand("SELECT Students.id As id, Students.last_name As last_name, Students.first_name As first_name, Students.birth_date As birth_date, Students.gender As gender, Students.email As email, Students.phone_number As phone_number, Students.picture_path As picture_path, Students.career_id As career_id FROM Students, ECUEsStudents WHERE ECUEsStudents.ECUE_id = @ecueId AND ECUEsStudents.Student_id = Students.id;", Manager.connection)
         command.Parameters.AddWithValue("@ecueId", ecueId)
@@ -82,7 +86,7 @@ Public Class StudentsManager
 
     Public Shared Function store(student As Student) As Boolean
         Try
-            command = New MySqlCommand("INSERT INTO Students(last_name, first_name, birth_date, gender, email, phone_number, picture_path, career_id) VALUES(@last_name, @first_name, @gender, @email, @phone_number, @picture_path, @career_id);", Manager.connection)
+            command = New MySqlCommand("INSERT INTO Students(last_name, first_name, birth_date, gender, email, phone_number, picture_path, career_id) VALUES(@last_name, @first_name, @birth_date, @gender, @email, @phone_number, @picture_path, @career_id);", Manager.connection)
             command.Parameters.AddWithValue("@last_name", student.LastName)
             command.Parameters.AddWithValue("@first_name", student.FirstName)
             command.Parameters.AddWithValue("@birth_date", student.BirthDate)
@@ -90,7 +94,7 @@ Public Class StudentsManager
             command.Parameters.AddWithValue("@email", student.Email)
             command.Parameters.AddWithValue("@phone_number", student.PhoneNumber)
             command.Parameters.AddWithValue("@picture_path", student.PicturePath)
-            command.Parameters.AddWithValue("@career_di", student.CareerId)
+            command.Parameters.AddWithValue("@career_id", student.CareerId)
             command.ExecuteNonQuery()
             disposeManager()
             Return True
@@ -99,6 +103,21 @@ Public Class StudentsManager
         End Try
         Return False
     End Function
+    Public Shared Function storeECUEsStudents(ecueId As Integer, studentId As Integer, scolarYear As String)
+        Try
+            command = New MySqlCommand("INSERT INTO ECUEsStudents(ECUE_id, student_id, scolar_year) VALUES(@ecueId, @studentId, @scolarYear);", Manager.connection)
+            command.Parameters.AddWithValue("@ecueId", ecueId)
+            command.Parameters.AddWithValue("@studentId", studentId)
+            command.Parameters.AddWithValue("@scolarYear", scolarYear)
+            command.ExecuteNonQuery()
+            disposeManager()
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Erreur durant l'insertion dans une matière : " & ex.Message, "StudentsManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return False
+    End Function
+
     Public Shared Function update(student As Student, id As Integer) As Boolean
         Try
             command = New MySqlCommand("UPDATE Students SET last_name = @last_name, first_name = @first_name, birth_date = @birth_date, gender = @gender, email = @email, phone_number = @phone_number, picture_path = @picture_path, career_id = @career_id WHERE id = @id;", Manager.connection)
@@ -120,8 +139,22 @@ Public Class StudentsManager
         Return False
     End Function
 
-
+    Public Shared Function deleteECUEsStudents(studentId As Integer) As Boolean
+        Try
+            command = New MySqlCommand("DELETE FROM ECUEsStudents WHERE student_id = @studentId;", Manager.connection)
+            command.Parameters.AddWithValue("@studentId", studentId)
+            command.ExecuteNonQuery()
+            disposeManager()
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Erreur durant la désinscription dans des matières : " & ex.Message, "StudentsManager", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return False
+    End Function
     Public Overloads Shared Function delete(id As Integer) As Boolean
-        Return Manager.delete("Students", id)
+        If (deleteECUEsStudents(id)) Then
+            Return Manager.delete("Students", id)
+        End If
+        Return False
     End Function
 End Class

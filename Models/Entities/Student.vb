@@ -11,6 +11,8 @@
     Private _careerId As Integer
     Private _career As Career
 
+    Public Const PictureDirectoryPath = "..\..\Data\Pictures\Students\"
+    Public Const PicturePathDefault = "..\..\Data\Pictures\Students\default.png"
     Public Sub New(id As Integer, lastName As String, firstName As String, birthDate As String, gender As String, email As String, phoneNumber As String, picturePath As String, careerId As Integer)
         Me.Id = id
         Me.LastName = lastName
@@ -118,7 +120,7 @@
         End Set
     End Property
 
-    Public ReadOnly Property Career
+    Public ReadOnly Property Career As Career
         Get
             Return _career
         End Get

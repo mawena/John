@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class Manager
     Protected Shared connection As MySqlConnection
-    Public Shared command As MySqlCommand
+    Protected Shared command As MySqlCommand
     Protected Shared dataAdapater As MySqlDataAdapter
     Protected Shared dataTable As DataTable
 

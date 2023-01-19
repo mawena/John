@@ -279,7 +279,7 @@ Partial Class LoginView
         Me.BT_CONNEXION.Name = "BT_CONNEXION"
         Me.BT_CONNEXION.Size = New System.Drawing.Size(175, 45)
         Me.BT_CONNEXION.TabIndex = 22
-        Me.BT_CONNEXION.Text = "Login"
+        Me.BT_CONNEXION.Text = "Connexion"
         '
         'Guna2DragControl1
         '

@@ -30,6 +30,12 @@ Public Class ECUEsManager
         command.Parameters.AddWithValue("@employee_id", employeeId)
         Return getGeneriqueList()
     End Function
+    Public Shared Function getByCareerIdAndSemester(careerId As Integer, semester As Integer) As List(Of ECUE)
+        command = New MySqlCommand("SELECT ECUES.id As id, ECUES.libelle As libelle, ECUES.credit As credit, ECUES.employee_id As employee_id FROM ecues, ues, ecuesues, careersues, careers WHERE ecuesues.ECUE_id = ecues.id AND ues.id = ecuesues.UE_id AND careersues.UE_id = ues.id AND careersues.Career_id = careers.id AND careers.id = @careerId AND ues.semester = @semester;", Manager.connection)
+        command.Parameters.AddWithValue("@careerId", careerId)
+        command.Parameters.AddWithValue("@semester", semester)
+        Return getGeneriqueList()
+    End Function
 
 
     Private Shared Function getGenerique() As ECUE
