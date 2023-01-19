@@ -34,7 +34,7 @@ Public Class TuititionServiceView
                 BT_REFRESH_Click(Nothing, Nothing)
                 'For Each studentPicturePath As String In studentsPicturePathList
                 '    MsgBox(studentPicturePath)
-                '    'File.Delete(studentPicturePath)
+                '    File.Delete(studentPicturePath)
                 'Next
             End If
         Else
