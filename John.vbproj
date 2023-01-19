@@ -182,10 +182,10 @@
     <Compile Include="Views\SuperUser\Controls\UsersControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Teacher\Reports\teacherList.vb">
+    <Compile Include="Views\Teacher\Reports\EvaluationReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>teacherList.rpt</DependentUpon>
+      <DependentUpon>EvaluationReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\Teacher\TeacherView.Designer.vb">
@@ -194,11 +194,17 @@
     <Compile Include="Views\Teacher\TeacherView.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\TuititionService\Reports\StudentsReport.vb">
+    <Compile Include="Views\TuititionService\Reports\StudentsReport - Copier.vb">
+      <DependentUpon>StudentsReport2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\TuititionService\Reports\StudentsReport2.vb">
+      <DependentUpon>StudentsReport2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Views\TuititionService\TuititionServiceView.Designer.vb">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>
@@ -241,16 +247,16 @@
     <EmbeddedResource Include="Views\SuperUser\Controls\UsersControl.resx">
       <DependentUpon>UsersControl.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Teacher\Reports\teacherList.rpt">
+    <EmbeddedResource Include="Views\Teacher\Reports\EvaluationReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>teacherList.vb</LastGenOutput>
+      <LastGenOutput>EvaluationReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Teacher\TeacherView.resx">
       <DependentUpon>TeacherView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\TuititionService\Reports\StudentsReport.rpt">
+    <EmbeddedResource Include="Views\TuititionService\Reports\StudentsReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>StudentsReport.vb</LastGenOutput>
+      <LastGenOutput>StudentsReport2.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TuititionService\TuititionServiceView.resx">
       <DependentUpon>TuititionServiceView.vb</DependentUpon>

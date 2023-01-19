@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class teacherList
+Public Class EvaluationReport
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class teacherList
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "teacherList.rpt"
+            Return "EvaluationReport.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class teacherList
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "John.teacherList.rpt"
+            Return "John.EvaluationReport.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class teacherList
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedteacherList
+Public Class CachedEvaluationReport
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedteacherList
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As teacherList = New teacherList()
+        Dim rpt As EvaluationReport = New EvaluationReport()
         rpt.Site = Me.Site
         Return rpt
     End Function

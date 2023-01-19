@@ -23,10 +23,10 @@ Partial Class TuititionServiceView
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TuititionServiceView))
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.LBL_PHONE_NUMBER = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_LAST_NAME = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.LBL_EMAIL = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -59,6 +59,8 @@ Partial Class TuititionServiceView
         Me.BT_DELETE = New Guna.UI2.WinForms.Guna2Button()
         Me.BT_UPDATE = New Guna.UI2.WinForms.Guna2Button()
         Me.P_MAIN = New Guna.UI2.WinForms.Guna2Panel()
+        Me.B_PRINT = New Guna.UI2.WinForms.Guna2Button()
+        Me.TB_SEARCH = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CB_GENDER = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.B_ADD_PICTURE = New Guna.UI2.WinForms.Guna2Button()
         Me.DTP_DATE = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -72,8 +74,6 @@ Partial Class TuititionServiceView
         Me.email = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.phoneNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.careerName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TB_SEARCH = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.B_PRINT = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.PB_STUDENT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_TOP.SuspendLayout()
         Me.P_MAIN.SuspendLayout()
@@ -551,6 +551,49 @@ Partial Class TuititionServiceView
         Me.P_MAIN.Size = New System.Drawing.Size(1176, 505)
         Me.P_MAIN.TabIndex = 111
         '
+        'B_PRINT
+        '
+        Me.B_PRINT.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.B_PRINT.Animated = True
+        Me.B_PRINT.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton
+        Me.B_PRINT.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.B_PRINT.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.B_PRINT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.B_PRINT.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.B_PRINT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.B_PRINT.FillColor = System.Drawing.Color.DimGray
+        Me.B_PRINT.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.B_PRINT.ForeColor = System.Drawing.Color.White
+        Me.B_PRINT.Image = CType(resources.GetObject("B_PRINT.Image"), System.Drawing.Image)
+        Me.B_PRINT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.B_PRINT.Location = New System.Drawing.Point(973, 214)
+        Me.B_PRINT.Name = "B_PRINT"
+        Me.B_PRINT.Size = New System.Drawing.Size(44, 36)
+        Me.B_PRINT.TabIndex = 116
+        '
+        'TB_SEARCH
+        '
+        Me.TB_SEARCH.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TB_SEARCH.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TB_SEARCH.DefaultText = ""
+        Me.TB_SEARCH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.TB_SEARCH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.TB_SEARCH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_SEARCH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.TB_SEARCH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_SEARCH.ForeColor = System.Drawing.Color.Black
+        Me.TB_SEARCH.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TB_SEARCH.IconRight = CType(resources.GetObject("TB_SEARCH.IconRight"), System.Drawing.Image)
+        Me.TB_SEARCH.Location = New System.Drawing.Point(133, 214)
+        Me.TB_SEARCH.Name = "TB_SEARCH"
+        Me.TB_SEARCH.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TB_SEARCH.PlaceholderText = "Ex: Charles"
+        Me.TB_SEARCH.SelectedText = ""
+        Me.TB_SEARCH.Size = New System.Drawing.Size(834, 36)
+        Me.TB_SEARCH.TabIndex = 115
+        '
         'CB_GENDER
         '
         Me.CB_GENDER.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -594,47 +637,47 @@ Partial Class TuititionServiceView
         'DTP_DATE
         '
         Me.DTP_DATE.Checked = True
-        Me.DTP_DATE.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.DTP_DATE.CustomFormat = "yyyy-MM-dd"
         Me.DTP_DATE.FillColor = System.Drawing.Color.White
         Me.DTP_DATE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.DTP_DATE.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DTP_DATE.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DTP_DATE.Location = New System.Drawing.Point(278, 46)
         Me.DTP_DATE.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.DTP_DATE.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.DTP_DATE.Name = "DTP_DATE"
         Me.DTP_DATE.Size = New System.Drawing.Size(427, 36)
         Me.DTP_DATE.TabIndex = 112
-        Me.DTP_DATE.Value = New Date(2023, 1, 17, 14, 25, 44, 323)
+        Me.DTP_DATE.Value = New Date(2023, 1, 17, 0, 0, 0, 0)
         '
         'DGV_STUDENTS
         '
         Me.DGV_STUDENTS.AllowUserToAddRows = False
         Me.DGV_STUDENTS.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
-        Me.DGV_STUDENTS.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(207, Byte), Integer))
+        Me.DGV_STUDENTS.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DGV_STUDENTS.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV_STUDENTS.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV_STUDENTS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV_STUDENTS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DGV_STUDENTS.ColumnHeadersHeight = 30
         Me.DGV_STUDENTS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.DGV_STUDENTS.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.picturePath, Me.id, Me.lastName, Me.firstName, Me.birthDate, Me.gender, Me.email, Me.phoneNumber, Me.careerName})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGV_STUDENTS.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(147, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGV_STUDENTS.DefaultCellStyle = DataGridViewCellStyle6
         Me.DGV_STUDENTS.GridColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.DGV_STUDENTS.Location = New System.Drawing.Point(3, 256)
         Me.DGV_STUDENTS.Name = "DGV_STUDENTS"
@@ -737,49 +780,6 @@ Partial Class TuititionServiceView
         Me.careerName.HeaderText = "Parcours"
         Me.careerName.Name = "careerName"
         Me.careerName.ReadOnly = True
-        '
-        'TB_SEARCH
-        '
-        Me.TB_SEARCH.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TB_SEARCH.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TB_SEARCH.DefaultText = ""
-        Me.TB_SEARCH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.TB_SEARCH.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.TB_SEARCH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_SEARCH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.TB_SEARCH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SEARCH.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TB_SEARCH.ForeColor = System.Drawing.Color.Black
-        Me.TB_SEARCH.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TB_SEARCH.IconRight = CType(resources.GetObject("TB_SEARCH.IconRight"), System.Drawing.Image)
-        Me.TB_SEARCH.Location = New System.Drawing.Point(133, 214)
-        Me.TB_SEARCH.Name = "TB_SEARCH"
-        Me.TB_SEARCH.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TB_SEARCH.PlaceholderText = "Ex: Charles"
-        Me.TB_SEARCH.SelectedText = ""
-        Me.TB_SEARCH.Size = New System.Drawing.Size(834, 36)
-        Me.TB_SEARCH.TabIndex = 115
-        '
-        'B_PRINT
-        '
-        Me.B_PRINT.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.B_PRINT.Animated = True
-        Me.B_PRINT.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton
-        Me.B_PRINT.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.B_PRINT.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.B_PRINT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.B_PRINT.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.B_PRINT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.B_PRINT.FillColor = System.Drawing.Color.DimGray
-        Me.B_PRINT.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.B_PRINT.ForeColor = System.Drawing.Color.White
-        Me.B_PRINT.Image = CType(resources.GetObject("B_PRINT.Image"), System.Drawing.Image)
-        Me.B_PRINT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.B_PRINT.Location = New System.Drawing.Point(973, 214)
-        Me.B_PRINT.Name = "B_PRINT"
-        Me.B_PRINT.Size = New System.Drawing.Size(44, 36)
-        Me.B_PRINT.TabIndex = 116
         '
         'TuititionServiceView
         '

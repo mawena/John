@@ -35,6 +35,7 @@ Partial Class TeacherView
         Me.COB_CLOSE = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.LBL_DESCRIPTION = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.P_MAIN = New Guna.UI2.WinForms.Guna2Panel()
+        Me.B_PRINT = New Guna.UI2.WinForms.Guna2Button()
         Me.LBL_DATE = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.CB_WEIGHT = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.LBL_TYPE = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -162,6 +163,7 @@ Partial Class TeacherView
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.P_MAIN.BackColor = System.Drawing.Color.White
         Me.P_MAIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.P_MAIN.Controls.Add(Me.B_PRINT)
         Me.P_MAIN.Controls.Add(Me.LBL_DATE)
         Me.P_MAIN.Controls.Add(Me.CB_WEIGHT)
         Me.P_MAIN.Controls.Add(Me.LBL_TYPE)
@@ -186,6 +188,26 @@ Partial Class TeacherView
         Me.P_MAIN.Name = "P_MAIN"
         Me.P_MAIN.Size = New System.Drawing.Size(1176, 501)
         Me.P_MAIN.TabIndex = 106
+        '
+        'B_PRINT
+        '
+        Me.B_PRINT.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.B_PRINT.Animated = True
+        Me.B_PRINT.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton
+        Me.B_PRINT.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.B_PRINT.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.B_PRINT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.B_PRINT.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.B_PRINT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.B_PRINT.FillColor = System.Drawing.Color.DimGray
+        Me.B_PRINT.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.B_PRINT.ForeColor = System.Drawing.Color.White
+        Me.B_PRINT.Image = CType(resources.GetObject("B_PRINT.Image"), System.Drawing.Image)
+        Me.B_PRINT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.B_PRINT.Location = New System.Drawing.Point(973, 129)
+        Me.B_PRINT.Name = "B_PRINT"
+        Me.B_PRINT.Size = New System.Drawing.Size(44, 36)
+        Me.B_PRINT.TabIndex = 117
         '
         'LBL_DATE
         '
@@ -279,7 +301,7 @@ Partial Class TeacherView
         Me.TB_SEARCH.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TB_SEARCH.PlaceholderText = "Ex: Charles"
         Me.TB_SEARCH.SelectedText = ""
-        Me.TB_SEARCH.Size = New System.Drawing.Size(884, 36)
+        Me.TB_SEARCH.Size = New System.Drawing.Size(834, 36)
         Me.TB_SEARCH.TabIndex = 106
         '
         'TB_STUDENT_SEARCH
@@ -329,7 +351,7 @@ Partial Class TeacherView
         'DTP_DATE
         '
         Me.DTP_DATE.Checked = True
-        Me.DTP_DATE.CustomFormat = "dd/MM/yyyy HH:mm"
+        Me.DTP_DATE.CustomFormat = "yyyy/MM/dd HH:mm:ii"
         Me.DTP_DATE.FillColor = System.Drawing.Color.White
         Me.DTP_DATE.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DTP_DATE.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
@@ -672,4 +694,5 @@ Partial Class TeacherView
     Friend WithEvents dateField As DataGridViewTextBoxColumn
     Friend WithEvents typeField As DataGridViewTextBoxColumn
     Friend WithEvents weightField As DataGridViewTextBoxColumn
+    Friend WithEvents B_PRINT As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -22,26 +22,27 @@ Partial Class CrystalReportViewerForm
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.CRV_STUDENTS = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.CRV = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.CachedStudentsReport1 = New John.CachedStudentsReport()
         Me.SuspendLayout()
         '
-        'CRV_STUDENTS
+        'CRV
         '
-        Me.CRV_STUDENTS.ActiveViewIndex = -1
-        Me.CRV_STUDENTS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CRV_STUDENTS.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CRV_STUDENTS.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CRV_STUDENTS.Location = New System.Drawing.Point(0, 0)
-        Me.CRV_STUDENTS.Name = "CRV_STUDENTS"
-        Me.CRV_STUDENTS.Size = New System.Drawing.Size(800, 450)
-        Me.CRV_STUDENTS.TabIndex = 0
+        Me.CRV.ActiveViewIndex = -1
+        Me.CRV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CRV.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CRV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CRV.Location = New System.Drawing.Point(0, 0)
+        Me.CRV.Name = "CRV"
+        Me.CRV.Size = New System.Drawing.Size(800, 450)
+        Me.CRV.TabIndex = 0
         '
         'CrystalReportViewerForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.CRV_STUDENTS)
+        Me.Controls.Add(Me.CRV)
         Me.Name = "CrystalReportViewerForm"
         Me.Text = "CrystalReportViewer"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -49,5 +50,6 @@ Partial Class CrystalReportViewerForm
 
     End Sub
 
-    Public WithEvents CRV_STUDENTS As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Public WithEvents CRV As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents CachedStudentsReport1 As CachedStudentsReport
 End Class

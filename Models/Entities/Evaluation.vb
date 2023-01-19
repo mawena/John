@@ -93,4 +93,16 @@
             Return _student
         End Get
     End Property
+
+    Public ReadOnly Property StudentName As String
+        Get
+            Return _student.Name
+        End Get
+    End Property
+
+    Public ReadOnly Property ECUEName As String
+        Get
+            Return _ecue.Name
+        End Get
+    End Property
 End Class

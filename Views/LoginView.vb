@@ -1,7 +1,6 @@
 ﻿Public Class LoginView
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Manager.connect()
-        BT_CONNEXION_Click(Nothing, Nothing)
     End Sub
     Private Sub BT_CONNEXION_Click(sender As Object, e As EventArgs) Handles BT_CONNEXION.Click
         If JohnController.Login(TB_USERNAME.Text, TB_PASSWORD_FIELD.Text) Then

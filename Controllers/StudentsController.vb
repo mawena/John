@@ -21,31 +21,25 @@ Public Class StudentsController
             Catch ex As Exception
                 img = Image.FromFile(Student.PicturePathDefault)
             End Try
+            'img.Dispose()
             table.LoadDataRow(New Object() {img, student.Id, student.LastName, student.FirstName, student.BirthDate, student.Gender, student.Email, student.PhoneNumber, student.Career.Name}, True)
         Next
         Return table
     End Function
 
-    Public Shared Function getGeneriqueList(studentsList As List(Of Student)) As DataTable
+    Public Shared Function getAllForReport() As DataTable
         Dim table As DataTable = New DataTable
-        table.Columns.Add("id", GetType(Integer))
-        table.Columns.Add("lastName", GetType(String))
-        table.Columns.Add("firstName", GetType(String))
-        table.Columns.Add("birthDate", GetType(String))
-        table.Columns.Add("gender", GetType(String))
-        table.Columns.Add("email", GetType(String))
-        table.Columns.Add("phoneNumber", GetType(String))
-        table.Columns.Add("careerName", GetType(String))
+        table.Columns.Add("Id", GetType(Integer))
+        table.Columns.Add("LastName", GetType(String))
+        table.Columns.Add("FirstName", GetType(String))
+        table.Columns.Add("BirthDate", GetType(String))
+        table.Columns.Add("Gender", GetType(String))
+        table.Columns.Add("Email", GetType(String))
+        table.Columns.Add("PhoneNumber", GetType(String))
+        table.Columns.Add("CareerName", GetType(String))
 
-        For Each student As Student In studentsList
-            Dim img As Image
-            Try
-                img = Image.FromFile(student.PicturePath)
-
-            Catch ex As Exception
-                img = Image.FromFile(Student.PicturePathDefault)
-            End Try
-            table.LoadDataRow(New Object() {img, student.Id, student.LastName, student.FirstName, student.BirthDate, student.Gender, student.Email, student.PhoneNumber, student.Career.Name}, True)
+        For Each student As Student In StudentsManager.getAll()
+            table.LoadDataRow(New Object() {student.Id, student.LastName, student.FirstName, student.BirthDate, student.Gender, student.Email, student.PhoneNumber, student.Career.Name}, True)
         Next
         Return table
     End Function
@@ -56,11 +50,11 @@ Public Class StudentsController
     Public Shared Function getByCareerId(studentId As Integer) As DataTable
         Return getGeneriqueList(StudentsManager.getByCareerId(studentId))
     End Function
-    Public Shared Function search(studentId As Integer, word As String) As DataTable
+    Public Shared Function search(careerId As Integer, word As String) As DataTable
         If word <> Nothing Then
             Return getGeneriqueList(StudentsManager.search(word))
         Else
-            Return getByCareerId(studentId)
+            Return getByCareerId(careerId)
         End If
     End Function
 
@@ -151,6 +145,7 @@ Public Class StudentsController
             StudentsManager.update(student, student.Id)
             Return True
         End If
+        Return True
     End Function
 
 

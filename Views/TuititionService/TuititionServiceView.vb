@@ -8,17 +8,19 @@ Public Class TuititionServiceView
         Reload_CB_INSTITUTE()
         Reload_CB_CAREER()
         DGV_STUDENTS.DataSource = StudentsController.getAll()
-        B_PRINT_Click(Nothing, Nothing)
     End Sub
     Private Sub BT_REFRESH_Click(sender As Object, e As EventArgs) Handles BT_REFRESH.Click
         ResizeDataGridViewRowHeight()
         DGV_STUDENTS.DataSource = StudentsController.getAll()
     End Sub
+    Private Sub TB_SEARCH_TextChanged(sender As Object, e As EventArgs) Handles TB_SEARCH.TextChanged
+
+    End Sub
     Private Sub CB_INSTITUTE_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_INSTITUTE.SelectedIndexChanged
         Reload_CB_CAREER()
     End Sub
     Private Sub BT_ADD_Click(sender As Object, e As EventArgs) Handles BT_ADD.Click
-        If StudentsController.store(TB_LAST_NAME.Text, TB_FIRST_NAME.Text, DTP_DATE.Value, CB_GENDER.SelectedItem, TB_EMAIL.Text, TB_PHONE_NUMBER.Text, PB_STUDENT.ImageLocation, CB_CAREER.SelectedItem.Split("-")(0), CInt(CB_SEMESTER.SelectedItem)) Then
+        If StudentsController.store(TB_LAST_NAME.Text, TB_FIRST_NAME.Text, DTP_DATE.Value.ToString("yyyy-MM-dd"), CB_GENDER.SelectedItem, TB_EMAIL.Text, TB_PHONE_NUMBER.Text, PB_STUDENT.ImageLocation, CB_CAREER.SelectedItem.Split("-")(0), CInt(CB_SEMESTER.SelectedItem)) Then
             ClearForm()
             BT_REFRESH_Click(Nothing, Nothing)
         End If
@@ -52,10 +54,10 @@ Public Class TuititionServiceView
             Next
             If (StudentsController.delete(studentsIdList)) Then
                 BT_REFRESH_Click(Nothing, Nothing)
-                For Each studentpicturepath As String In studentsPicturePathList
-                    MsgBox(studentpicturepath)
-                    File.Delete(studentpicturepath)
-                Next
+                'For Each studentpicturepath As String In studentsPicturePathList
+                '    MsgBox(studentpicturepath)
+                '    File.Delete(studentpicturepath)
+                'Next
             End If
         Else
             MessageBox.Show("Aucune ligne n'a été sélectionnée.", "Lignes non selectionné", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -142,14 +144,12 @@ Public Class TuititionServiceView
     End Sub
 
     Private Sub B_PRINT_Click(sender As Object, e As EventArgs) Handles B_PRINT.Click
-        Dim report As New StudentsReport()
-        Dim table As New DataTable
-        table.Columns.Add("id", GetType(Integer))
-        table.LoadDataRow(New Object() {2}, True)
-        report.SetDataSource(DGV_STUDENTS.DataSource)
+        Dim report As New StudentsReport2()
+        report.SetDataSource(StudentsController.getAllForReport())
 
 
-        CrystalReportViewerForm.CRV_STUDENTS.ReportSource = report
+        CrystalReportViewerForm.CRV.ReportSource = report
         CrystalReportViewerForm.Show()
     End Sub
+
 End Class

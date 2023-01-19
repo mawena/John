@@ -84,14 +84,28 @@
         End If
     End Sub
 
+    Private Sub B_PRINT_Click(sender As Object, e As EventArgs) Handles B_PRINT.Click
+        Dim report As New EvaluationReport()
+        report.SetDataSource(EvaluationsController.getAllForReport(CInt(CB_ECUES.SelectedItem().Split("-")(0))))
+
+        CrystalReportViewerForm.CRV.ReportSource = report
+        CrystalReportViewerForm.Show()
+    End Sub
+
     Private Sub BT_LOGOUT_Click(sender As Object, e As EventArgs) Handles BT_LOGOUT.Click
         JohnController.Logout()
     End Sub
-
-
-
     Private Sub COB_CLOSE_Click(sender As Object, e As EventArgs) Handles COB_CLOSE.Click
         Manager.Close()
         End
+    End Sub
+
+    Private Sub DGV_EVALUATIONS_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV_EVALUATIONS.CellClick
+        CB_STUDENTS.SelectedItem = DGV_EVALUATIONS.SelectedRows(0).Cells(1).Value
+        CB_GRADE.SelectedItem = DGV_EVALUATIONS.SelectedRows(0).Cells(2).Value
+        CB_ECUES.SelectedItem = DGV_EVALUATIONS.SelectedRows(0).Cells(3).Value
+        'DTP_DATE.Value = DGV_EVALUATIONS.SelectedRows(0).Cells(4).Value
+        CB_TYPE.SelectedItem = DGV_EVALUATIONS.SelectedRows(0).Cells(5).Value
+        CB_WEIGHT.SelectedItem = DGV_EVALUATIONS.SelectedRows(0).Cells(6).Value.ToString() & "%"
     End Sub
 End Class

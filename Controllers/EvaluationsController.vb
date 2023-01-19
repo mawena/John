@@ -14,6 +14,21 @@
         Next
         Return table
     End Function
+
+    Public Shared Function getAllForReport(ecueId As Integer) As DataTable
+        Dim table As DataTable = New DataTable
+        table.Columns.Add("Id", GetType(Integer))
+        table.Columns.Add("StudentName", GetType(String))
+        table.Columns.Add("Grade", GetType(Integer))
+        table.Columns.Add("DateField", GetType(String))
+        table.Columns.Add("Weight", GetType(Integer))
+        table.Columns.Add("Type", GetType(String))
+
+        For Each evaluation As Evaluation In EvaluationsManager.getByECUEId(ecueId)
+            table.LoadDataRow(New Object() {evaluation.Id, evaluation.StudentName, evaluation.Grade, evaluation.DateField, evaluation.Weight, evaluation.Type}, True)
+        Next
+        Return table
+    End Function
     Public Shared Function getByECUEId(ecueId As String) As DataTable
         Return getGeneriqueList(EvaluationsManager.getByECUEId(ecueId))
     End Function
