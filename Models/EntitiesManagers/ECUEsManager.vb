@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class ECUEsManager
     Inherits Manager
-    Public Shared Function getGeneriqueList() As List(Of ECUE)
+    Public Shared Function getTmpLit() As List(Of ECUE)
         Dim ecueList As New List(Of ECUE)()
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -18,23 +18,30 @@ Public Class ECUEsManager
     End Function
     Public Shared Function getAll() As List(Of ECUE)
         command = New MySqlCommand("SELECT * FROM ECUEs;", Manager.connection)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function search(word As String) As List(Of ECUE)
         command = New MySqlCommand("SELECT * FROM ECUEs WHERE libelle LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getByEmployeeId(employeeId As Integer) As List(Of ECUE)
         command = New MySqlCommand("SELECT * FROM ECUEs WHERE employee_id = @employee_id;", Manager.connection)
         command.Parameters.AddWithValue("@employee_id", employeeId)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getByCareerIdAndSemester(careerId As Integer, semester As Integer) As List(Of ECUE)
         command = New MySqlCommand("SELECT ECUES.id As id, ECUES.libelle As libelle, ECUES.credit As credit, ECUES.employee_id As employee_id FROM ecues, ues, ecuesues, careersues, careers WHERE ecuesues.ECUE_id = ecues.id AND ues.id = ecuesues.UE_id AND careersues.UE_id = ues.id AND careersues.Career_id = careers.id AND careers.id = @careerId AND ues.semester = @semester;", Manager.connection)
         command.Parameters.AddWithValue("@careerId", careerId)
         command.Parameters.AddWithValue("@semester", semester)
-        Return getGeneriqueList()
+        Return getTmpLit()
+    End Function
+
+    Public Shared Function getByStudentIdAndSemester(studentId As Integer, semester As Integer) As List(Of ECUE)
+        command = New MySqlCommand("SELECT ECUES.id As id, ECUES.libelle As libelle, ECUES.credit As credit, ECUES.employee_id As employee_id FROM ecues, ues, ecuesues, ecuesstudents WHERE ecuesues.ECUE_id = ecues.id AND ues.id = ecuesues.UE_id AND ues.semester = @semester AND ecuesstudents.ECUE_id = ecues.id AND ecuesstudents.student_id = @studentId;", Manager.connection)
+        command.Parameters.AddWithValue("@semester", semester)
+        command.Parameters.AddWithValue("@studentId", studentId)
+        Return getTmpLit()
     End Function
 
 
@@ -77,7 +84,7 @@ Public Class ECUEsManager
 
 
 
-    Public Shared Function store(ecue As ECUE, ueIdList As List(Of Integer)) As Boolean
+    Public Shared Function insert(ecue As ECUE, ueIdList As List(Of Integer)) As Boolean
         Try
             command = New MySqlCommand("INSERT INTO ECUEs(libelle, credit, employee_id) VALUES (@libelle, @credit, @employee_id);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", ecue.Libelle)
@@ -87,7 +94,7 @@ Public Class ECUEsManager
             disposeManager()
 
             Dim ecueId As Integer = getLastId("ECUEs")
-            deleteECUEUEs(ecueId)
+            deleteInECUEsUEs(ecueId)
             storeECUEsUEs(ecueId, ueIdList)
             Return True
         Catch ex As Exception
@@ -106,7 +113,7 @@ Public Class ECUEsManager
             disposeManager()
 
 
-            deleteECUEUEs(id)
+            deleteInECUEsUEs(id)
             storeECUEsUEs(id, ueIdList)
             Return True
         Catch ex As Exception
@@ -131,7 +138,7 @@ Public Class ECUEsManager
     End Function
 
 
-    Public Shared Function deleteECUEUEs(ecueId As Integer) As Boolean
+    Public Shared Function deleteInECUEsUEs(ecueId As Integer) As Boolean
         Try
             command = New MySqlCommand("DELETE FROM ECUEsUEs WHERE ECUE_id = @ecueId;", Manager.connection)
             command.Parameters.AddWithValue("@ecueId", ecueId)
@@ -144,7 +151,7 @@ Public Class ECUEsManager
         Return False
     End Function
     Public Overloads Shared Function delete(id As Integer) As Boolean
-        deleteECUEUEs(id)
+        deleteInECUEsUEs(id)
         Return Manager.delete("ECUEs", id)
     End Function
 End Class

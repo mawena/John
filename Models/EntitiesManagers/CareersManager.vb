@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class CareersManager
     Inherits Manager
-    Public Shared Function getGeneriqueList() As List(Of Career)
+    Public Shared Function getTmpLit() As List(Of Career)
         Dim careerList As New List(Of Career)()
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -18,27 +18,27 @@ Public Class CareersManager
     End Function
     Public Shared Function getAll() As List(Of Career)
         command = New MySqlCommand("SELECT * FROM Careers;", Manager.connection)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function search(word As String) As List(Of Career)
         command = New MySqlCommand("SELECT * FROM Careers WHERE libelle LIKE @word OR sigle LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getBySigle(sigle As String) As List(Of Career)
         command = New MySqlCommand("SELECT * FROM Careers WHERE sigle = @sigle;", Manager.connection)
         command.Parameters.AddWithValue("@sigle", sigle)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getByUEId(ueId As String) As List(Of Career)
         command = New MySqlCommand("SELECT Careers.id As id, Careers.libelle As libelle, Careers.sigle as sigle, Careers.institute_id As institute_id FROM Careers, CareersUEs WHERE CareersUEs.UE_id = @ueId AND  CareersUEs.Career_id = Careers.id;", Manager.connection)
         command.Parameters.AddWithValue("@ueId", ueId)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getByInstituteId(institute_id As Integer) As List(Of Career)
         command = New MySqlCommand("SELECT * FROM Careers WHERE institute_id = @institute_id;", Manager.connection)
         command.Parameters.AddWithValue("@institute_id", institute_id)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
 
 
@@ -75,7 +75,7 @@ Public Class CareersManager
     End Function
 
 
-    Public Shared Function store(career As Career) As Boolean
+    Public Shared Function insert(career As Career) As Boolean
         Try
             command = New MySqlCommand("INSERT INTO Careers(libelle, sigle, institute_id) VALUES (@libelle, @sigle, @institute_id);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", career.Libelle)

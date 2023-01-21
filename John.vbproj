@@ -48,12 +48,80 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.Engine.13.0.4001\lib\net40\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.ClientDoc.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.CommLayer.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.CommonControls.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.CommonObjectModel.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.Controllers.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.CubeDefModel.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.DataDefModel.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.DataSetConversion.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.Prompting.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.ReportDefModel.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportAppServer.XmlSerialize.13.0.4001\lib\net40\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.Shared.13.0.4001\lib\net40\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2, Version=2.0.3.5, Culture=neutral, PublicKeyToken=4015e4865bda28a4, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.3.5\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -109,6 +177,7 @@
     <Compile Include="Models\Entities\Career.vb" />
     <Compile Include="Models\Entities\Evaluation.vb" />
     <Compile Include="Models\Entities\Institute.vb" />
+    <Compile Include="Models\Entities\StudentGrade.vb" />
     <Compile Include="Models\Entities\Student.vb" />
     <Compile Include="Models\Entities\UE.vb" />
     <Compile Include="Models\Entities\User.vb" />
@@ -118,10 +187,10 @@
     <Compile Include="Views\CrystalReportViewerForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\LoginView.Designer.vb">
-      <DependentUpon>LoginView.vb</DependentUpon>
+    <Compile Include="Views\LoginViewForm.Designer.vb">
+      <DependentUpon>LoginViewForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginView.vb">
+    <Compile Include="Views\LoginViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -140,28 +209,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Views\SuperUser\AdminView.Designer.vb">
-      <DependentUpon>AdminView.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\AdminViewForm.Designer.vb">
+      <DependentUpon>AdminViewForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SuperUser\AdminView.vb">
+    <Compile Include="Views\SuperUser\AdminViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\ECUEsControl.Designer.vb">
-      <DependentUpon>ECUEsControl.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\Controls\ECUEsView.Designer.vb">
+      <DependentUpon>ECUEsView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\ECUEsControl.vb">
+    <Compile Include="Views\SuperUser\Controls\ECUEsView.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\EmployeesControl.Designer.vb">
-      <DependentUpon>EmployeesControl.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\Controls\EmployeesView.Designer.vb">
+      <DependentUpon>EmployeesView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\EmployeesControl.vb">
+    <Compile Include="Views\SuperUser\Controls\EmployeesView.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\CareersControl.Designer.vb">
-      <DependentUpon>CareersControl.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\Controls\CareersView.Designer.vb">
+      <DependentUpon>CareersView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\CareersControl.vb">
+    <Compile Include="Views\SuperUser\Controls\CareersView.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\SuperUser\Controls\InstitutesControl.Designer.vb">
@@ -170,16 +239,16 @@
     <Compile Include="Views\SuperUser\Controls\InstitutesControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\UEsControl.Designer.vb">
-      <DependentUpon>UEsControl.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\Controls\UEsView.Designer.vb">
+      <DependentUpon>UEsView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\UEsControl.vb">
+    <Compile Include="Views\SuperUser\Controls\UEsView.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\UsersControl.Designer.vb">
-      <DependentUpon>UsersControl.vb</DependentUpon>
+    <Compile Include="Views\SuperUser\Controls\UsersView.Designer.vb">
+      <DependentUpon>UsersView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\SuperUser\Controls\UsersControl.vb">
+    <Compile Include="Views\SuperUser\Controls\UsersView.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Teacher\Reports\EvaluationReport.vb">
@@ -188,28 +257,34 @@
       <DependentUpon>EvaluationReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Views\Teacher\TeacherView.Designer.vb">
-      <DependentUpon>TeacherView.vb</DependentUpon>
+    <Compile Include="Views\TuititionService\Reports\StudentGradesReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentGradesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Views\Teacher\TeacherView.vb">
+    <Compile Include="Views\Teacher\TeacherViewForm.Designer.vb">
+      <DependentUpon>TeacherViewForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Teacher\TeacherViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\TuititionService\Reports\StudentsReport - Copier.vb">
       <DependentUpon>StudentsReport2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\TuititionService\Reports\StudentsReport2.vb">
       <DependentUpon>StudentsReport2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Views\TuititionService\TuititionServiceView.Designer.vb">
-      <DependentUpon>TuititionServiceView.vb</DependentUpon>
+    <Compile Include="Views\TuititionService\TuititionServiceViewForm.Designer.vb">
+      <DependentUpon>TuititionServiceViewForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\TuititionService\TuititionServiceView.vb">
+    <Compile Include="Views\TuititionService\TuititionServiceViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -223,43 +298,47 @@
     <EmbeddedResource Include="Views\CrystalReportViewerForm.resx">
       <DependentUpon>CrystalReportViewerForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\LoginView.resx">
-      <DependentUpon>LoginView.vb</DependentUpon>
+    <EmbeddedResource Include="Views\LoginViewForm.resx">
+      <DependentUpon>LoginViewForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SuperUser\AdminView.resx">
-      <DependentUpon>AdminView.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\AdminViewForm.resx">
+      <DependentUpon>AdminViewForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SuperUser\Controls\ECUEsControl.resx">
-      <DependentUpon>ECUEsControl.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\Controls\ECUEsView.resx">
+      <DependentUpon>ECUEsView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SuperUser\Controls\EmployeesControl.resx">
-      <DependentUpon>EmployeesControl.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\Controls\EmployeesView.resx">
+      <DependentUpon>EmployeesView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SuperUser\Controls\CareersControl.resx">
-      <DependentUpon>CareersControl.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\Controls\CareersView.resx">
+      <DependentUpon>CareersView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SuperUser\Controls\InstitutesControl.resx">
       <DependentUpon>InstitutesControl.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SuperUser\Controls\UEsControl.resx">
-      <DependentUpon>UEsControl.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\Controls\UEsView.resx">
+      <DependentUpon>UEsView.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SuperUser\Controls\UsersControl.resx">
-      <DependentUpon>UsersControl.vb</DependentUpon>
+    <EmbeddedResource Include="Views\SuperUser\Controls\UsersView.resx">
+      <DependentUpon>UsersView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Teacher\Reports\EvaluationReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EvaluationReport.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Teacher\TeacherView.resx">
-      <DependentUpon>TeacherView.vb</DependentUpon>
+    <EmbeddedResource Include="Views\TuititionService\Reports\StudentGradesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentGradesReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Teacher\TeacherViewForm.resx">
+      <DependentUpon>TeacherViewForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TuititionService\Reports\StudentsReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>StudentsReport2.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\TuititionService\TuititionServiceView.resx">
-      <DependentUpon>TuititionServiceView.vb</DependentUpon>
+    <EmbeddedResource Include="Views\TuititionService\TuititionServiceViewForm.resx">
+      <DependentUpon>TuititionServiceViewForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -283,7 +362,251 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="CRQUERYENGINE">
+      <Guid>{E4B81D51-FB89-4D07-84A3-00BA9B71D76E}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CRReportPromptEMFLib">
+      <Guid>{7A4E36DC-A11A-4CAF-BC2A-700ECC668FD6}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CRREPORTSOURCEBRIDGELib">
+      <Guid>{80F19574-9245-4DFA-A0A6-8A21874282D3}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalActiveXReportViewerLib13">
+      <Guid>{B816E96D-D151-4000-BADB-53A2D8F3FC65}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalAnalysisCommLayerLib">
+      <Guid>{AAA3345B-2177-4D19-8D75-21688FE36251}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalAnalysisCommonControlsLib">
+      <Guid>{E377F909-BCFE-4E8E-B17C-8B1CBC7C7243}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalAnalysisRequestModelLib">
+      <Guid>{3FD134DF-56E0-4860-B065-BF986A086176}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalAnalysisXmlSerializeLib">
+      <Guid>{2743F9AF-ED45-4CA5-8625-2709B908D63C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalClientDocLib">
+      <Guid>{A8E20FDA-4A89-4545-8DFF-EBFA68E8C0F9}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalDocMgmtUndoManagerLib">
+      <Guid>{5DF0757C-75A4-4227-AF7B-0479FC6E7A55}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalPrintControlLib">
+      <Guid>{62862E3F-F35B-455E-9459-49EAADE80A25}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsCommonObjectModelLib">
+      <Guid>{FDB9B69E-BA79-4B13-9E96-8373AF162AEA}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsControllersLib">
+      <Guid>{FA810FF5-70DA-4F98-A5E3-387D9577EF24}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsCubeDefModelLib">
+      <Guid>{44AD71D4-4905-491D-B179-B5D91EB57374}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsDataDefModelLib">
+      <Guid>{9B2F3E7B-8D45-47E8-95D3-3A9C1B22437F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsDTSAgentLib">
+      <Guid>{3D5D05F6-E97D-43A0-90DC-5D8A6C6C6DB1}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsLocalConnectionMgrLib">
+      <Guid>{EC39F6C4-A9F2-4341-806B-1529E049A945}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsObjectFactoryLib">
+      <Guid>{A25D82D0-1501-4A89-BA92-B7E5B002EC4F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportsReportDefModelLib">
+      <Guid>{BF40B97D-06EA-4AB1-91DE-18CB29A2B25A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportViewerExportLib">
+      <Guid>{5C21A516-C6AC-42F2-A7B7-846FFE1B122A}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportViewerWebReportSourceLib">
+      <Guid>{14173BA7-071D-4216-8C9B-EAB29A55E2D4}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EMFGENLib">
+      <Guid>{C097B4CF-2CEA-442F-B025-610D2B0C05C8}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="PAGEOBJECTMODELLib">
+      <Guid>{237F4BEC-8AE5-41E1-AE84-B194E4670597}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="PROMPTINGLib">
+      <Guid>{8106BAD6-FB6E-49D5-8368-3F7030C9F6E7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SAXSERIALIZELib">
+      <Guid>{6EF0D172-0FAB-4FC3-BDBB-C6C0D9D69A10}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VLELib">
+      <Guid>{ACF55B94-B31C-4604-912A-314B00C1595D}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>

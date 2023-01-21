@@ -2,7 +2,7 @@
 Public Class UEsManager
     Inherits Manager
 
-    Private Shared Function getGeneriqueList() As List(Of UE)
+    Private Shared Function getTmpLit() As List(Of UE)
         Dim uesList As List(Of UE) = New List(Of UE)()
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -22,22 +22,17 @@ Public Class UEsManager
     End Function
     Public Shared Function getAll() As List(Of UE)
         command = New MySqlCommand("SELECT * FROM UEs ORDER BY id;", Manager.connection)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function search(word As String) As List(Of UE)
         command = New MySqlCommand("SELECT * FROM UEs WHERE libelle LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
-    End Function
-    Public Shared Function getByCareerId(careerid As Integer) As List(Of UE)
-        command = New MySqlCommand("SELECT * FROM UEs WHERE career_id = @careerId;", Manager.connection)
-        command.Parameters.AddWithValue("@careerId", careerid)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getByECUEId(ecueId As String) As List(Of UE)
         command = New MySqlCommand("SELECT UEs.id AS id, UEs.libelle AS libelle, UEs.semester AS semester FROM UEs, ECUEsUEs WHERE ECUEsUEs.ECUE_id = @ueId AND UEs.id = ECUEsUEs.UE_id;", Manager.connection)
         command.Parameters.AddWithValue("@ueId", ecueId)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
 
 
@@ -75,9 +70,14 @@ Public Class UEsManager
         command.Parameters.AddWithValue("@libelle", libelle)
         Return getGenerique()
     End Function
+    Public Shared Function getByECUEId_CareerId(ecueId As Integer, careerId As Integer) As UE
+        command = New MySqlCommand("SELECT ues.* FROM ues, ecuesues, careersues WHERE ecuesues.UE_id = ues.id AND careersues.UE_id = ues.id AND ecuesues.ECUE_id = @ecueId AND careersues.Career_id = @careerId;", Manager.connection)
+        command.Parameters.AddWithValue("@ecueId", ecueId)
+        command.Parameters.AddWithValue("@careerId", careerId)
+        Return getGenerique()
+    End Function
 
-
-    Public Shared Function store(ue As UE) As Boolean
+    Public Shared Function insert(ue As UE) As Boolean
         Try
             command = New MySqlCommand("INSERT INTO UEs(libelle, semester) VALUES (@libelle, @semester);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", ue.Libelle)

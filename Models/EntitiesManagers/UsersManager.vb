@@ -9,7 +9,7 @@ Public Class UsersManager
         End If
     End Function
 
-    Public Shared Function getGeneriqueList() As List(Of User)
+    Public Shared Function getTmpLit() As List(Of User)
         Dim userList As New List(Of User)()
         Try
 
@@ -27,12 +27,12 @@ Public Class UsersManager
     End Function
     Public Shared Function getAll() As List(Of User)
         command = New MySqlCommand("SELECT * FROM Users;", Manager.connection)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function search(word As String)
         command = New MySqlCommand("SELECT * FROM Users WHERE username LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
 
 
@@ -78,7 +78,7 @@ Public Class UsersManager
             Return employeeId
         End If
     End Function
-    Public Shared Function store(user As User) As Boolean
+    Public Shared Function insert(user As User) As Boolean
         Try
             command = New MySqlCommand("INSERT INTO Users(username, password_field, employee_id) VALUES (@username, @password_field, @employee_id);", Manager.connection)
             command.Parameters.AddWithValue("@username", user.Username)

@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class InstitutesManager
     Inherits Manager
-    Public Shared Function getGeneriqueList() As List(Of Institute)
+    Public Shared Function getTmpLit() As List(Of Institute)
         Dim insituteList As New List(Of Institute)()
         Try
 
@@ -19,17 +19,17 @@ Public Class InstitutesManager
     End Function
     Public Shared Function getAll() As List(Of Institute)
         command = New MySqlCommand("SELECT * FROM Institutes;", Manager.connection)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function search(word As String)
         command = New MySqlCommand("SELECT * FROM Institutes WHERE libelle LIKE @word OR sigle LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getBySigle(sigle As String) As List(Of Institute)
         command = New MySqlCommand("SELECT * FROM Institutes WHERE sigle = @sigle;", Manager.connection)
         command.Parameters.AddWithValue("@sigle", sigle)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
 
 
@@ -68,7 +68,7 @@ Public Class InstitutesManager
     End Function
 
 
-    Public Shared Function store(institute As Institute) As Boolean
+    Public Shared Function insert(institute As Institute) As Boolean
         Try
             command = New MySqlCommand("INSERT INTO Institutes(libelle, sigle) VALUES(@libelle, @sigle);", Manager.connection)
             command.Parameters.AddWithValue("@libelle", institute.Libelle)

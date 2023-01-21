@@ -1,5 +1,5 @@
 ﻿Public Class UsersController
-    Public Shared Function getGeneriqueList(usersList As List(Of User)) As DataTable
+    Public Shared Function getTmpLit(usersList As List(Of User)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("username", GetType(String))
@@ -12,11 +12,11 @@
         Return table
     End Function
     Public Shared Function getAll()
-        Return getGeneriqueList(UsersManager.getAll())
+        Return getTmpLit(UsersManager.getAll())
     End Function
     Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(UsersManager.search(word))
+            Return getTmpLit(UsersManager.search(word))
         Else
             Return getAll()
         End If
@@ -41,14 +41,14 @@
             Return EmployeesManager.getByName(name).Id
         End If
     End Function
-    Public Shared Function store(username As String, password_field As String, employeeName As String) As Boolean
+    Public Shared Function insert(username As String, password_field As String, employeeName As String) As Boolean
         If (verifyUser(username, password_field, True)) Then
             Dim userDB As User = UsersManager.getByUsername(username)
             If (userDB.Username = Nothing) Then
                 Dim employeeId As Integer = getEmployeeIdByName(employeeName)
                 userDB = UsersManager.getByEmployeeId(employeeId)
                 If userDB.Username = Nothing Then
-                    Return UsersManager.store(New User(username, password_field, employeeId))
+                    Return UsersManager.insert(New User(username, password_field, employeeId))
                 Else
                     MessageBox.Show("L'employée " & employeeName & " a déjà un compte utilisateur, Voulez vous le mettre à jour?", "Utilisateur déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If

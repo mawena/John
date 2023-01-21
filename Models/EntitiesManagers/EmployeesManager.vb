@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class EmployeesManager
     Inherits Manager
-    Public Shared Function getGeneriqueList() As List(Of Employee)
+    Public Shared Function getTmpLit() As List(Of Employee)
         Dim employeeList As New List(Of Employee)()
         Try
 
@@ -19,12 +19,12 @@ Public Class EmployeesManager
     End Function
     Public Shared Function getAll() As List(Of Employee)
         command = New MySqlCommand("SELECT * FROM Employees;", Manager.connection)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function search(word As String)
         command = New MySqlCommand("SELECT * FROM Employees WHERE last_name LIKE @word OR first_name LIKE @word OR email LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
 
 
@@ -74,7 +74,7 @@ Public Class EmployeesManager
     End Function
 
 
-    Public Shared Function store(employee As Employee) As Boolean
+    Public Shared Function insert(employee As Employee) As Boolean
         Try
             command = New MySqlCommand("INSERT INTO Employees(last_name, first_name, phone_number, email, gender, function_field) VALUES(@last_name, @first_name, @phone_number, @email, @gender, @function_field);", Manager.connection)
             command.Parameters.AddWithValue("@last_name", employee.LastName)

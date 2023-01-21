@@ -26,7 +26,7 @@
     End Sub
 
     Private Sub BT_ADD_Click(sender As Object, e As EventArgs) Handles BT_ADD.Click
-        If InstitutesController.store(TB_LIBELLE.Text, TB_SIGLE.Text) Then
+        If InstitutesController.insert(TB_LIBELLE.Text, TB_SIGLE.Text) Then
             ClearForm()
             BT_REFRESH_Click(Nothing, Nothing)
         End If

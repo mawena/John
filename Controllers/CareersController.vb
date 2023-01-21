@@ -1,5 +1,5 @@
 ﻿Public Class CareersController
-    Public Shared Function getGeneriqueList(careersList As List(Of Career)) As DataTable
+    Public Shared Function getTmpLit(careersList As List(Of Career)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("libelle", GetType(String))
@@ -14,12 +14,12 @@
     End Function
 
     Public Shared Function getAll() As DataTable
-        Return getGeneriqueList(CareersManager.getAll())
+        Return getTmpLit(CareersManager.getAll())
     End Function
 
     Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(CareersManager.search(word))
+            Return getTmpLit(CareersManager.search(word))
         Else
             Return getAll()
         End If
@@ -36,11 +36,11 @@
         Return False
     End Function
 
-    Public Shared Function store(libelle As String, sigle As String, instituteName As String) As Boolean
+    Public Shared Function insert(libelle As String, sigle As String, instituteName As String) As Boolean
         If verify(libelle, sigle) Then
             Dim careerDB As Career = CareersManager.getByLibelle(libelle)
             If careerDB.Libelle = Nothing Then
-                Return CareersManager.store(New Career(libelle, sigle, InstitutesManager.getByName(instituteName).Id))
+                Return CareersManager.insert(New Career(libelle, sigle, InstitutesManager.getByName(instituteName).Id))
             Else
                 MessageBox.Show("Le parcours '" & libelle & "' existe déjà", "Parcours déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

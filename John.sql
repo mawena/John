@@ -70,7 +70,7 @@ CREATE TABLE Students(
   id int PRIMARY KEY AUTO_INCREMENT,
   last_name VARCHAR(30) NOT NULL,
   first_name VARCHAR(150) NOT NULL,
-  birth_date DATE,
+  birth_date VARCHAR(30),
   gender ENUM('Homme', 'Femme') NOT NULL,
   email VARCHAR(200) NOT NULL,
   phone_number VARCHAR(30) NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE Evaluations(
   id int PRIMARY KEY AUTO_INCREMENT,
   grade DOUBLE NOT NULL,
   ECUEsStudents_id int NOT NULL,
-  date_field DATETIME,
+  date_field VARCHAR(30),
   weight_field DOUBLE,
   type_field ENUM(
     'Devoir',
@@ -130,10 +130,10 @@ VALUES
     "Teacher"
   ),
   (
-    "BOUILI",
-    "Espoir",
+    "GAMLIGO",
+    "Brunot",
     "+228 91919191",
-    "espoir@gmail.com",
+    "Brunot@gmail.com",
     "Male",
     "TuititionService"
   ),
@@ -202,7 +202,7 @@ INSERT INTO
 VALUES
   ("Mawena", "dums", NULL),
   ("Laba", "dums", 1),
-  ("Espoir", "dums", 2),
+  ("Brunot", "dums", 2),
   ("Mensah", "dums", 3),
   ("Wodome", "dums", 4),
   ("Amelina", "dums", 5),
@@ -330,13 +330,13 @@ VALUES
   ),
   (
     2,
-    "BOUILI",
-    "Espoir",
+    "GAMLIGO",
+    "Brunot",
     "2023-01-10",
     "Femme",
-    "espoir@gmail.com",
+    "Brunot@gmail.com",
     "+228 918676615",
-    "..\\..\\Data\\Pictures\\Students\\2-BOUILI - Espoir.jpg",
+    "..\\..\\Data\\Pictures\\Students\\2-GAMLIGO - Brunot.jpg",
     1
   );
 INSERT INTO

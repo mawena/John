@@ -1,5 +1,5 @@
 ﻿Public Class InstitutesController
-    Public Shared Function getGeneriqueList(institutesList As List(Of Institute)) As DataTable
+    Public Shared Function getTmpLit(institutesList As List(Of Institute)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("libelle", GetType(String))
@@ -13,12 +13,12 @@
     End Function
 
     Public Shared Function getAll() As DataTable
-        Return getGeneriqueList(InstitutesManager.getAll())
+        Return getTmpLit(InstitutesManager.getAll())
     End Function
 
     Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(InstitutesManager.search(word))
+            Return getTmpLit(InstitutesManager.search(word))
         Else
             Return getAll()
         End If
@@ -35,11 +35,11 @@
         Return False
     End Function
 
-    Public Shared Function store(libelle As String, sigle As String) As Boolean
+    Public Shared Function insert(libelle As String, sigle As String) As Boolean
         If verifyInstitute(libelle, sigle) Then
             Dim instituteDB As Institute = InstitutesManager.getByLibelle(libelle)
             If instituteDB.Libelle = Nothing Then
-                Return InstitutesManager.store(New Institute(libelle, sigle))
+                Return InstitutesManager.insert(New Institute(libelle, sigle))
             Else
                 MessageBox.Show("L'institut " & libelle & " existe déjà", "Institut déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

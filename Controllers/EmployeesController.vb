@@ -1,7 +1,7 @@
 ﻿Imports Mysqlx.XDevAPI.Relational
 
 Public Class EmployeesController
-    Public Shared Function getGeneriqueList(employeesList As List(Of Employee)) As DataTable
+    Public Shared Function getTmpLit(employeesList As List(Of Employee)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("lastName", GetType(String))
@@ -19,12 +19,12 @@ Public Class EmployeesController
     End Function
 
     Public Shared Function getAll() As DataTable
-        Return getGeneriqueList(EmployeesManager.getAll())
+        Return getTmpLit(EmployeesManager.getAll())
     End Function
 
     Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(EmployeesManager.search(word))
+            Return getTmpLit(EmployeesManager.search(word))
         Else
             Return getAll()
         End If
@@ -49,7 +49,7 @@ Public Class EmployeesController
         Return False
     End Function
 
-    Public Shared Function store(lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String) As Boolean
+    Public Shared Function insert(lastName As String, firstName As String, phoneNumber As String, email As String, gender As String, functionField As String) As Boolean
         gender = Employee.Gender_view_to_gender(gender)
         functionField = Employee.Function_view_field_to_function_field(functionField)
         If (verify(lastName, firstName, phoneNumber, email, gender, functionField)) Then
@@ -59,7 +59,7 @@ Public Class EmployeesController
                 If employeeDB.LastName = Nothing Then
                     employeeDB = EmployeesManager.getByEmail(email)
                     If (employeeDB.LastName = Nothing) Then
-                        Return EmployeesManager.store(New Employee(lastName, firstName, phoneNumber, email, gender, functionField))
+                        Return EmployeesManager.insert(New Employee(lastName, firstName, phoneNumber, email, gender, functionField))
                     Else
                         MessageBox.Show("L'email " & email & " est déjà utilisé", "Email déjà utilisé", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If

@@ -1,5 +1,5 @@
 ﻿Public Class UEsController
-    Public Shared Function getGeneriqueList(uesList As List(Of UE)) As DataTable
+    Public Shared Function getTmpLit(uesList As List(Of UE)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("libelle", GetType(String))
@@ -14,12 +14,12 @@
     End Function
 
     Public Shared Function getAll() As DataTable
-        Return getGeneriqueList(UEsManager.getAll())
+        Return getTmpLit(UEsManager.getAll())
     End Function
 
     Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(UEsManager.search(word))
+            Return getTmpLit(UEsManager.search(word))
         Else
             Return getAll()
         End If
@@ -34,7 +34,7 @@
         Return False
     End Function
 
-    Public Shared Function store(libelle As String, semester As Integer, careerIdList As List(Of Integer)) As Boolean
+    Public Shared Function insert(libelle As String, semester As Integer, careerIdList As List(Of Integer)) As Boolean
         If verify(libelle) Then
             Dim ueDB As UE = UEsManager.getByLibelle(libelle)
             If ueDB.Libelle = Nothing Then
@@ -42,7 +42,7 @@
                 For Each careerId As Integer In careerIdList
                     careerList.Add(CareersManager.getById(careerId))
                 Next
-                Return UEsManager.store(New UE(libelle, semester, careerList))
+                Return UEsManager.insert(New UE(libelle, semester, careerList))
             Else
                 MessageBox.Show("L'UE '" & libelle & "' existe déjà", "UE déjà existant", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return False

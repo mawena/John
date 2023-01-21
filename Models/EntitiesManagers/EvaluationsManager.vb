@@ -2,7 +2,7 @@
 
 Public Class EvaluationsManager
     Inherits Manager
-    Public Shared Function getGeneriqueList() As List(Of Evaluation)
+    Public Shared Function getTmpLit() As List(Of Evaluation)
         Dim evaluationList As New List(Of Evaluation)()
         Try
             dataAdapater = New MySql.Data.MySqlClient.MySqlDataAdapter(command)
@@ -19,23 +19,42 @@ Public Class EvaluationsManager
     End Function
     Public Shared Function getAll() As List(Of Evaluation)
         command = New MySqlCommand("SELECT * FROM Evaluations;", Manager.connection)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function search(word As String)
         command = New MySqlCommand("SELECT * FROM Evaluations WHERE last_name LIKE @word OR first_name LIKE @word OR email LIKE @word;", Manager.connection)
         command.Parameters.AddWithValue("@word", "%" & word & "%")
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getByStudentId(studentId As Integer) As List(Of Evaluation)
         command = New MySqlCommand("SELECT * FROM Evaluations WHERE student_id = studentId;", Manager.connection)
         command.Parameters.AddWithValue("studentId", studentId)
-        Return getGeneriqueList()
+        Return getTmpLit()
     End Function
     Public Shared Function getByECUEId(ecueId As Integer) As List(Of Evaluation)
-        'ECUEs.id As id, ECUEs.grade As grade, ECUEs.ECUEsStudents_id As ECUEsStudents_id, ECUEs.date_field As date_field, ECUEs.weight_field As weight_field, ECUEs.type_field As type_field
         command = New MySqlCommand("SELECT Evaluations.id As id, Evaluations.grade As grade, Evaluations.ECUEsStudents_id As ECUEsStudents_id, Evaluations.date_field As date_field, Evaluations.weight_field As weight_field, Evaluations.type_field As type_field FROM Evaluations, ECUEsStudents WHERE ECUEsStudents.id = Evaluations.ECUEsStudents_id AND ECUEsStudents.ECUE_id = @ecueId;", Manager.connection)
         command.Parameters.AddWithValue("ecueId", ecueId)
-        Return getGeneriqueList()
+        Return getTmpLit()
+    End Function
+    Public Shared Function getByECUEsStudentsId(ecuesStudentsId As Integer) As List(Of Evaluation)
+        command = New MySqlCommand("SELECT * FROM Evaluations WHERE ECUEsStudents_id = @ecuesStudentsId;", Manager.connection)
+        command.Parameters.AddWithValue("@ecuesStudentsId", ecuesStudentsId)
+        Return getTmpLit()
+    End Function
+
+    Public Shared Function getByStudentIdAndECUEIdAndSemester(ecuesStudentsId As Integer) As List(Of Evaluation)
+        command = New MySqlCommand("SELECT * FROM Evaluations WHERE ECUEsStudents_id = @ecuesStudentsId;", Manager.connection)
+        command.Parameters.AddWithValue("@ecuesStudentsId", ecuesStudentsId)
+        Return getTmpLit()
+    End Function
+
+    Public Shared Function getByECUEId_careerId_semester_studentId(ecueId As Integer, careerId As Integer, semester As Integer, studentId As Integer) As List(Of Evaluation)
+        command = New MySqlCommand("SELECT evaluations.* FROM evaluations, ecuesstudents, ecues, students, ecuesues, careersues, ues WHERE evaluations.ECUEsStudents_id = ecuesstudents.id AND ecuesstudents.ECUE_id = ecues.id AND ecuesstudents.student_id = students.id AND ecuesues.ECUE_id = ecuesstudents.ECUE_id AND ecuesues.UE_id = ues.id AND careersues.Career_id = students.career_id AND careersues.UE_id = ues.id AND ecues.id = @ecueId AND students.career_id = @careerId AND ues.semester = @semester AND students.id = @studentId;", Manager.connection)
+        command.Parameters.AddWithValue("@ecueId", ecueId)
+        command.Parameters.AddWithValue("@careerId", careerId)
+        command.Parameters.AddWithValue("@semester", semester)
+        command.Parameters.AddWithValue("@studentId", studentId)
+        Return getTmpLit()
     End Function
 
     Private Shared Function getGenerique() As Evaluation
@@ -61,11 +80,6 @@ Public Class EvaluationsManager
         command.Parameters.AddWithValue("@id", id)
         Return getGenerique()
     End Function
-    Public Shared Function getByECUEsStudentsId(ecuesStudentsId As Integer) As Evaluation
-        command = New MySqlCommand("SELECT * FROM Evaluations WHERE ECUEsStudents_id = @ecuesStudentsId;", Manager.connection)
-        command.Parameters.AddWithValue("@ecuesStudentsId", ecuesStudentsId)
-        Return getGenerique()
-    End Function
 
     Public Shared Function getECUEsStudentsId(ecueId As Integer, StudentId As Integer)
         command = New MySqlCommand("SELECT id FROM ECUEsStudents WHERE ECUE_id = @ecueId AND Student_id = @studentId;", Manager.connection)
@@ -88,7 +102,7 @@ Public Class EvaluationsManager
         Return id
     End Function
 
-    Public Shared Function store(evaluation As Evaluation) As Boolean
+    Public Shared Function insert(evaluation As Evaluation) As Boolean
         Try
             command = New MySqlCommand("INSERT INTO Evaluations(grade, ECUEsStudents_id, date_field, weight_field, type_field) VALUES(@grade, @ecuesStudentsId, @dateField, @weightField, @typeField);", Manager.connection)
             command.Parameters.AddWithValue("@grade", evaluation.Grade)

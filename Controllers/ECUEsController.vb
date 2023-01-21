@@ -1,5 +1,5 @@
 ﻿Public Class ECUEsController
-    Public Shared Function getGeneriqueList(ecuesList As List(Of ECUE)) As DataTable
+    Public Shared Function getTmpLit(ecuesList As List(Of ECUE)) As DataTable
         Dim table As DataTable = New DataTable
         table.Columns.Add("id", GetType(Integer))
         table.Columns.Add("libelle", GetType(String))
@@ -13,11 +13,11 @@
         Return table
     End Function
     Public Shared Function getAll() As DataTable
-        Return getGeneriqueList(ECUEsManager.getAll())
+        Return getTmpLit(ECUEsManager.getAll())
     End Function
     Public Shared Function search(word As String) As DataTable
         If word <> Nothing Then
-            Return getGeneriqueList(ECUEsManager.search(word))
+            Return getTmpLit(ECUEsManager.search(word))
         Else
             Return getAll()
         End If
@@ -38,9 +38,6 @@
         Next
         Return ueNameList
     End Function
-
-
-
     Public Shared Function verify(libelle As String) As Boolean
         If libelle = "" Then
             MessageBox.Show("Le libelle ne doit pas être vide", "Libelle vide", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -49,7 +46,7 @@
         End If
         Return False
     End Function
-    Public Shared Function store(libelle As String, credit As Integer, employeeName As String, ueNameList As List(Of String)) As Boolean
+    Public Shared Function insert(libelle As String, credit As Integer, employeeName As String, ueNameList As List(Of String)) As Boolean
         If verify(libelle) Then
             Dim employee As Employee = EmployeesManager.getByName(employeeName)
             Dim ecueDB As ECUE = ECUEsManager.getByLibelle(libelle)
@@ -62,7 +59,7 @@
             For Each ueName As String In ueNameList
                 ueIdList.Add(CInt(ueName.Split("-")(0)))
             Next
-            Return ECUEsManager.store(New ECUE(libelle, credit, employee.Id), ueIdList)
+            Return ECUEsManager.insert(New ECUE(libelle, credit, employee.Id), ueIdList)
         Else
             Return False
         End If
@@ -85,9 +82,6 @@
             Return False
         End If
     End Function
-
-
-
     Public Shared Function delete(idList) As Boolean
         Dim response As Boolean = False
         If (MessageBox.Show("Etes vous sûr de vouloir supprimer cet(s) Matières(s)?", "Confirmation de supression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes) Then

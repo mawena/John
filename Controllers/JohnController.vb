@@ -9,17 +9,17 @@
             Else
                 If user.PasswordField = password Then
                     If user.Employee.LastName = Nothing Then
-                        AdminView.Show()
+                        AdminViewForm.Show()
                     Else
                         If user.Employee.FunctionField = Employee.Teacher Then
                             If ECUEsManager.getByEmployeeId(user.EmployeeId).Count > 0 Then
-                                TeacherView.Show()
+                                TeacherViewForm.Show()
                             Else
                                 MessageBox.Show("L'utilisateur '" & username & "' est un enseignant, mais il n'a pas de matière", "Aucune matière pour cet enseignant", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Return False
                             End If
                         Else
-                            TuititionServiceView.Show()
+                            TuititionServiceViewForm.Show()
                         End If
                     End If
                     Return True
@@ -32,11 +32,11 @@
     End Function
 
     Public Shared Function Logout() As Boolean
-        LoginView.Show()
+        LoginViewForm.Show()
         user = New User(Nothing, Nothing, Nothing)
-        AdminView.Close()
-        TeacherView.Close()
-        TuititionServiceView.Close()
+        AdminViewForm.Close()
+        TeacherViewForm.Close()
+        TuititionServiceViewForm.Close()
         Return True
     End Function
 End Class
